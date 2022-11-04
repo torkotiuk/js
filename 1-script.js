@@ -20,12 +20,12 @@ salary = Number(salary);
 
 // console.log(Math.round(Math.random() * (50 - 30) + 30));
 
-const colors = ['tomato', 'teal'];
-const min = 0;
-const max = colors.length - 1;
-const index = Math.round(Math.random() * (max - min) + min);
-const color = colors[index];
-document.body.style.backgroundColor = color;
+// const colors = ['tomato', 'teal'];
+// const min = 0;
+// const max = colors.length - 1;
+// const index = Math.round(Math.random() * (max - min) + min);
+// const color = colors[index];
+// document.body.style.backgroundColor = color;
 
 let brand = 'SaMsUng';
 brand = brand[0] + brand.slice(1).toLowerCase();
@@ -48,7 +48,7 @@ brand = brand[0] + brand.slice(1).toLowerCase();
 
 // console.log(Boolean(NaN));
 
-const stars = 4;
+const stars = 1;
 let price;
 // if (stars === 1) {
 //   price = 20;
@@ -74,7 +74,7 @@ let price;
 //   default:
 //     console.log('There are not than stars amount');
 // }
-
+// Or group 1 & 2 case, means for 1 & 2 stars hotels price will be the same
 switch (stars) {
   case 1:
   case 2:
@@ -86,5 +86,17 @@ switch (stars) {
   default:
     console.log('There are not than stars amount');
 }
+// console.log(price);
 
-console.log(price);
+// task: COUNT total even numbers from min to max
+// const min = 0;
+// const max = 5;
+// let total = 0;
+// for (let i = min; i <= max; i += 1) {
+//   if (i % 2 !== 0) {
+//     continue;
+//   }
+//   console.log(`even number:`, i);
+//   total += i;
+// }
+// console.log('Total:', total);
