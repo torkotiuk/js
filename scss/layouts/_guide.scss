@@ -1,0 +1,17 @@
+.guide {
+  &__img-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  &__pic {
+    max-height: 100%;
+    max-width: 100%;
+    margin-bottom: 10px;
+
+    @media screen and (max-width: 767px) {
+    }
+  }
+}

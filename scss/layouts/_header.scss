@@ -1,0 +1,20 @@
+header {
+  background-color: rgb(184, 189, 255);
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .github-link {
+    &:hover,
+    &:focus {
+      opacity: 0.8;
+    }
+
+    svg {
+      display: block;
+    }
+  }
+}

@@ -5,130 +5,172 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>JS</title>
-    <style>
-      body {
-        font-size: 22px;
-      }
-    </style>
+
+    <link rel="stylesheet" href="./css/main.min.css" />
   </head>
   <body>
-    <a target="_blank" href="https://devdocs.io/">devdocs.io</a>
-    <h2>Module 1</h2>
-    <h3>Lesson 1</h3>
-    <p>
-      <a target="_blank" href="https://www.youtube.com/watch?v=WmfSe8S8vDs"
-        >[JavaScript:#22] Модуль 1. Переменные и ветвления</a
-      >
-    </p>
-    <ul>
-      <li>Number.parseInt('50px') >>>>> 50</li>
-      <li>Number.parseFloat('50.25px') >>>>> 50.25</li>
-      <li>
-        <div>let salary = 1300.5247;</div>
-        <div>salary = salary.toFixed(2);</div>
-        <div>salary = Number(salary);</div>
-        <div>>>>>> 1300.52</div>
-      </li>
-      <li>
-        <div>let base = Number(prompt('Enter number for taking power'));</div>
-        <div>let power = Number(prompt('Enter power'));</div>
-        <div>const numberForPower = base ** power;</div>
-      </li>
-      <li>
-        <div>Random number between two numbers</div>
-        <div>Math.round(Math.random() * (50 - 30) + 30)</div>
-      </li>
-      <li>
-        <div>let brand = 'SaMsUng';</div>
-        <div>brand = brand[0] + brand.slice(1).toLowerCase();</div>
-      </li>
-      <li>
-        <div>const blackListedWord1 = 'spam';</div>
-        <div>const string1 = 'This is Prince Abdul, it is not spam!';</div>
-        <div>string1.toLowerCase().includes(blackListedWord1);</div>
-      </li>
-      <li>
-        6 falsy values, that transform to <b>false</b> in logical
-        transformation: 0, NaN, null, undefined, "" and false.
-        <div>Examp.: Boolean(NaN) >>> false</div>
-      </li>
-    </ul>
+    <header><div class="container">Header</div></header>
 
-    <h3>Lesson 2</h3>
-    <p>
-      <a target="_blank" href="https://www.youtube.com/watch?v=K5uLzN8Kn5Y"
-        >Модуль 1. Вебинар 2. Ветвления и циклы</a
-      >
-    </p>
-    <ul>
-      <li>
-        <!-- --- SWITCH --- -->
-        <div>
-          In case when we have to equal one value with many different we use "<b
-            >SWITCH</b
+    <main class="main">
+      <section class="section">
+        <div class="container">
+          <a target="_blank" href="https://devdocs.io/">devdocs.io</a>
+          <a target="_blank" href="https://www.codewars.com/dashboard"
+            >codewars.com</a
           >
-          more verbal use keys" Example:
-          <div>const stars = 5;</div>
-          <div>let price;</div>
-          <div>
-            <b
-              style="
-                color: rgb(0, 128, 0);
-                -webkit-text-stroke-width: 1px;
-                -webkit-text-stroke-color: black;
-              "
-              >USE THIS USE KEY</b
-            >
-          </div>
-          <img src="./assets/images/1-lesson__SWITCH.png" alt="" width="300" />
-          <!--  -->
-          <div>
-            <b
-              style="
-                color: rgb(0, 128, 0);
-                -webkit-text-stroke-width: 1px;
-                -webkit-text-stroke-color: black;
-              "
-              >OR for grouping cases</b
-            >
-          </div>
-          <img
-            src="./assets/images/1-lesson__SWITCH-group-cases.png"
-            alt=""
-            width="300"
-          />
 
-          <!--  -->
-          <div>
-            The same decision, but with <b>if else</b> is not readable and
-            verbal enough
-          </div>
-          <div>
-            <div>if (stars === 1) {</div>
-            <div>price = 20;</div>
-            <div>} else if (stars === 2) {</div>
-            <div>price = 30;</div>
-            <div>} else if (stars === 3) {</div>
-            <div>price = 50;</div>
-            <div>} else {</div>
-            <div>console.log('There are not than stars amount');</div>
-            <div>}</div>
-          </div>
+          <h2>Module 1</h2>
         </div>
-        <!-- --- --- --- -->
-      </li>
-      <li>
-        in cycles use
-        <b
-          style="
-            color: rgb(0, 128, 0);
-            -webkit-text-stroke-width: 1px;
-            -webkit-text-stroke-color: black;
-          "
-          >i += 1</b
-        >, don't use i++
-      </li>
-    </ul>
+      </section>
+
+      <section class="lesson1 section">
+        <div class="container">
+          <h3>Lesson 1</h3>
+          <p>
+            <a
+              target="_blank"
+              href="https://www.youtube.com/watch?v=WmfSe8S8vDs"
+              >[JavaScript:#22] Модуль 1. Переменные и ветвления</a
+            >
+          </p>
+          <ul>
+            <li>Number.parseInt('50px') >>>>> 50</li>
+            <li>Number.parseFloat('50.25px') >>>>> 50.25</li>
+            <li>
+              <div>let salary = 1300.5247;</div>
+              <div>salary = salary.toFixed(2);</div>
+              <div>salary = Number(salary);</div>
+              <div>>>>>> 1300.52</div>
+            </li>
+            <li>
+              <div>
+                let base = Number(prompt('Enter number for taking power'));
+              </div>
+              <div>let power = Number(prompt('Enter power'));</div>
+              <div>const numberForPower = base ** power;</div>
+            </li>
+            <li>
+              <div>Random number between two numbers</div>
+              <div>Math.round(Math.random() * (50 - 30) + 30)</div>
+            </li>
+            <li>
+              <div>let brand = 'SaMsUng';</div>
+              <div>brand = brand[0] + brand.slice(1).toLowerCase();</div>
+            </li>
+            <li>
+              <div>const blackListedWord1 = 'spam';</div>
+              <div>
+                const string1 = 'This is Prince Abdul, it is not spam!';
+              </div>
+              <div>string1.toLowerCase().includes(blackListedWord1);</div>
+            </li>
+            <li>
+              6 falsy values, that transform to <b>false</b> in logical
+              transformation: 0, NaN, null, undefined, "" and false.
+              <div>Examp.: Boolean(NaN) >>> false</div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="lesson2 section">
+        <div class="container">
+          <h3>Lesson 2</h3>
+          <p>
+            <a
+              target="_blank"
+              href="https://www.youtube.com/watch?v=K5uLzN8Kn5Y"
+              >Модуль 1. Вебинар 2. Ветвления и циклы</a
+            >
+          </p>
+          <ul>
+            <li>
+              <!-- --- SWITCH --- -->
+              <div>
+                In case when we have to equal one value with many different we
+                use "<b>SWITCH</b>
+                more verbal use keys" Example:
+                <div>const stars = 5;</div>
+                <div>let price;</div>
+                <div>
+                  <b
+                    style="
+                      color: rgb(0, 128, 0);
+                      -webkit-text-stroke-width: 1px;
+                      -webkit-text-stroke-color: black;
+                    "
+                    >USE THIS USE KEY</b
+                  >
+                </div>
+                <img
+                  src="./assets/images/1-lesson__SWITCH.png"
+                  alt=""
+                  width="300"
+                />
+                <!--  -->
+                <div>
+                  <b
+                    style="
+                      color: rgb(0, 128, 0);
+                      -webkit-text-stroke-width: 1px;
+                      -webkit-text-stroke-color: black;
+                    "
+                    >OR for grouping cases</b
+                  >
+                </div>
+                <img
+                  src="./assets/images/1-lesson__SWITCH-group-cases.png"
+                  alt=""
+                  width="300"
+                />
+
+                <!--  -->
+                <div>
+                  The same decision, but with <b>if else</b> is not readable and
+                  verbal enough
+                </div>
+                <div>
+                  <div>if (stars === 1) {</div>
+                  <div>price = 20;</div>
+                  <div>} else if (stars === 2) {</div>
+                  <div>price = 30;</div>
+                  <div>} else if (stars === 3) {</div>
+                  <div>price = 50;</div>
+                  <div>} else {</div>
+                  <div>console.log('There are not than stars amount');</div>
+                  <div>}</div>
+                </div>
+              </div>
+              <!-- --- --- --- -->
+            </li>
+            <li>
+              in cycles use
+              <b
+                style="
+                  color: rgb(0, 128, 0);
+                  -webkit-text-stroke-width: 1px;
+                  -webkit-text-stroke-color: black;
+                "
+                >i += 1</b
+              >, don't use i++
+            </li>
+          </ul>
+
+          <div style="outline: 1px solid #2c2c2c">
+            <p>Count some numbers</p>
+            <label for="">
+              <input type="number" data-value />
+            </label>
+            <button type="button" data-add>Add</button>
+            <p class="js-output">Total: <span>0</span></p>
+          </div>
+
+          <!-- End lesson2 -->
+        </div>
+      </section>
+    </main>
+
+    <footer><div class="container">Footer</div></footer>
 
     <script src="./1-script.js" type="module"></script>
   </body>

@@ -100,3 +100,15 @@ switch (stars) {
 //   total += i;
 // }
 // console.log('Total:', total);
+
+let totalNumbers = 0;
+const btnAdd = document.querySelector('button[data-add]');
+const inputValue = document.querySelector('input[data-value]');
+const outputNumbers = document.querySelector('.js-output span');
+btnAdd.addEventListener('click', () => {
+  const value = Number(inputValue.value);
+  console.log(`Add ${value}`);
+  totalNumbers += value;
+  outputNumbers.textContent = totalNumbers;
+  inputValue.value = '';
+});
