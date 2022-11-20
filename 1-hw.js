@@ -90,25 +90,25 @@
 // alert(message);
 
 // task 6
-let total = 0;
-let input;
-let isEmptyString;
-
-console.log('Before cycle');
-for (let i = 1; i < Infinity; i += 1) {
-  console.log(`---- Step ${i} -----`);
-  input = prompt('Please enter the number to add or "Cancel/Escape" to sum');
-  isEmptyString = input;
-  input = Number(input);
-
-  if (input) {
-    total += input;
-    console.log('Adding: ', input);
-  } else if (isNaN(input) || isEmptyString === '') {
-    alert('You entered not a number, please enter a number.');
-  } else {
-    console.log('Break');
-    alert(`Total: ${total}`);
-    break;
-  }
-}
+//let total = 0;
+//let input;
+//let isEmptyString;
+//
+//console.log('Before cycle');
+//for (let i = 1; i < Infinity; i += 1) {
+//  console.log(`---- Step ${i} -----`);
+//  input = prompt('Please enter the number to add or "Cancel/Escape" to sum');
+//  isEmptyString = input;
+//  input = Number(input);
+//
+//  if (input) {
+//    total += input;
+//    console.log('Adding: ', input);
+//  } else if (isNaN(input) || isEmptyString === '') {
+//    alert('You entered not a number, please enter a number.');
+//  } else {
+//    console.log('Break');
+//    alert(`Total: ${total}`);
+//    break;
+//  }
+//}
