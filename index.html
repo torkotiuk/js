@@ -9,7 +9,31 @@
     <link rel="stylesheet" href="./css/main.min.css" />
   </head>
   <body>
-    <header><div class="container">Header</div></header>
+    <header>
+      <div class="container">
+        <span>Header</span>
+
+        <button type="button" class="menu-button" data-menu-button>
+          <svg width="40" height="40" aria-label="Mobile menu switch">
+            <use
+              class="icon-menu"
+              href="./assets/images/sprite.svg#icon-menu"
+            ></use>
+            <use
+              class="icon-close"
+              href="./assets/images/sprite.svg#icon-close"
+            ></use>
+          </svg>
+        </button>
+
+        <div class="mob-menu-container" data-menu>
+          <ul class="list">
+            <li><a href="./index.html">Module 1</a></li>
+            <li><a href="./modul2.html">Module 2</a></li>
+          </ul>
+        </div>
+      </div>
+    </header>
 
     <main class="main">
       <section class="section">
@@ -175,8 +199,22 @@
       </section>
     </main>
 
-    <footer><div class="container">Footer</div></footer>
+    <footer>
+      <div class="container">
+        Remember:
+        <ul class="list">
+          <li>
+            <a
+              target="_blank"
+              href="https://torkotiuk.github.io/hero-bg/responsive.html"
+              >How to make burger menu</a
+            >
+          </li>
+        </ul>
+      </div>
+    </footer>
 
+    <script src="./js/burger-menu.js" type="module"></script>
     <script src="./1-script.js" type="module"></script>
     <script src="./1-hw.js" type="module"></script>
   </body>

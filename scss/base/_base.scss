@@ -8,17 +8,6 @@ html {
   height: 100%;
 }
 
-a {
-  text-decoration: none;
-  padding: 5px;
-  border-radius: 8px;
-}
-
-a:hover {
-  opacity: 0.8;
-  background-color: rgb(237, 234, 255);
-}
-
 body {
   margin: 0;
   height: 100%;
@@ -43,6 +32,16 @@ h4,
 h5,
 h6 {
   margin: 0;
+}
+
+a {
+  text-decoration: none;
+  padding: 5px;
+  border-radius: 8px;
+}
+
+a:hover {
+  opacity: 0.8;
 }
 
 img {
