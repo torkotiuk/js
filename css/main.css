@@ -49,6 +49,10 @@
   pointer-events: auto;
 }
 
+.logo {
+  color: #2c2c2c;
+}
+
 *,
 *::before,
 *::before {

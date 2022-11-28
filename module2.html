@@ -12,7 +12,7 @@
     <div class="wrapper">
       <header>
         <div class="container">
-          <span>Header</span>
+          <a class="logo" href="./index.html">Home</a>
 
           <button type="button" class="menu-button" data-menu-button>
             <svg width="40" height="40" aria-label="Mobile menu switch">
@@ -40,6 +40,7 @@
       <main class="main">
         <section class="section">
           <div class="container">
+            <a target="_blank" href="https://dev.to/">DEV Community</a>
             <h2>Module 2</h2>
           </div>
         </section>
@@ -54,6 +55,170 @@
                 >Модуль 2. Занятие 3. Массивы</a
               >
             </p>
+
+            <p>String methods</p>
+            <ul>
+              <li>
+                <b>split</b> - transform string to the array
+                <div>
+                  <div>
+                    <span>const name = "Mango";</span>
+                    <div>
+                      console.log(name.split("")); // ["M", "a", "n", "g", "o"]
+                    </div>
+                  </div>
+                  <br />
+                  <div>
+                    <span>const message = "JavaScript это интересно";</span>
+                    <div>
+                      console.log(message.split(" ")); // ["JavaScript", "это",
+                      "интересно"]
+                    </div>
+                  </div>
+                  <br />
+                </div>
+              </li>
+              <li>
+                <div>
+                  <div>const blackListedWord1 = 'spam';</div>
+                  <div>
+                    const string1 = 'This is Prince Abdul, it is not spam!';
+                  </div>
+                  <div>
+                    string1.toLowerCase().<b>includes</b>(blackListedWord1); //
+                    true
+                  </div>
+                </div>
+              </li>
+            </ul>
+
+            <p>Array methods</p>
+            <ul>
+              <li>
+                <b>join</b>
+                <div>
+                  const words = ["JavaScript", "это", "интересно"];
+                  <div>
+                    console.log(words.join("-")); // "JavaScript-это-интересно"
+                  </div>
+                  <br />
+                </div>
+              </li>
+              <li>
+                <div>
+                  const clients = ["Mango", "Ajax", "Poly", "Kiwi"];
+                  <div>
+                    console.log(clients.<b>includes</b>("Poly")); // true
+                  </div>
+                </div>
+                <br />
+              </li>
+
+              <li>
+                <div>
+                  const newArray = array1.<b>concat</b>(array2) or
+                  array1.concat(array2,array3,array4)
+                </div>
+                <br />
+              </li>
+              <li>
+                <div>
+                  <div>const numbers = [];</div>
+                  <div>numbers.<b>push</b>(1);</div>
+                  <div>console.log(numbers); // [1]</div>
+                  <div>numbers.push(2);</div>
+                  <div>console.log(numbers); // [1, 2]</div>
+                </div>
+                <br />
+              </li>
+              <li>
+                <div>
+                  <div>const numbers = [1, 2, 3, 4, 5];</div>
+                  <div>console.log(numbers.<b>pop</b>()); // 5</div>
+                  <div>console.log(numbers); // [1, 2, 3, 4]</div>
+                  <div>console.log(numbers.pop()); // 4</div>
+                  <div>console.log(numbers); // [1, 2, 3]</div>
+                </div>
+                <br />
+              </li>
+              <li>
+                slice (not destructive method, creates new array)
+                <div>
+                  <b>slice(begin, end)</b>
+                  <span style="color: green">возвращает новый массив</span>,
+                  содержащий копию части исходного массива, не изменяя его.
+                  Копия делается от begin и до, но не включая, end - индексы
+                  элементов исходного массива.
+                </div>
+
+                <ul>
+                  <li>
+                    <div>A - copy from start to end</div>
+                    <div>
+                      <div>
+                        const clients = ["Mango", "Ajax", "Poly", "Kiwi"];
+                      </div>
+                      <div>
+                        console.log(clients.slice(1, 3)); // ["Ajax", "Poly"]
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div>B - copy all array elements</div>
+                    <div>
+                      Если begin и end не указаны, будет создана полная копия
+                      исходного массива.
+                    </div>
+                    <div>
+                      const clients = ["Mango", "Ajax", "Poly", "Kiwi"];
+                      <div>
+                        console.log(clients.slice()); // ["Mango", Ajax",
+                        "Poly", "Kiwi"]
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div>C - from start index till the end</div>
+                    <div>
+                      Если не указан end, копирование будет от start и до конца
+                      исходного массива.
+                    </div>
+                    <div>
+                      <div>
+                        const clients = ["Mango", "Ajax", "Poly", "Kiwi"];
+                      </div>
+                      <div>
+                        console.log(clients.slice(1)); // ["Ajax", "Poly",
+                        "Kiwi"]
+                      </div>
+                      console.log(clients.slice(2)); // ["Poly", "Kiwi"]
+                    </div>
+                  </li>
+                  <li>
+                    D - copy last elements
+                    <div>
+                      <div>
+                        const clients = ["Mango", "Ajax", "Poly", "Kiwi"];
+                      </div>
+                      console.log(clients.slice(-2)); // ["Poly", "Kiwi"]
+                    </div>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                splice (destructive method - means, it change current array and
+                also return array of deleted elements)
+                <p>
+                  Швейцарский нож для работы с массивами, если исходный массив
+                  нужно изменить. Удаляет, добавляет и заменяет элементы в
+                  произвольном месте массива.
+                </p>
+              </li>
+              <li>
+                indexOf, f.e. const index = ["card-1", "card-2", "card-3",
+                "card-4"].indexOf(card-3);
+              </li>
+            </ul>
           </div>
         </section>
 
@@ -77,6 +242,7 @@
     </div>
 
     <script src="./js/burger-menu.js" type="module"></script>
-    <script src="./1-hw.js" type="module"></script>
+    <script src="./js/2-module.js" type="module"></script>
+    <script src="./js/2-hw.js" type="module"></script>
   </body>
 </html>

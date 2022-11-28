@@ -11,7 +11,7 @@
   <body>
     <header>
       <div class="container">
-        <span>Header</span>
+        <a class="logo" href="./index.html">Home</a>
 
         <button type="button" class="menu-button" data-menu-button>
           <svg width="40" height="40" aria-label="Mobile menu switch">
@@ -186,6 +186,84 @@
             </li>
           </ul>
 
+          <div>
+            <p>String methods:</p>
+            <ul>
+              <li>
+                <span><b>indexOf()</b></span>
+                <div>
+                  <div>const message = "Welcome to Bahamas!";</div>
+                  <div>console.log(message.indexOf("to")); // 8</div>
+                  <div>console.log(message.indexOf("hello")); // -1</div>
+                </div>
+                <br />
+              </li>
+              <li>
+                <b>includes()</b>
+                <div>
+                  <div>const productName = "Ремонтный дроид";</div>
+                  <div>
+                    console.log(productName.includes("Дроид")); // false
+                  </div>
+                </div>
+                <br />
+              </li>
+              <li>
+                <b>endsWith()</b>
+                <div>
+                  const jsFileName = "script.js";
+                  <div>console.log(jsFileName.endsWith(".js")); // true</div>
+                </div>
+                <br />
+              </li>
+              <li>
+                <span><b>replace</b></span>
+                <div>const jsFileName = "script.js";</div>
+                <div>
+                  const minifiedJsFileName = jsFileName.replace(".js",
+                  ".min.js");
+                </div>
+                <div>console.log(minifiedJsFileName); // "script.min.js"</div>
+                <br />
+                <span><b>replaceAll</b></span>
+                <div>
+                  const cssFileNames = "styles.css, about.css, portfolio.css";
+                </div>
+                <div>
+                  const minifiedCssFileNames = cssFileNames.replaceAll(".css",
+                  ".min.css");
+                </div>
+                <div>
+                  console.log(minifiedCssFileNames); // "styles.min.css,
+                  about.min.css, portfolio.min.css"
+                </div>
+                <br />
+              </li>
+              <li>
+                <b>Метод slice()</b>
+                <p>
+                  Метод строк slice(startIndex, endIndex) используется для
+                  создания копии части или всей строки. Он делает копию
+                  элементов строки от startIndex и до, но не включая endIndex и
+                  возвращает новую строку, не изменяя оригинал.
+                </p>
+                <div>
+                  <div>const productName = "Repair droid";</div>
+                  <div>console.log(productName.slice(0, 4)); // "Repa"</div>
+                  <div>console.log(productName.slice(3, 9)); // "air dr"</div>
+                  <div>
+                    console.log(productName.slice(0, productName.length)); //
+                    "Repair droid"
+                  </div>
+                  <div>
+                    console.log(productName.slice(7, productName.length)); //
+                    "droid"
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+
           <div style="outline: 1px solid #2c2c2c">
             <p>Count some numbers</p>
             <label for="">
@@ -216,7 +294,7 @@
     </footer>
 
     <script src="./js/burger-menu.js" type="module"></script>
-    <script src="./1-script.js" type="module"></script>
-    <script src="./1-hw.js" type="module"></script>
+    <script src="./js/1-script.js" type="module"></script>
+    <script src="./js/1-hw.js" type="module"></script>
   </body>
 </html>
