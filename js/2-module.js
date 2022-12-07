@@ -29,3 +29,11 @@
 // for (const character of string) {
 //   console.log(character);
 // }
+
+const fn = function () {
+  console.log('this array has a few methods: ', arguments);
+  const args = Array.from(arguments);
+  console.log('this array has all usual methods:', args);
+};
+
+const fn1 = function (...args) {};

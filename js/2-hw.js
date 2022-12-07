@@ -7,3 +7,46 @@
 //   }
 // }
 // console.log(maxNumber);
+
+// task 1
+// const logItems = function (array) {
+//   for (let i = 0; i < array.length; i += 1) {
+//     console.log(`${i + 1} - ${array[i]}`);
+//   }
+// };
+// logItems(['Mango', 'Poly', 'Ajax', 'Lux', 'Jay', 'Kong']);
+
+// task 2
+// const calculateEngravingPrice = function (message, pricePerWord) {
+//   const words = message.split(' ');
+//   return words.length * pricePerWord;
+// };
+// console.log(
+//   calculateEngravingPrice('Donec orci lectus aliquam est magnis', 40),
+// );
+
+// task 3
+// const findLongestWord = function (string) {
+//   const words = string.split(' ');
+//   let wordsLength = 0;
+//   let message = '';
+//   for (let i = 0; i < words.length; i += 1) {
+//     if (words[i].length > wordsLength) {
+//       wordsLength = words[i].length;
+//       message = words[i];
+//     }
+//   }
+//   return message;
+// };
+// console.log(findLongestWord('May the force be with you')); // 'force'
+
+// task 4
+// const formatString = function (string) {
+//   if (string.length > 40) {
+//     return string.slice(0, 40) + '...';
+//   } else {
+//     return string;
+//   }
+// };
+// console.log(formatString('Curabitur ligula sapien, tincidunt non.'));
+// console.log(formatString('Vestibulum facilisis, purus nec pulvinar iaculis.'));

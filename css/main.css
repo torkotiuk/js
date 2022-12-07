@@ -168,6 +168,10 @@ header .github-link svg {
   margin-bottom: 10px;
 }
 
+.module2__arguments-img {
+  display: block;
+}
+
 footer {
   background-color: #ff9dea;
   padding-top: 20px;
