@@ -50,3 +50,38 @@
 // };
 // console.log(formatString('Curabitur ligula sapien, tincidunt non.'));
 // console.log(formatString('Vestibulum facilisis, purus nec pulvinar iaculis.'));
+
+// task 5
+// const checkForSpam = function (message) {
+//   return (
+//     message.toLowerCase().includes('spam') ||
+//     message.toLowerCase().includes('sale')
+//   );
+// };
+// console.log(checkForSpam('JavaScript weekly newsletter')); // false
+// console.log(checkForSpam('Get best sale offers now!')); // true
+// console.log(checkForSpam('[SPAM] How to earn fast money?')); // true
+
+// task 6
+const numbers = [];
+let total = 0;
+
+for (let i = 0; i < Infinity; i += 1) {
+  let input = Number(prompt('Please enter a number for counting total'));
+
+  if (!isNaN(input)) {
+    console.log('It is NoN, please enter a number');
+  } else {
+    if (input) {
+      numbers.push(input);
+    } else {
+      for (let number of numbers) {
+        total += number;
+      }
+      break;
+    }
+  }
+}
+
+console.log(numbers);
+console.log(`Total: ${total}`);
