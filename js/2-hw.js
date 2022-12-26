@@ -63,25 +63,26 @@
 // console.log(checkForSpam('[SPAM] How to earn fast money?')); // true
 
 // task 6
-const numbers = [];
-let total = 0;
+// const numbers = [];
+// let total = 0;
+// let message = 'Please enter a number for counting total';
 
-for (let i = 0; i < Infinity; i += 1) {
-  let input = Number(prompt('Please enter a number for counting total'));
+// for (let i = 0; i < Infinity; i += 1) {
+//   let input = Number(prompt(message));
 
-  if (!isNaN(input)) {
-    console.log('It is NoN, please enter a number');
-  } else {
-    if (input) {
-      numbers.push(input);
-    } else {
-      for (let number of numbers) {
-        total += number;
-      }
-      break;
-    }
-  }
-}
+//   if (isNaN(input)) {
+//     message = 'It is NoN, please enter a number';
+//   } else {
+//     if (input) {
+//       numbers.push(input);
+//     } else {
+//       for (let number of numbers) {
+//         total += number;
+//       }
+//       break;
+//     }
+//   }
+// }
 
-console.log(numbers);
-console.log(`Total: ${total}`);
+// console.log(numbers);
+// console.log(`Total: ${total}`);
