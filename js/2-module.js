@@ -9,6 +9,16 @@
 // const letters = word.split('');
 // console.log(letters);
 
+const message = 'Bearer gkdjfgldjlfgkjdlgfjdlgjdlg';
+console.log(message.split(' ')); // ["Bearer", "gkdjfgldjlfgkjdlgfjdlgjdlg"]
+// Sometime we have to use some element of array:
+console.log(message.split(' ')[1]); // gkdjfgldjlfgkjdlgfjdlgjdlg
+// or name any element that we need to use
+const [word, token] = message.split(' ');
+const [, token123] = message.split(' ');
+console.log(token); // gkdjfgldjlfgkjdlgfjdlgjdlg
+console.log(token123); // gkdjfgldjlfgkjdlgfjdlgjdlg
+
 // Words to slug -> words-to-slug
 // V-1
 // const title = 'Words to slug';

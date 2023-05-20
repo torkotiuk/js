@@ -69,11 +69,38 @@
                   </div>
                   <br />
                   <div>
+                    <div>Ex. 1.</div>
                     <span>const message = "JavaScript это интересно";</span>
                     <div>
                       console.log(message.split(" ")); // ["JavaScript", "это",
                       "интересно"]
                     </div>
+                  </div>
+                  <br />
+                  <div>
+                    <div>Ex. 2.</div>
+                    <div>
+                      const message = 'Bearer gkdjfgldjlfgkjdlgfjdlgjdlg';
+                    </div>
+                    <div>
+                      console.log(message.split(' &nbsp; ')); // ["Bearer",
+                      "gkdjfgldjlfgkjdlgfjdlgjdlg"]
+                    </div>
+                    <div>// Sometime we have to use some element of array:</div>
+                    <!--  -->
+                    <div>
+                      console.log(message.split(' &nbsp; ')[1]); //
+                      gkdjfgldjlfgkjdlgfjdlgjdlg
+                    </div>
+                    <div>// or name any element that we need to use</div>
+                    <div>const [word, token] = message.split(' &nbsp; ');</div>
+                    <div>console.log(token); // gkdjfgldjlfgkjdlgfjdlgjdlg</div>
+                    <div>const [, token123] = message.split(' &nbsp; ');</div>
+                    <div>
+                      console.log(token123); // gkdjfgldjlfgkjdlgfjdlgjdlg
+                    </div>
+
+                    <!--  -->
                   </div>
                   <br />
                 </div>
