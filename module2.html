@@ -55,6 +55,72 @@
                 >Модуль 2. Занятие 3. Массивы</a
               >
             </p>
+            <p>Theory:</p>
+            <p>
+              JavaScript has the primitive types: number, string, boolean, null,
+              undefined, symbol and bigint
+            </p>
+            <p>and a complex type: object</p>
+            <ul>
+              <li>
+                console.log(5 === 5); // true, b/c it is "primitive type" of
+                data and values are equal
+              </li>
+              <li>
+                console.log([1,2,3] === [1,2,3]); // false, b/c it "a complex
+                type", so there are different arrays, it is different place in
+                memory.
+              </li>
+            </ul>
+            <div style="outline: 1px solid red">
+              <p>
+                <b
+                  >Access to array index and
+                  <span style="color: red">changing element of array</span></b
+                >
+                we use
+              </p>
+              <div>
+                for (let i = 0; i < array.length; i += 1) {
+                <div style="margin-left: 20px">array[i] + "addedWord"</div>
+                }
+              </div>
+            </div>
+            <div style="outline: 1px solid green">
+              <p>
+                If we need only to <b>iterate array</b> enough for (of){}
+                construction
+              </p>
+              <p>f.e.</p>
+              <div>
+                for (const value of array) {
+                <div style="margin-left: 20px">total += value</div>
+                }
+              </div>
+              <div style="outline: 1px dotted green">
+                <p>
+                  Example with "continue" technique in looking for necessary
+                  values and optimize of continue unnecessary steps
+                </p>
+                <div>Task. Look even values for making total of them</div>
+                <div>
+                  <div>const numbers = [1, 4, 8, 11, 20];</div>
+                  <div>let total = 0;</div>
+                  for (const number of numbers) {
+                  <div style="margin-left: 20px">
+                    if (number % 2 !== 0) {
+                    <div style="margin-left: 20px">
+                      console.log(`It is odd: ${number}, so continue and start
+                      cycle with a next number`);
+                    </div>
+                    }
+                  </div>
+                  <div style="margin-left: 20px">total += number</div>
+                  }
+                  <div>console.log(`Total: ${total}`);</div>
+                </div>
+              </div>
+            </div>
 
             <p>String methods</p>
             <ul>

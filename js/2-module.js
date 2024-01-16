@@ -9,15 +9,15 @@
 // const letters = word.split('');
 // console.log(letters);
 
-const message = 'Bearer gkdjfgldjlfgkjdlgfjdlgjdlg';
-console.log(message.split(' ')); // ["Bearer", "gkdjfgldjlfgkjdlgfjdlgjdlg"]
+// const message = 'Bearer gkdjfgldjlfgkjdlgfjdlgjdlg';
+// console.log(message.split(' ')); // ["Bearer", "gkdjfgldjlfgkjdlgfjdlgjdlg"]
 // Sometime we have to use some element of array:
-console.log(message.split(' ')[1]); // gkdjfgldjlfgkjdlgfjdlgjdlg
+// console.log(message.split(' ')[1]); // gkdjfgldjlfgkjdlgfjdlgjdlg
 // or name any element that we need to use
-const [word, token] = message.split(' ');
-const [, token123] = message.split(' ');
-console.log(token); // gkdjfgldjlfgkjdlgfjdlgjdlg
-console.log(token123); // gkdjfgldjlfgkjdlgfjdlgjdlg
+// const [word, token] = message.split(' ');
+// const [, token123] = message.split(' ');
+// console.log(token); // gkdjfgldjlfgkjdlgfjdlgjdlg
+// console.log(token123); // gkdjfgldjlfgkjdlgfjdlgjdlg
 
 // Words to slug -> words-to-slug
 // V-1
@@ -47,3 +47,19 @@ const fn = function () {
 };
 
 const fn1 = function (...args) {};
+
+// task maxNumber
+// from lesson 3(01: 40: 50) - Look for max number from array = [2, 50, 23, 11, 5, 87, 3]
+// v-1
+// const numbers = [2, 50, 23, 11, 5, 87, 3];
+// console.log(numbers);
+// let maxNumber = numbers[0];
+// let total = 0;
+// for (const number of numbers) {
+//   if (maxNumber < number) {
+//     maxNumber = number;
+//   }
+// }
+// console.log(maxNumber);
+// ver-2
+// console.log(Math.max(...numbers));

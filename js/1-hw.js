@@ -1,3 +1,143 @@
+// === 2024 year, Jan. ===
+// task 1.
+// const name = 'Генератор захисного поля';
+// let price = 2000;
+// console.log(
+//   `Обрано «Генератор захисного поля», ціна за штуку ${price} кредитів`,
+// );
+// task 2.
+// const total = 100;
+// const ordered = 120;
+// if (ordered > total) {
+//   console.log('На складі недостатньо товарів!');
+// } else {
+//   console.log("Замовлення оформлено, з вами зв'яжеться менеджер");
+// }
+// task 3.
+// const ADMIN_PASSWORD = 'jqueryismyjam';
+// let message;
+// const typedPassword = prompt('Enter pass');
+// if (typedPassword === null) {
+//   message = 'Cancelled by user!';
+// } else if (typedPassword === ADMIN_PASSWORD) {
+//   message = 'Welcome';
+// } else {
+//   message = 'Access denied. Incorrect password';
+// }
+// alert(message);
+// task 4.
+
+// let credits = 23580;
+// const pricePerDroid = 3000;
+
+// let totalPrice;
+// let message;
+// const amountDroids = Number(prompt('Ender droids amount'));
+
+// if (isNaN(amountDroids)) {
+//   message = 'You entered some string, but you should enter amount of droids';
+// } else if (amountDroids === null) {
+//   message = 'cancelled by user';
+// } else {
+//   totalPrice = amountDroids * pricePerDroid;
+//   if (Number(amountDroids) === 0) {
+//     message = "You haven't entered any amounts or entered 0 droids";
+//   } else if (totalPrice > credits) {
+//     message = 'Insufficient credit!';
+//   } else {
+//     credits = credits - totalPrice;
+//     message = `You have been bought ${amountDroids} droids, total credits left in account: ${credits}`;
+//   }
+// }
+// console.log(message);
+// task 5.
+// let credits;
+// let country = prompt('Enter your country to check price of delivery');
+// if (country === null) {
+//   console.log('Cancelled by user');
+// } else {
+//   switch (country.toLowerCase()) {
+//     case 'china':
+//       credits = 100;
+//       console.log(
+//         `Delivery to ${countryNorm(country)} costs ${credits} credits`,
+//       );
+//       break;
+//     case 'chili':
+//       credits = 250;
+//       console.log(
+//         `Delivery to ${countryNorm(country)} costs ${credits} credits`,
+//       );
+//       break;
+//     case 'australia':
+//       credits = 170;
+//       console.log(
+//         `Delivery to ${countryNorm(country)} costs ${credits} credits`,
+//       );
+//       break;
+//     case 'india':
+//       credits = 80;
+//       console.log(
+//         `Delivery to ${countryNorm(country)} costs ${credits} credits`,
+//       );
+//       break;
+//     case 'jamaica':
+//       credits = 120;
+//       console.log(
+//         `Delivery to ${countryNorm(country)} costs ${credits} credits`,
+//       );
+//       break;
+//     default:
+//       console.log("Your country doesn't have delivery");
+//   }
+// }
+// function countryNorm(country) {
+//   const firstLetter = country.toLowerCase()[0].toUpperCase();
+//   const fromSecondLetter = country.slice(1, country.length);
+//   return firstLetter + fromSecondLetter;
+// }
+// task 6.
+// let total = 0;
+// for (var i = 1; i < Infinity; i += 1) {
+//   const symbol = prompt('Enter a number');
+//   if (symbol === null) {
+//     break;
+//   }
+//   const number = Number(symbol);
+//   if (!isNaN(number)) {
+//     total += number;
+
+//     console.log(`Adding number: ${number}`);
+//   } else {
+//     alert('This is not a number, please try again');
+//   }
+// }
+// console.log(`Total: ${total}`);
+
+// === 2022 year ===
+// task at the end lesson 1
+// let balance = 1000;
+// const payment = 1235;
+// 1. Firstly show:
+// console.log(
+//   `Common order price ${payment} credits. We are checking your balance...`,
+// );
+// 2. If you have enough money:
+// a) balance minus price of good
+// b) show the message `You have ${0} credits left in your account`
+// c) "Thanks for buying."
+// 3. If a sum higher than a good price:
+// a) Show message: 'You have insufficient credit in your balance for making this operation.'
+// if (balance >= payment) {
+//   balance = balance - payment;
+//   console.log('Everything is OK, we are taking money... Thanks for buying.');
+//   console.log(`You have ${balance} credits left in your account`);
+// } else {
+//   console.log('You have insufficient credit in your balance.');
+// }
+// 4. Show message: 'Operation has been done.'
+// console.log('Operation has been done.');
+// --- --- --- --- ---
 // task 1
 // const name = 'Генератор защитного поля';
 // const price = 2000;

@@ -48,6 +48,11 @@
             href="https://github.com/goitacademy/javascript-homework"
             >javascript-home-tasks</a
           >
+          <a
+            target="_blank"
+            href="https://annasabbagh.github.io/go-it-notes/javascript.html"
+            >YOUR FULL STACK NOTES</a
+          >
 
           <h2>Module 1</h2>
         </div>
@@ -56,13 +61,39 @@
       <section class="lesson1 section">
         <div class="container">
           <h3>Lesson 1</h3>
+
           <p>
             <a
               target="_blank"
-              href="https://www.youtube.com/watch?v=WmfSe8S8vDs"
+              href="https://goit.global/javascript/ru/v1/module-01/intro.html"
+              >GoIt Book</a
+            >
+          </p>
+          <p>
+            <a href="https://www.youtube.com/watch?v=WmfSe8S8vDs"
               >[JavaScript:#22] Модуль 1. Переменные и ветвления</a
             >
           </p>
+          <p>Theory:</p>
+          <ol>
+            <li>
+              - connect script with <b>type=module</b> for convenient variables
+              uses.
+              <div>
+                - ECMA-script modules with type=module use "use strict" mode by
+                the default
+              </div>
+            </li>
+            <li>typeof "Hello"</li>
+            <li>alert("Hi!")</li>
+            <li>confirm("Hello???") - return "true" or "false"</li>
+            <li>
+              const quantity = prompt("Enter amount of goods") - return "result"
+              or "null"
+            </li>
+          </ol>
+
+          <p>Numbers:</p>
           <ul>
             <li>Number.parseInt('50px') >>>>> 50</li>
             <li>Number.parseFloat('50.25px') >>>>> 50.25</li>
@@ -78,28 +109,71 @@
               </div>
               <div>let power = Number(prompt('Enter power'));</div>
               <div>const numberForPower = base ** power;</div>
+              <div>or</div>
+              <div>const result = Math.pow(base, power)</div>
             </li>
             <li>
               <div>Random number between two numbers</div>
-              <div>Math.round(Math.random() * (50 - 30) + 30)</div>
+              <div>- Math.round(Math.random() * (50 - 30) + 30)</div>
+              <div>- Math.round() - return random number between 0 & 1</div>
             </li>
+          </ul>
+
+          <p>Strings:</p>
+          <ul>
             <li>
-              <div>let brand = 'SaMsUng';</div>
-              <div>brand = brand[0] + brand.slice(1).toLowerCase();</div>
+              <div>let brand = 'saMsUng';</div>
+              <div>
+                brand = brand[0].toUpperCase() + brand.slice(1).toLowerCase();
+                <span style="color: #8b7979">// Samsung</span>
+              </div>
             </li>
             <li>
               <div>const blackListedWord1 = 'spam';</div>
               <div>
                 const string1 = 'This is Prince Abdul, it is not spam!';
               </div>
-              <div>string1.toLowerCase().includes(blackListedWord1);</div>
-            </li>
-            <li>
-              6 falsy values, that transform to <b>false</b> in logical
-              transformation: 0, NaN, null, undefined, "" and false.
-              <div>Examp.: Boolean(NaN) >>> false</div>
+              <div>
+                string1.toLowerCase().includes(blackListedWord1);
+                <span style="color: #8b7979">// true</span>
+              </div>
             </li>
           </ul>
+
+          <div style="border: 1px solid red">
+            <p>
+              6 falsy values, that transform to <b>false</b> in logical
+              transformation: 0, NaN, null, undefined, "" and false.
+            </p>
+            <ul>
+              <li>Boolean(0) <span style="color: #8b7979">// false</span></li>
+              <li>Boolean(NaN) <span style="color: #8b7979">// false</span></li>
+              <li>
+                Boolean(null) <span style="color: #8b7979">// false</span>
+              </li>
+              <li>
+                Boolean(undefined) <span style="color: #8b7979">// false</span>
+              </li>
+              <li>Boolean("") <span style="color: #8b7979">// false</span></li>
+              <li>
+                Boolean(false) <span style="color: #8b7979">// false</span>
+              </li>
+            </ul>
+          </div>
+
+          <p style="border: 1px solid red">if() { } else {}</p>
+
+          <div style="border: 1px solid red">
+            <p>Ternary operator:</p>
+            <ul>
+              <li>const balance = 1000</li>
+              <li>
+                const message = balance>=0 ? "Positive balance" : "Negative
+                balance";
+              </li>
+              <li>console.log(message);</li>
+            </ul>
+          </div>
         </div>
       </section>
 
@@ -183,6 +257,51 @@
                 "
                 >i += 1</b
               >, don't use i++
+            </li>
+            <li>
+              Some theory:
+              <ul>
+                <li>
+                  Percent from salary:
+                  <div>
+                    10 % 3
+                    <span style="color: #8b7979"
+                      >//means how many three includes in 10, so left
+                      <b>1</b></span
+                    >
+                  </div>
+                  <div>
+                    5 % 2
+                    <span style="color: #8b7979"
+                      >//means how many two includes in 5, so left
+                      <b>1</b></span
+                    >
+                  </div>
+                  <div>
+                    8 % 3
+                    <span style="color: #8b7979"
+                      >//means how many three includes in 8, so left
+                      <b>2</b></span
+                    >
+                  </div>
+                  <div>
+                    8 % 2
+                    <span style="color: #8b7979"
+                      >//means how many 2 includes in 8, so left <b>0</b></span
+                    >
+                  </div>
+                </li>
+                <li>
+                  Even and odd numbers:
+                  <div>
+                    if (number % 2 === 0) {
+                    <div style="margin-left: 20px">
+                      console.log(`${number} is even`);
+                    </div>
+                    }
+                  </div>
+                </li>
+              </ul>
             </li>
           </ul>
 
@@ -270,6 +389,7 @@
               <input type="number" data-value />
             </label>
             <button type="button" data-add>Add</button>
+            <button type="button" data-reset>Reset</button>
             <p class="js-output">Total: <span>0</span></p>
           </div>
 

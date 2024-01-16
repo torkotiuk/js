@@ -84,7 +84,7 @@ switch (stars) {
     price = 50;
     break;
   default:
-    console.log('There are not than stars amount');
+    console.log('We are looking for only 1, 2, 3 stars hotels');
 }
 // console.log(price);
 
@@ -103,12 +103,19 @@ switch (stars) {
 
 let totalNumbers = 0;
 const btnAdd = document.querySelector('button[data-add]');
+const btnReset = document.querySelector('button[data-reset]');
 const inputValue = document.querySelector('input[data-value]');
 const outputNumbers = document.querySelector('.js-output span');
+
 btnAdd.addEventListener('click', () => {
   const value = Number(inputValue.value);
   console.log(`Add ${value}`);
   totalNumbers += value;
   outputNumbers.textContent = totalNumbers;
   inputValue.value = '';
+});
+
+btnReset.addEventListener('click', () => {
+  totalNumbers = 0;
+  outputNumbers.textContent = totalNumbers;
 });
