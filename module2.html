@@ -14,6 +14,12 @@
         <div class="container">
           <a class="logo" href="./index.html">Home</a>
 
+          <a
+            target="_blank"
+            href="https://github.com/goitacademy/javascript-homework"
+            >javascript-home-tasks</a
+          >
+
           <button type="button" class="menu-button" data-menu-button>
             <svg width="40" height="40" aria-label="Mobile menu switch">
               <use
@@ -40,7 +46,6 @@
       <main class="main">
         <section class="section">
           <div class="container">
-            <a target="_blank" href="https://dev.to/">DEV Community</a>
             <h2>Module 2</h2>
           </div>
         </section>
@@ -48,6 +53,13 @@
         <section class="lesson1 section">
           <div class="container">
             <h3>Lesson 3</h3>
+            <p>
+              <a
+                target="_blank"
+                href="https://goit.global/javascript/ru/v1/module-02/arrays.html"
+                >GoIt Book</a
+              >
+            </p>
             <p>
               <a
                 target="_blank"
@@ -120,6 +132,20 @@
                   <div>console.log(`Total: ${total}`);</div>
                 </div>
               </div>
+            </div>
+            <div style="outline: 1px dotted green">
+              <p>
+                <a
+                  target="_blank"
+                  href="https://www.geeksforgeeks.org/destructive-vs-non-destructive-approach-in-javascript-arrays/"
+                  >Destructive vs Non-Destructive Approach in JavaScript
+                  Arrays</a
+                >
+                <span style="display: block"
+                  ><b>Task</b> for check some methods: make from title up slug
+                  like "destructive-vs-non"</span
+                >
+              </p>
             </div>
 
             <p>String methods</p>
@@ -299,8 +325,24 @@
                 </ul>
               </li>
               <li>
-                splice (destructive method - means, it change current array and
-                also return array of deleted elements)
+                <a
+                  target="_blank"
+                  href="https://goit.global/javascript/ru/v1/module-02/array-methods.html#%D0%BC%D0%B5%D1%82%D0%BE%D0%B4-splice"
+                  >splice</a
+                >
+                (destructive method - means, it change current array and also
+                return array of deleted elements)
+                <div>
+                  - array(fromIndex, countToDelete) - delete necessary elements
+                </div>
+                <div>
+                  - array(fromIndex, 0, element1, element2, ....) - add
+                  element/elements from any index, NOT delete (identify zero)
+                </div>
+                <div>
+                  - array(indexAny, 1, element1)- replace element with any index
+                  (identify 1 means delete element with index "indexAny")
+                </div>
                 <p>
                   Швейцарский нож для работы с массивами, если исходный массив
                   нужно изменить. Удаляет, добавляет и заменяет элементы в
@@ -312,6 +354,25 @@
                 "card-4"].indexOf(card-3);
               </li>
             </ul>
+
+            <div style="outline: 1px solid green">
+              <p>
+                Task 1. Delete "card-2" from array ["card-1", "card-2",
+                "card-3", "card-4"]
+              </p>
+              <div>a) Find index of element</div>
+              <div>b) Use method splice to delete</div>
+
+              <p>
+                Task 2. Replace "card-2" to "card-123" in array ["card-1",
+                "card-2", "card-3", "card-4"]
+              </p>
+              <div>a) Find index of "card-2"</div>
+              <div>
+                b) Use method splice to insert to index of "card-2" new card
+                "card-123"
+              </div>
+            </div>
           </div>
         </section>
 
@@ -320,19 +381,28 @@
             <h3>Lesson 4</h3>
             <p>
               <a
+                style="display: block"
                 target="_blank"
                 href="https://www.youtube.com/watch?v=414JiAS0pPE"
                 >Модуль 2. Занятие 4. Функции</a
+              >
+
+              <a
+                target="_blank"
+                href="https://www.youtube.com/watch?v=414JiAS0pPE&t=2258s"
+                >Консоль браузера. Отлов ошибок при вызове. Стек-трейс.</a
               >
             </p>
 
             <ul>
               <li>
-                <a
-                  target="_blank"
-                  href="https://www.youtube.com/watch?v=414JiAS0pPE&t=2258s"
-                  >Консоль браузера. Отлов ошибок при вызове. Стек-трейс.</a
-                >
+                const add = function ( <b>parameters</b> ) {
+                <div style="margin-left: 20px">
+                  <div>console.log(a);</div>
+                  <div>console.log(b);</div>
+                </div>
+                }
+                <p>add( <b>arguments</b> )</p>
               </li>
               <li>
                 If we don't know amount of parameters that we are waiting in
@@ -376,6 +446,60 @@
                 </ul>
               </li>
             </ul>
+
+            <p><b>Tasks to check yourself:</b></p>
+            <p>Make a function:</p>
+            <ol>
+              <li>
+                <span style="color: green">calculateTotalPrice</span> of [5, 15,
+                25]
+                <div style="color: grey">"for of" is suitable</div>
+              </li>
+              <li>
+                Make <span style="color: green">logItems</span>
+                ["green", "yellow", "red"]
+                <div style="color: grey">// green</div>
+                <div style="color: grey">// yellow</div>
+                <div style="color: grey">// red</div>
+              </li>
+              <li>
+                <span style="color: green">findLogin</span> in ['admin', 'john',
+                'master', 'admin123']
+                <div style="color: grey">go from "for of" to "ternary"</div>
+                <div style="color: grey">// User with ${login} was found</div>
+                <div style="color: grey">
+                  // User with ${login} wasn't found
+                </div>
+              </li>
+              <li>
+                <span style="color: green">findSmallestNumber</span> of [51, 28,
+                -3, 5, 14]
+              </li>
+              <li>
+                <span style="color: green">changeCase</span> of 'jAVAsCRIPT'
+              </li>
+              <li>
+                make <span style="color: green">slugify</span> of "Top 10
+                benefits of React Framework"
+              </li>
+              <li>
+                Make a function
+                <span style="color: green">totalSalary</span> with using first
+                argument & making total from others: (Boyd, 10, 50, 40)
+                <div style="color: grey">
+                  use case function (employer, ...salary)
+                </div>
+                <div style="color: grey">
+                  // User ${firstArgument} has salary ${totalOfNextArguments}
+                </div>
+              </li>
+              <li>
+                <span style="color: green">filterNumbers</span> of ([5, 10, 20],
+                2, 5, 15, 30, 7, 20), means what elements from first
+                argument/array are in next arguments
+                <div style="color: grey">// [5, 20]</div>
+              </li>
+            </ol>
           </div>
         </section>
       </main>
