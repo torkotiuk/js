@@ -53,6 +53,42 @@
   color: #2c2c2c;
 }
 
+.code {
+  padding: 10px;
+  color: #f0e6e6;
+  background-color: #1d1e22;
+}
+
+.code__constlet {
+  color: #5959f3;
+}
+
+.code__variable {
+  color: #4992ff;
+}
+
+.code__key {
+  color: #97d2f7;
+}
+
+.code__value {
+  color: #97d2f7;
+}
+
+.code__bracketyellow {
+  color: yellow;
+}
+
+.code__bracketviolet {
+  color: #d166ad;
+}
+
+.code__outline {
+  outline: 2px solid green;
+  padding: 10px;
+  margin: 10px;
+}
+
 *,
 *::before,
 *::before {
@@ -61,6 +97,7 @@
 
 html {
   height: 100%;
+  scroll-behavior: smooth;
 }
 
 body {

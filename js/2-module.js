@@ -40,13 +40,13 @@
 //   console.log(character);
 // }
 
-const fn = function () {
-  console.log('this array has a few methods: ', arguments);
-  const args = Array.from(arguments);
-  console.log('this array has all usual methods:', args);
-};
+// const fn = function () {
+//   console.log('this array has a few methods: ', arguments);
+//   const args = Array.from(arguments);
+//   console.log('this array has all usual methods:', args);
+// };
 
-const fn1 = function (...args) {};
+// const fn1 = function (...args) {};
 
 // task maxNumber
 // from lesson 3(01: 40: 50) - Look for max number from array = [2, 50, 23, 11, 5, 87, 3]
@@ -63,3 +63,28 @@ const fn1 = function (...args) {};
 // console.log(maxNumber);
 // ver-2
 // console.log(Math.max(...numbers));
+
+// concat method & spread operation ...
+// const newArray = [...[3, 4, 5], 11, 15];
+// console.log(newArray); // [3, 4, 5, 11, 15]
+// const numbers = [...[1, 2, 3], 100, ...[4, 5, 6], 200, ...[7, 8, 9]];
+// console.log(numbers);
+
+// const array = [5, 3, 17, 1];
+// console.log(Math.max(...array));
+
+// === arrow function === === === === === ===
+// const fn = function (a, b, c) {
+//   console.log('Fn arguments: ', arguments);
+// };
+// const arrowFn = (...args) => {
+//   console.log('=> args', args);
+// };
+// fn(1, 2, 3);
+// arrowFn(5, 6, 7);
+//
+const add = (a, b) => {
+  a: 25;
+};
+console.log(add()); // undefined
+// === === === === ===  === === === === === ===

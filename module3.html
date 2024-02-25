@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS - Module 3</title>
+
+    <link rel="stylesheet" href="./css/main.min.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <div class="container">
+          <a class="logo" href="./index.html">Home</a>
+
+          <a
+            target="_blank"
+            href="https://github.com/goitacademy/javascript-homework"
+            >javascript-home-tasks</a
+          >
+
+          <button type="button" class="menu-button" data-menu-button>
+            <svg width="40" height="40" aria-label="Mobile menu switch">
+              <use
+                class="icon-menu"
+                href="./assets/images/sprite.svg#icon-menu"
+              ></use>
+              <use
+                class="icon-close"
+                href="./assets/images/sprite.svg#icon-close"
+              ></use>
+            </svg>
+          </button>
+
+          <div class="mob-menu-container" data-menu>
+            <ul class="list">
+              <li><a href="./index.html">Home</a></li>
+              <li><a href="./module1.html">Module 1</a></li>
+              <li><a href="./module2.html">Module 2</a></li>
+              <li><a class="current" href="./module3.html">Module 3</a></li>
+              <li><a href="./module4.html">Module 4</a></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+
+      <main class="main">
+        <section class="section">
+          <div class="container">
+            <h2>Module 3 - Objects</h2>
+          </div>
+        </section>
+
+        <section class="lesson1 section">
+          <div class="container">
+            <h3>Lesson 5</h3>
+            <p>
+              <a
+                target="_blank"
+                href="https://goit.global/javascript/ru/v1/module-03/"
+                >GoIt Book</a
+              >
+            </p>
+            <p>
+              <a
+                target="_blank"
+                href="https://www.youtube.com/watch?v=OZkaGAcphIg"
+                >Модуль 3. Занятие 5. Объекты (03.08) - Part I</a
+              >
+            </p>
+            <div style="outline: 1px solid green">
+              <p>Theory:</p>
+              <p>
+                An <b>object</b> is a collection of properties (collection of
+                properties and methods; for developers it is a
+                <b>data & functions for processing this data</b>), and a
+                property is an association between a name (or key) and a value.
+                A property's value can be a function, in which case the property
+                is known as a method. Objects in JavaScript, just as in many
+                other programming languages, can be compared to objects in real
+                life (people, products, places).
+              </p>
+              <p>f.e.</p>
+              <div>
+                const person = {
+                <div style="margin-left: 20px">
+                  <div>name: 'John',</div>
+                  <div>age: 40,</div>
+                  sayName: function () {
+                  <div style="margin-left: 20px">
+                    console.log('May name is John');
+                  </div>
+                  },
+                </div>
+                };
+              </div>
+
+              <p>or new method view:</p>
+              <div>
+                <div>
+                  const person = {
+                  <div style="margin-left: 20px">
+                    <div>name: 'John',</div>
+                    <div>age: 40,</div>
+                    sayName() {
+                    <div style="margin-left: 20px">
+                      console.log('May name is John');
+                    </div>
+                    },
+                  </div>
+                  };
+                </div>
+              </div>
+            </div>
+
+            <div style="outline: 1px solid green">
+              <p>Arrays & functions are objects.</p>
+              <p>F.e.</p>
+              <div>
+                <div>const array = [];</div>
+                <div>array.push(1);</div>
+                <div>
+                  console.log(array); <span style="color: grey">// [ 1 ]</span>
+                </div>
+                <div>
+                  array.element = '123';
+                  <span style="color: gray"
+                    >// Means using not PUSH method to add array element, and
+                    simply adding element of object by
+                    <span style="color: indigo">key: value</span></span
+                  >
+                </div>
+                <div>
+                  console.log(array);
+                  <span style="color: grey">// [ 1, element: '123' ]</span>
+                </div>
+              </div>
+            </div>
+            <p>
+              <a
+                target="_blank"
+                href="https://www.youtube.com/watch?v=lo7o91qLzxc"
+                >Learn JavaScript OBJECTS in 7 minutes!</a
+              >
+            </p>
+            <ul>
+              <li>
+                key name is unique: name, surname, age;
+                <div>
+                  const obj1 = {
+                  <div style="margin-left: 20px">
+                    <div>name: "John",</div>
+                    <div>surname: "Week",</div>
+                    <div>age: 20</div>
+                  </div>
+                  }
+                </div>
+              </li>
+              <li>
+                Access to value:
+                <div>- obj1.name <span style="color: grey">// John</span></div>
+                <div>or</div>
+                <div>
+                  - obj1["name"] <span style="color: grey">// John</span>
+                </div>
+              </li>
+              <li>
+                computed key name
+                <div>const inputName = "colour";</div>
+                <div>const inputValue = "tomato";</div>
+                <p></p>
+                <div>
+                  const colorPickerData = {
+                  <div style="margin-left: 20px">
+                    <div>[inputName]: inputValue</div>
+                  </div>
+                  };
+                </div>
+                <p></p>
+                <div>
+                  console.log(colorPickerData);
+                  <span style="color: grey">// {colour: 'tomato'}</span>
+                </div>
+              </li>
+            </ul>
+
+            <div style="outline: 1px solid green">
+              <p>Change any value by method via <b>this</b></p>
+              <p>
+                In object methods we can't use object name, that's wy we use
+                <b>this</b> means current object
+              </p>
+              <div>
+                const person = {
+                <div style="margin-left: 20px">
+                  <div>name: 'John',</div>
+                  <div>age: 40,</div>
+                  <div>tracks: ['track 1', 'track 2'],</div>
+                  changeName(newName) {
+                  <div style="margin-left: 20px">this.name = newName;</div>
+                  },
+                  <div>
+                    addTrack(newTrack) {
+                    <div style="margin-left: 20px">
+                      this.tracks.push(newTrack);
+                    </div>
+                    },
+                  </div>
+                </div>
+                };
+              </div>
+              <p></p>
+              <div>person.changeName('Mike');</div>
+              <div>
+                console.log(person.name);
+                <span style="color: grey">// Mike</span>
+              </div>
+              <div>person.addTrack('new Track');</div>
+              <div>
+                console.log(person.tracks);
+                <span style="color: grey">
+                  // ['track 1', 'track 2', 'new Track']</span
+                >
+              </div>
+            </div>
+
+            <div style="outline: 1px solid green">
+              <p><b>Object iterate</b></p>
+              <p>
+                There is method <b>for in</b> to iterate object, BUT we don't
+                use it b/c it iterates prototype element too
+              </p>
+              <p>So mostly we use arrays methods to iterate objects.</p>
+              <div
+                style="
+                  margin: 10px;
+                  padding: 10px;
+                  outline: 1px dotted orangered;
+                "
+              >
+                <div style="text-align: center; color: red">
+                  If we need access to keys and to values
+                </div>
+                <div style="background-color: rgb(191, 236, 180)">
+                  <p><b>Method 1 - (mostly used)</b></p>
+
+                  <p>
+                    Firstly we use Object.keys(objectForIterate) method to take
+                    keys from object in array
+                  </p>
+                  <div>
+                    const objectForIterate = {
+                    <div style="margin-left: 20px">
+                      <div>good: 5,</div>
+                      <div>neutral: 10,</div>
+                      <div>bad: 3,</div>
+                    </div>
+                    }
+                  </div>
+                  <p></p>
+                  const keys = Object.keys(objectForIterate)
+                  <div>
+                    console.log(keys);
+                    <span style="color: gray"
+                      >// ["good", "neutral", "bad"]</span
+                    >
+                  </div>
+                  <p></p>
+                  <div>
+                    for (const key of keys) {
+                    <div style="margin-left: 20px">
+                      console.log(`For "${key}" value:
+                      ${objectForIterate[key]}`);
+                    </div>
+                    }
+                  </div>
+                  <div style="color: gray">// For "good" value: 5</div>
+                  <div style="color: gray">// For "neutral" value: 10</div>
+                  <div style="color: gray">// For "bad" value: 3</div>
+                  <p>
+                    <b
+                      >To sum up we iterate object with Object.keys() method and
+                      usual cycle for of</b
+                    >
+                  </p>
+                </div>
+
+                <div style="background-color: rgb(255, 214, 214)">
+                  <p id="method2-reallySpecific">
+                    <b>Method 2 - (really specific)</b>
+                  </p>
+
+                  <div>
+                    <div>const authors = {</div>
+                    <div style="margin-left: 20px">
+                      <div>kiwi: 4,</div>
+                      <div>poly: 7,</div>
+                      <div>ajax: 9,</div>
+                      <div>mango: 6,</div>
+                    </div>
+                    <div>};</div>
+                  </div>
+
+                  <p></p>
+                  <div>const entries = Object.entries(authors);</div>
+                  <div>console.log(entries);</div>
+                  <div style="color: grey">
+                    //
+                    <div>[</div>
+                    <div style="margin-left: 20px">
+                      <div>['kiwi', 4]</div>
+                      <div>['poly', 7]</div>
+                      <div>['ajax', 9]</div>
+                      <div>['mango', 6]</div>
+                    </div>
+                    <div>]</div>
+                  </div>
+
+                  <p></p>
+                  <div>
+                    <div>for (const entry of entries) {</div>
+                    <div style="margin-left: 20px">
+                      <div style="color: grey">// V-1 - simple</div>
+                      <div>const name = entry[0];</div>
+                      <div>const rating = entry[1];</div>
+
+                      <p></p>
+                      <div style="color: grey">
+                        // V-2 - destructuring array
+                      </div>
+                      <div style="color: grey">
+                        // const [name, rating] = entries;
+                      </div>
+
+                      <p></p>
+                      <div style="color: grey">
+                        // V-3 - destructuring array inside for()
+                      </div>
+                      <div style="color: gray">
+                        // for (const [name, rating] of entries) {
+                      </div>
+
+                      <p></p>
+                      console.log(name, rating);
+                    </div>
+                    <div>}</div>
+                  </div>
+
+                  <div style="color: grey">
+                    <div>// kiwi 4</div>
+                    <div>// poly 7</div>
+                    <div>// ajax 9</div>
+                    <div>// mango 6</div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                style="
+                  margin: 10px;
+                  padding: 10px;
+                  outline: 1px dotted orangered;
+                "
+              >
+                <div style="text-align: center; color: red">
+                  If we need access to values
+                </div>
+                <div>
+                  const objectForIterate = {
+                  <div style="margin-left: 20px">
+                    <div>good: 5,</div>
+                    <div>neutral: 10,</div>
+                    <div>bad: 3,</div>
+                  </div>
+                  }
+                </div>
+                <div>
+                  const values = Object.values(objectForIterate);
+                  <span style="color: grey">// [5, 10, 3]</span>
+                </div>
+                <p></p>
+                <div>let totalValues = 0;</div>
+                <div>
+                  for (const value of values) {
+                  <div style="margin-left: 20px">totalValues += value</div>
+                  }
+                </div>
+                <div>
+                  console.log(totalValues);
+                  <span style="color: grey">// 18</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="lesson2 section">
+          <div class="container">
+            <h3>Lesson 6</h3>
+            <p>
+              <a
+                style="display: block"
+                target="_blank"
+                href="https://www.youtube.com/watch?v=nW2JV_ZX7jU"
+                >Модуль 3. Занятие 6. Объекты - Part II</a
+              >
+            </p>
+
+            <div style="margin: 5px; padding: 5px; outline: 1px solid green">
+              <p><b>Spread in objects</b></p>
+              <ul>
+                <li>
+                  <div>
+                    Old method Object.assign() - destructive method that change
+                    (fill) object c
+                  </div>
+                  <br />
+                  <div>const a = {x: 5, y: 2}</div>
+                  <div>const b = {x: 2, z: 12}</div>
+                  <div>const c = {}</div>
+                  <div>Object.assign(c, a, b)</div>
+                  <div>
+                    console.log(c);
+                    <span style="color: gray">// {x: 2, y: 2, z: 12} </span>
+                  </div>
+                  <br />
+                </li>
+                <li>
+                  <div>Spread operation ...</div>
+                  <br />
+                  <div>const a = {x: 5, y: 2}</div>
+                  <div>const b = {x: 2, z: 12}</div>
+                  <div>const c = { ...a, ...b };</div>
+                  <div>
+                    console.log(c);
+                    <span style="color: gray">// {x: 2, y: 2, z: 12} </span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Destructuring -->
+            <div style="outline: 1px solid red">
+              <p><b>Destructuring objects</b></p>
+              <div class="code code__outline">
+                <div>
+                  <span class="code__constlet">const</span>
+                  <span class="code__variable">playlist</span> =
+                  <span class="code__bracketyellow"> { </span>
+                </div>
+                <div style="margin-left: 20px">
+                  <div><span class="code__key">name:</span> 'My list',</div>
+                  <div>
+                    <span class="code__key">rating:</span>
+                    5,
+                  </div>
+                  <div>
+                    <span class="code__key"> tracks: </span>
+                    ['track 1', 'track 2', 'track 3'],
+                  </div>
+
+                  <div>
+                    <span class="code__key"> trackCount: </span>
+                    3,
+                  </div>
+                  <span class="code__key"> stats: </span>
+                  <span class="code__bracketviolet">{</span>
+                  <div style="margin-left: 20px">
+                    <div>
+                      <span class="code__key"> followers: </span>
+                      10,
+                    </div>
+                    <div>
+                      <span class="code__key"> views: </span>
+                      84,
+                    </div>
+
+                    <div>
+                      <span class="code__key"> likes: </span>
+                      22,
+                    </div>
+                  </div>
+                  <span class="code__bracketviolet">}</span>,
+                </div>
+                <span class="code__bracketyellow"> } </span>
+              </div>
+              <div>
+                <div>const { tracks, rating } = playlist;</div>
+                <div>
+                  console.log(tracks);
+                  <span style="color: grey"
+                    >// ['track 1', 'track 2', 'track 3']</span
+                  >
+                </div>
+                <div>
+                  console.log(rating); <span style="color: grey">// 5</span>
+                </div>
+              </div>
+
+              <div
+                style="margin: 10px; padding: 10px; outline: 1px solid green"
+              >
+                <div>
+                  If object doesn't have key/value pair, but we have to show
+                  smth, it means default value
+                </div>
+                <p></p>
+                <div>
+                  const { tracks, rating, author = 'John Week'} = playlist;
+                  <div>
+                    console.log(author);
+                    <span style="color: grey">// John Week</span>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                style="margin: 10px; padding: 10px; outline: 1px solid green"
+              >
+                <div>
+                  if we have pair key/value name: 'My list' in object, name "My
+                  super list" will not be shown.
+                </div>
+                <p></p>
+                <div>
+                  <div>const { name = 'My super list' } = playlist;</div>
+                  console.log(name); <span style="color: grey">// My list</span>
+                </div>
+              </div>
+
+              <div
+                style="margin: 10px; padding: 10px; outline: 1px solid green"
+              >
+                Rename object key to necessary
+                <p></p>
+                const { trackCount: numberOfTracks } = playlist;
+                <div>
+                  console.log(numberOfTracks);
+                  <span style="color: grey">// 3</span>
+                </div>
+              </div>
+
+              <div
+                style="margin: 10px; padding: 10px; outline: 1px solid green"
+              >
+                Deep destructuring
+                <p></p>
+                const { stats: { followers, views, likes }, } = playlist;
+                <div>
+                  console.log(followers);
+                  <span style="color: grey">// 10</span>
+                </div>
+              </div>
+
+              <!--  -->
+              <!--  -->
+              <div
+                style="margin: 10px; padding: 10px; outline: 1px solid green"
+              >
+                <div>
+                  If we need use only some properties (in this example name &
+                  rating)
+                </div>
+                <p>
+                  restProps (it is only variable, may be other name, rest, qwe
+                  etc.) in destructuring
+                </p>
+
+                <p></p>
+                <div>const {name, rating, ...rest} = playlist;</div>
+                <div>
+                  console.log(name);
+                  <span style="color: gray">// My list</span>
+                </div>
+                <div>
+                  console.log(rating);
+                  <span style="color: gray">// 5</span>
+                </div>
+                <div>
+                  console.log(rest);
+                  <div style="color: gray">
+                    <div>//</div>
+                    <!--  -->
+                    <div>
+                      {
+                      <div style="margin-left: 20px">
+                        <div>tracks: ['track 1', 'track 2', 'track 3'],</div>
+                        <div>trackCount: 3,</div>
+                        <div>stats: {</div>
+                        <div style="margin-left: 20px">
+                          <div>followers: 10,</div>
+                          <div>views: 84,</div>
+                          <div>likes: 22,</div>
+                        </div>
+                        <div>},</div>
+                      </div>
+                      }
+                    </div>
+                    <!--  -->
+                  </div>
+                </div>
+              </div>
+              <!--  -->
+              <!--  -->
+
+              <!--  -->
+            </div>
+            <!-- End of objects destructuring -->
+
+            <!-- Arrays destructuring -->
+            <div style="outline: 1px solid red">
+              <p><b>Arrays destructuring</b></p>
+              <div>const rgb = [125, 200, 250];</div>
+              <div>const [red, green, blue] = rgb;</div>
+              <p>If we need to get only first & third value</p>
+              <div>const [red, , blue] = rgb;</div>
+              <p>
+                <b>Example</b> of array destructuring in
+                <a href="#method2-reallySpecific"
+                  >Method 2 - (really specific) of object iterate</a
+                >
+              </p>
+              <div></div>
+            </div>
+            <!--  -->
+
+            <!-- Object settings pattern -->
+            <div style="outline: 1px solid red">
+              <p><b>Object settings pattern</b></p>
+              <p>
+                It used when fn should receive many parameter, but it is not
+                really convenient, f.e. for 8 parameters
+              </p>
+              <div>
+                fn (parameter1, parameter2, parameter3, parameter4, parameter5,
+                parameter6, parameter7, parameter8) {
+                <div style="margin-left: 20px">//</div>
+                }
+              </div>
+
+              <p><b>Example</b></p>
+              <ol>
+                <li>
+                  <div style="color: blueviolet">Profile data:</div>
+                  <div>
+                    const profile = {
+                    <div style="margin-left: 20px">
+                      <div>name: 'Jacques Gluke',</div>
+                      <div>tag: 'jgluke',</div>
+                      <div>location: 'Ocho Rios, Jamaica',</div>
+                      <div>avatar: 'https://i.pravatar.cc/300',</div>
+                      <div>stats: {</div>
+                      <div style="margin-left: 20px">
+                        <div>followers: 100,</div>
+                        <div>views: 530,</div>
+                        <div>likes: 200,</div>
+                      </div>
+                      },
+                    </div>
+                    <div>};</div>
+                  </div>
+                </li>
+                <li>
+                  <div style="color: blueviolet">
+                    Create <b>makeProfileMarkup</b> function
+                  </div>
+
+                  <div>
+                    <!--  -->
+                    <!--  -->
+                    <div>
+                      const makeProfileMarkup = function (userProfile) {
+                    </div>
+                    <div style="margin-left: 20px">
+                      <div>const {</div>
+                      <div style="margin-left: 20px">
+                        <div>avatar,</div>
+                        <div>name,</div>
+                        <div>tag,</div>
+                        <div>location,</div>
+                        <div>stats: { followers, views, likes },</div>
+                      </div>
+                      <div>} = userProfile;</div>
+                      <p></p>
+                      <div>return `&lt;div&gt;</div>
+                      <div style="margin-left: 20px">
+                        <div>
+                          &lt;img src="${avatar}" alt="avatar-img" /&gt;
+                        </div>
+                        <div>
+                          &lt;p&gt;
+                          <div style="margin-left: 20px">
+                            <div>${name}</div>
+                            <div>&lt;span&gt;@${tag}&lt;/span&gt;</div>
+                          </div>
+                          &lt;/p&gt;
+                        </div>
+                        <div>&lt;p&gt;Location: ${location}&lt;/p&gt;</div>
+                        <div>&lt;ul&gt;</div>
+                        <div style="margin-left: 20px">
+                          <div>&lt;li&gt;Followers:${followers}&lt;/li&gt;</div>
+                          <div>&lt;li&gt;Views: ${views}&lt;/li&gt;</div>
+                          <div>&lt;li&gt;Likes: ${likes}&lt;/li&gt;</div>
+                        </div>
+                        <div>&lt;/ul&gt;</div>
+                      </div>
+                      &lt;/div&gt;`;
+                    </div>
+                    };
+                    <!--  -->
+                    <!--  -->
+                  </div>
+                </li>
+                <li>
+                  <div style="color: blueviolet">
+                    Add in html markup element where you want to render data:
+                  </div>
+                  <div>
+                    <!--  -->
+                    &lt;p id="example-object-settings"&gt;Markup here&lt;/p&gt;
+                    <!--  -->
+                  </div>
+                </li>
+                <li>
+                  <div style="color: blueviolet">Make js rendering code:</div>
+                  <!--  -->
+                  <div>const markup = makeProfileMarkup(profile);</div>
+
+                  <div>
+                    const exampleObjectSettings = document.getElementById(
+                  </div>
+                  <div style="margin-left: 20px">
+                    'example-object-settings',
+                  </div>
+                  <div>);</div>
+                  <div style="font-size: 70%">
+                    exampleObjectSettings.insertAdjacentHTML('beforeend',
+                    markup);
+                  </div>
+                  <!--  -->
+                </li>
+              </ol>
+              <p id="example-object-settings">Markup here</p>
+            </div>
+            <!-- End of Object settings pattern -->
+
+            <!-- Cart example -->
+            <div style="outline: 1px solid red">
+              <p>
+                <b>Cart example</b>
+                <span
+                  >for object with fields like {name: "Apple", price: 4}</span
+                >
+              </p>
+
+              const cart = {
+              <div style="margin-left: 20px">
+                <div><span class="code__variable">items</span>: [],</div>
+                <p></p>
+                <div>
+                  getItems() <b>{</b>
+                  <div style="margin-left: 20px">return this.items;</div>
+                  <b>}</b>,
+                </div>
+                <p></p>
+                <div style="color: rgb(0, 97, 29)">
+                  add(product) <b>{</b>
+                  <div style="margin-left: 20px">
+                    for (const item of this.items) {
+                    <div style="margin-left: 20px">
+                      if (item.name === product.name) {
+                      <div style="margin-left: 20px">
+                        <div>item.quantity += 1;</div>
+                        <div>return;</div>
+                      </div>
+                      }
+                    </div>
+                    }
+
+                    <div>
+                      const newProduct = {
+                      <div style="margin-left: 20px">
+                        <div>...product,</div>
+                        <div>quantity: 1,</div>
+                      </div>
+                      };
+                    </div>
+
+                    this.items.push(newProduct);
+                  </div>
+                  <b>}</b>,
+                </div>
+                <p></p>
+
+                <div style="color: brown">
+                  remove(productName) {
+                  <div style="margin-left: 20px">
+                    <div>const { items } = this;</div>
+
+                    <div>
+                      for (let index = 0; index < items.length; index += 1) {
+                      <div style="margin-left: 20px">
+                        <div>const element = items[index];</div>
+
+                        if (productName === element.name) {
+                        <div style="margin-left: 20px">
+                          items.splice(index, 1);
+                        </div>
+                        }
+                      </div>
+                      }
+                    </div>
+                  </div>
+                  },
+                </div>
+                <p></p>
+
+                clear() {
+                <div style="margin-left: 20px">this.items = [];</div>
+                },
+                <p></p>
+
+                <div style="color: darkblue">
+                  countTotalPrice() {
+                  <div style="margin-left: 20px">
+                    <div>let total = 0;</div>
+                    for (const item of this.items) {
+                    <div style="margin-left: 20px">
+                      total += item.price * item.quantity;
+                    </div>
+                    }
+                    <div>return total;</div>
+                  </div>
+                  },
+                </div>
+                <p></p>
+
+                increaseTotalQuantity(productName) {
+                <div style="margin-left: 20px">
+                  <div>const { items } = this;</div>
+                  for (const item of items) {
+                  <div style="margin-left: 20px">
+                    if (productName === item.name) {
+                    <div style="margin-left: 20px"></div>
+                    }
+                  </div>
+                  }
+                </div>
+                },
+                <p></p>
+
+                <div style="color: rgb(136, 122, 0)">
+                  decreaseTotalQuantity(productName) {
+                  <div style="margin-left: 20px">
+                    <div>const { items } = this;</div>
+                    for (const item of items) {
+                    <div style="margin-left: 20px">
+                      if (productName === item.name) {
+                      <div style="margin-left: 20px">
+                        <div>item.quantity -= 1;</div>
+
+                        if (item.quantity === 0) {
+
+                        <div style="margin-left: 20px">
+                          this.remove(product Name);
+                        </div>
+                        }
+                      </div>
+                      }
+                    </div>
+                    }
+                  </div>
+                  },
+                </div>
+              </div>
+              };
+            </div>
+            <!-- End of Cart example -->
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <div class="container">Footer</div>
+      </footer>
+    </div>
+
+    <script src="./js/burger-menu.js" type="module"></script>
+    <script src="./js/3-module.js" type="module"></script>
+    <script src="./js/3-hw.js" type="module"></script>
+  </body>
+</html>

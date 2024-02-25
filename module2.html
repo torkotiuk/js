@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>JS</title>
+    <title>JS - Module 2 - Array, functions</title>
 
     <link rel="stylesheet" href="./css/main.min.css" />
   </head>
@@ -38,6 +38,8 @@
               <li><a href="./index.html">Home</a></li>
               <li><a href="./module1.html">Module 1</a></li>
               <li><a class="current" href="./module2.html">Module 2</a></li>
+              <li><a href="./module3.html">Module 3</a></li>
+              <li><a href="./module4.html">Module 4</a></li>
             </ul>
           </div>
         </div>
@@ -46,7 +48,7 @@
       <main class="main">
         <section class="section">
           <div class="container">
-            <h2>Module 2</h2>
+            <h2>Module 2 - Arrays & functions/arrow functions</h2>
           </div>
         </section>
 
@@ -148,6 +150,7 @@
               </p>
             </div>
 
+            <!-- String methods -->
             <p>String methods</p>
             <ul>
               <li>
@@ -211,6 +214,7 @@
               </li>
             </ul>
 
+            <!-- Array methods -->
             <p>Array methods</p>
             <ul>
               <li>
@@ -238,6 +242,36 @@
                   const newArray = array1.<b>concat</b>(array2) or
                   array1.concat(array2,array3,array4)
                 </div>
+                <br />
+              </li>
+              <li>
+                <div>
+                  <b>Spread operation ...</b> one more methods to concatenate
+                  arrays is NOT-Destructive method
+                </div>
+                <div>
+                  const newArray = [1, 2, ...[3,4,5]];
+                  <span style="color: gray">// [1, 2, 3, 4, 5] </span>
+                </div>
+                <div>
+                  or const newArray = [...[3,4,5], 11, 15];
+                  <span style="color: grey">// [3, 4, 5, 11, 15]</span>
+                </div>
+                <div>
+                  or const numbers = [...[1, 2, 3], 100, ...[4, 5, 6], 200,
+                  ...[7, 8, 9]];
+                  <span style="color: gray"
+                    >// [1, 2, 3, 100, 4, 5, 6, 200, 7, 8, 9]
+                  </span>
+                </div>
+                <br />
+                <p>
+                  Spread operation could use not only for arrays, also for
+                  spreading elements in function
+                </p>
+                <div>F.e.</div>
+                <div>const array = [5, 3, 17, 1]</div>
+                <div>console.log(Math.max(...array));</div>
                 <br />
               </li>
               <li>
@@ -500,6 +534,71 @@
                 <div style="color: grey">// [5, 20]</div>
               </li>
             </ol>
+          </div>
+        </section>
+
+        <section class="section" style="background-color: rgb(248, 219, 181)">
+          <div class="container">
+            <h2>Arrow functions</h2>
+            <a href="https://www.youtube.com/watch?v=_wcFovNQTWU&t=6420s"
+              >Модуль 4. Занятие 7. Callback-функции и замыкания (11.08) - from
+              01:47:00 till the end</a
+            >
+            <ul>
+              <li>
+                <p>
+                  Arrow functions don't have <b>all parameters</b> in one
+                  variable "arguments", but all parameters may gain by rest
+                  (...) operation
+                </p>
+                <div>
+                  const arrowFn = ( <b style="color: red">...args</b> ) => {
+                  <div style="margin-left: 20px">
+                    console.log('=> args', args);
+                  </div>
+                  };
+                </div>
+                <p></p>
+              </li>
+              <li>
+                We can't return in arrow functions object in {}
+                <p>
+                  More info in
+                  <a
+                    target="_blank"
+                    href="https://medium.com/@gracet37/arrow-function-return-rules-4bab63961b92"
+                    >https://medium.com/@gracet37/arrow-function-return-rules-4bab63961b92</a
+                  >
+                </p>
+                <div style="color: red">const info = () => {a: 25};</div>
+                <div>
+                  console.log(info());
+                  <span style="color: grey">// undefined</span>
+                </div>
+                <p>There are two options to do it:</p>
+
+                <ul>
+                  <li>
+                    <div style="color: green">
+                      const add = (a, b) => {
+                      <div style="margin-left: 20px">
+                        return {
+                        <div style="margin-left: 20px">a: 25,</div>
+                        };
+                      </div>
+                      };
+                    </div>
+                    <p></p>
+                  </li>
+                  <li>
+                    <p>Better one is:</p>
+                    <div style="color: green">
+                      const add = (a, b) => ( { a: 25 } );
+                    </div>
+                  </li>
+                </ul>
+              </li>
+            </ul>
           </div>
         </section>
       </main>

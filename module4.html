@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS - Module 4 - Callback, closures</title>
+
+    <link rel="stylesheet" href="./css/main.min.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <div class="container">
+          <a class="logo" href="./index.html">Home</a>
+
+          <a
+            target="_blank"
+            href="https://github.com/goitacademy/javascript-homework"
+            >javascript-home-tasks</a
+          >
+
+          <button type="button" class="menu-button" data-menu-button>
+            <svg width="40" height="40" aria-label="Mobile menu switch">
+              <use
+                class="icon-menu"
+                href="./assets/images/sprite.svg#icon-menu"
+              ></use>
+              <use
+                class="icon-close"
+                href="./assets/images/sprite.svg#icon-close"
+              ></use>
+            </svg>
+          </button>
+
+          <div class="mob-menu-container" data-menu>
+            <ul class="list">
+              <li><a href="./index.html">Home</a></li>
+              <li><a href="./module1.html">Module 1</a></li>
+              <li><a href="./module2.html">Module 2</a></li>
+              <li><a href="./module3.html">Module 3</a></li>
+              <li><a class="current" href="./module4.html">Module 4</a></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <main class="main">
+        <section class="section">
+          <div class="container">
+            <h2>Module 4 - Callback functions & closures, this</h2>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="container">
+            <h3>Lesson 5</h3>
+            <p>
+              <a
+                target="_blank"
+                href="https://goit.global/javascript/ru/v1/module-04/callbacks.html"
+                >GoIt Book</a
+              >
+            </p>
+            <p>
+              <a
+                target="_blank"
+                href="https://www.youtube.com/watch?v=_wcFovNQTWU"
+                >Модуль 4. Занятие 7. Callback-функции и замыкания (11.08)</a
+              >
+            </p>
+          </div>
+        </section>
+
+        <!-- callback -->
+        <section class="section" style="background-color: azure">
+          <div class="container">
+            <h3>Callback</h3>
+            <p></p>
+            <a
+              target="_blank"
+              href="https://www.freecodecamp.org/news/what-is-a-callback-function-in-javascript/"
+              >What is a Callback Function in JavaScript? - simplest example</a
+            >
+            <p></p>
+            <div style="outline: 1px solid red">
+              <div style="display: flex; justify-content: space-between">
+                <div style="outline: 1px solid green; width: 50%">
+                  function <b style="color: green">createQuote</b>(quote,
+                  callback){
+                  <div style="margin-left: 20px">
+                    var myQuote = "Like I always say, " + quote;
+                    <div>callback(myQuote);</div>
+                  </div>
+                  }
+                </div>
+                <div
+                  style="outline: 1px solid violet; padding: 50px; width: 50%"
+                >
+                  &larr; This is the
+                  <b style="color: green">higher-order function</b>, which
+                  accepts two parameters, the second one being the callback.
+                  <div>
+                    To sum up: a function that accepts other functions calls
+                    higher-order function.
+                  </div>
+                </div>
+              </div>
+              <p></p>
+              <div>
+                function logQuote(quote){
+                <div style="margin-left: 20px">console.log(quote);</div>
+                }
+              </div>
+              <p></p>
+              <div style="display: flex; justify-content: space-between">
+                <div style="outline: 1px solid green; width: 50%">
+                  createQuote("eat your vegetables!",
+                  <b style="color: red">logQuote</b>); // 1
+                </div>
+                <div
+                  style="outline: 1px solid green; width: 50%; padding: 50px"
+                >
+                  &larr; When we execute function & pass another one function in
+                  it it calls <b style="color: red">callback</b> (in other word
+                  be “called back” at a later time). When we execute the
+                  createQuote function, notice that we are not appending
+                  parentheses to logQuote when we pass it in as an argument.
+                  This is because we do not want to execute our callback
+                  function right away.
+                </div>
+              </div>
+            </div>
+
+            <div style="outline: 1px solid red">
+              <p></p>
+              <h3>AddEventListener example</h3>
+
+              <ul>
+                <li>
+                  In html
+                  <div>
+                    &lt;button class="console-time-btn"&gt;console
+                    time&lt;/button&gt;
+                  </div>
+                </li>
+                <li>
+                  In JS
+                  <div>
+                    function handleClick() {
+                    <div style="margin-left: 20px">
+                      console.log(`${new Date().toLocaleTimeString()}`);
+                    </div>
+                    }
+                  </div>
+                  <div>
+                    const consoleTimeBtn =
+                    document.querySelector('.console-time-btn');
+                  </div>
+                  <p style="color: grey">Callback call only after "click"</p>
+                  <div>
+                    consoleTimeBtn.addEventListener('click',
+                    <b style="color: red">handleClick</b>);
+                  </div>
+                </li>
+              </ul>
+
+              <button
+                class="console-time-btn"
+                style="padding: 20px; font-size: 20px"
+              >
+                console time
+              </button>
+            </div>
+
+            <div style="outline: 1px solid red">
+              <p></p>
+              <h3>Example of callback call in httpRequest</h3>
+              <p></p>
+              <div>
+                const onRequestSuccess = function (response) {
+                <div style="margin-left: 20px">
+                  <div>
+                    console.log(`Call "onRequestSuccess" after success
+                    response`);
+                  </div>
+                  <div>
+                    console.log(response);
+                    <span style="color: grey"><b>// {...}</b></span>
+                  </div>
+                </div>
+                };
+              </div>
+              <p style="color: grey">
+                Callback onRequestSuccess call only in case of success request
+              </p>
+              <div>
+                <div>fetch('https://pokeapi.co/api/v2/pokemon')</div>
+                <div style="margin-left: 20px">.then(res => res.json())</div>
+                <div style="margin-left: 20px">
+                  .then(<b style="color: red">onRequestSuccess</b>);
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- closures -->
+        <section class="section" style="background-color: rgb(234, 255, 176)">
+          <div class="container" style="outline: 1px solid green">
+            <h3>Closures</h3>
+            <div style="outline: 1px solid red">
+              <p>Firstly we create function without closures</p>
+              <div style="color: rgb(131, 75, 75)">
+                <div>
+                  const makeDish = function(sheffName, dish) {
+                  <div style="margin-left: 20px">
+                    console.log(`${sheffName} make ${dish}`);
+                  </div>
+                  }
+                </div>
+                <p></p>
+                <div>makeDish("Mango", "Pancakes")</div>
+                <div>makeDish("Mango", "Pizza")</div>
+                <div>makeDish("Bob", "Ice-Cream")</div>
+                <div>makeDish("Bob", "Bear")</div>
+                <p>
+                  Not bad, but we should add one sheff f.e. for 10 dishes? It
+                  isn't convenient.
+                </p>
+              </div>
+            </div>
+
+            <div style="outline: 1px solid red">
+              <p>
+                <b>Make the same thing with closure</b>, but with creating sheff
+                one time, f.e. smth. like one sheff login to his account
+              </p>
+              <div style="color: red">
+                const makeSheff = function(sheffName) {
+                <div style="margin-left: 20px">
+                  <div style="color: rgb(39, 177, 39)">
+                    const makeDish = function(dish) {
+                    <div style="margin-left: 20px">
+                      console.log(`${sheffName} prepare ${dish}`);
+                    </div>
+                    }
+                  </div>
+                  return makeDish;
+                </div>
+                }
+              </div>
+              <p></p>
+              <div>const mango = makeSheff("Mango");</div>
+              <p></p>
+              <div>mango("Pancakes");</div>
+              <div>mango("Pizza");</div>
+              <p>
+                To sum up, when we call mango("Pancakes") we use internal
+                function makeDish(), that has access to sheffName variable.
+                <br />
+                So calling
+                <span style="color: green"
+                  >internal function makeDish() via saved variable mango
+                  (mango("Pancakes"))</span
+                >
+                we still
+                <span style="color: red">have access to all variables</span>
+                inside external function
+                <span style="color: red">makeSheff()</span> -
+                <b> it calls closures.</b>
+              </p>
+
+              <p>
+                More explanation by <b>console.dir</b>() - mango() function
+                closures within (makeSheff) function by variable sheffName:
+                'Mango'
+              </p>
+              <div>
+                console.dir(mango);
+                <div style="margin-left: 20px">
+                  [[Scopes]]
+                  <div style="margin-left: 20px">
+                    <span style="color: rgb(5, 131, 235)">0</span>:
+                    <span style="color: grey">Closure (makeSheff)</span> {<span
+                      style="color: grey"
+                      >sheffName</span
+                    >: <span style="color: rgb(0, 114, 9)">'Mango'</span> }
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="container">
+            <h3>Lesson 6 - <span style="color: green">This</span></h3>
+            <p></p>
+            <a
+              target="_blank"
+              href="https://goit.global/javascript/ru/v1/module-04/context.html"
+              >GoIT book</a
+            >
+            <p></p>
+            <a
+              target="_blank"
+              href="https://www.youtube.com/watch?v=d-OuFFUFy9I"
+              >[JavaScript 22] Модуль №4. Занятие №8. Ключевое слово this
+              (13.08.2020)</a
+            >
+
+            <div
+              style="
+                outline: 1px solid red;
+                background-color: rgb(177, 255, 207);
+              "
+            >
+              <p>
+                Example according to
+                <a
+                  target="_blank"
+                  href="https://www.youtube.com/watch?v=A9SaTI7-sM4&t=3s"
+                  >THIS in JavaScript</a
+                >
+                video
+              </p>
+              <ul>
+                <li>
+                  <b
+                    >THIS in function without "strict mode" is global "document"
+                    object</b
+                  >
+                  <p></p>
+                  <div>
+                    <div>const sayName = function() {</div>
+                    <div style="margin-left: 20px">
+                      console.log(this.name123);
+                    </div>
+                    <div>}</div>
+                  </div>
+                  <p></p>
+                  <div>
+                    sayName(); <span style="color: grey">// undefined</span> -
+                    <span style="color: red"
+                      >B/c "this" in functions is global object "document", but
+                      <b>document</b> doesn't have property <b>name123</b>
+                    </span>
+                  </div>
+                  <p style="color: green">
+                    In "use strict" mode, or when file is type/module
+                    <b>this</b> in functions is undefined at all
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <b
+                      >One external function maybe reusable for many objects
+                      <span style="color: grey"
+                        >/ In other words <b>THIS</b> as an object method</span
+                      >
+                    </b>
+                  </p>
+                  <div>
+                    <div>
+                      const sayName = function () {
+                      <div style="margin-left: 20px">
+                        console.log(this.name);
+                      </div>
+                      };
+                    </div>
+                    <p></p>
+                    <div>
+                      const food = {
+                      <div style="margin-left: 20px">
+                        <div>name: 'Pancakes',</div>
+                        <div>sayName,</div>
+                      </div>
+                      };
+                    </div>
+                    <p></p>
+                    <div>
+                      food.sayName();
+                      <span style="color: grey">// Pancakes</span>
+                    </div>
+                  </div>
+                  <p>
+                    Here <b>food.sayName()</b> called as an object method, so
+                    context is <b>food</b>
+                  </p>
+                  <p>
+                    This is a powerfull thing, b/c we may use one function in
+                    many objects, every next object will be a context there
+                  </p>
+                  f.e.
+                  <div>
+                    const food2 = {
+                    <div style="margin-left: 20px">
+                      <div>name: 'Pizza',</div>
+                      <div>sayName,</div>
+                    </div>
+                    };
+                  </div>
+                  food2.sayName(); <span style="color: grey">// Pizza</span>
+                </li>
+                <li>
+                  <p>
+                    <b
+                      ><span style="text-decoration: underline"
+                        >Saved link to object method</span
+                      >
+                      doesn't allow use the same method in object context
+                      <span style="color: grey"
+                        >/ In other words <b>THIS</b> in callback-s</span
+                      ></b
+                    >
+                  </p>
+                  <p>Ex. 1</p>
+                  <div>
+                    const sayName = function () {
+                    <div style="margin-left: 20px">console.log(this.name);</div>
+                    };
+                  </div>
+                  <p></p>
+                  <div>
+                    const food = {
+                    <div style="margin-left: 20px">
+                      <div>name: 'Pancakes',</div>
+                      <div>sayName,</div>
+                    </div>
+                    };
+                  </div>
+                  <p></p>
+                  <div>
+                    const
+                    <span style="text-decoration: underline"
+                      >externalLinkSayName</span
+                    >
+                    = food.sayName;
+                    <p></p>
+                    <div>
+                      externalLinkSayName();
+
+                      <span style="color: grey">// undefined</span>
+                    </div>
+                  </div>
+
+                  <p>Ex. 2</p>
+                  <div>
+                    const sayName = function () {
+                    <div style="margin-left: 20px">
+                      console.log(this.name123);
+                    </div>
+                    };
+                    <p></p>
+                    const food = {
+                    <div style="margin-left: 20px">
+                      <div>name123: 'Pancakes',</div>
+                      <div>sayName,</div>
+                    </div>
+                    };
+                    <p></p>
+                    setInterval(food.sayName, 1000);
+                    <span style="color: grey">// undefined </span>
+                    <span style="color: inherit">every second</span>
+                  </div>
+                  <p>
+                    To sum up, when we sent some callback like
+                    <span style="color: grey"
+                      >setInterval(<b>food.sayName</b>, 1000);</span
+                    >
+                    we sent only link to function <b>sayName</b> that doesn't
+                    know anything about object "food"
+                  </p>
+                  <p style="color: red">
+                    The second summary is: object method (function) separately
+                    called as a callback doesn't know anything about object
+                    inside what this function was created.
+                  </p>
+
+                  <div>
+                    <div>
+                      const user = {
+                      <div style="margin-left: 20px">
+                        <div>name123: "John",</div>
+                        <div>
+                          showName () {
+                          <div style="margin-left: 20px">
+                            console.log(`${this.name123}`);
+                          </div>
+                          }
+                        </div>
+                      </div>
+                      }
+                    </div>
+                    <p></p>
+                    const externalLinkShowName = user.showName;
+                    <p></p>
+                    externalLinkShowName();
+                    <span style="color: grey">// undefined</span>
+                    <span
+                      >in usual code, b/c global object "document" doesn't have
+                      property "name123":
+                      <span
+                        >document.<span style="color: grey">name123</span>
+                      </span></span
+                    >
+                    <p></p>
+                    <div>
+                      externalLinkShowName();
+                      <span style="color: grey">// error</span>
+                      <span
+                        >in "use strict", b/c function in strict mode doesn't
+                        have "this", so undefined doesn't have property name123:
+                        <span style="text-decoration: line-through"
+                          >undefined.name123</span
+                        >
+                      </span>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+
+              <div style="outline: 1px solid green; margin: 10px">
+                <p style="text-align: center">
+                  <b>call, apply, bind</b> functions methods
+                </p>
+                <p>
+                  Call & apply methods connect function with object in that
+                  place where it was invoked. In other words it makes only one
+                  time in code in such place
+                  <span style="color: grey"
+                    >(for callback these methods don't work)</span
+                  >.
+                </p>
+                <p>
+                  Bind method is created for connecting function with object for
+                  all time, means for callbacks (function that will be invoke in
+                  any moment).
+                </p>
+                <ol>
+                  <li>
+                    <b>call, apply</b> methods used for immediately calling a
+                    function to bind context
+                    <p></p>
+                    - F.e. fn.call(object, arg1, arg2, ...))
+                    <p></p>
+                    <div>
+                      const greet = function (guest, stars) {
+                      <div style="margin-left: 20px">
+                        return `${guest}, welcome to ${stars}-star
+                        ${this.name}!`;
+                      </div>
+                      };
+                      <p></p>
+                      const hotel = { name: 'Resort Hotel' };
+                      <p></p>
+                      <div>console.log(greet.call(hotel, 'Mango', 5));</div>
+                      <span style="color: grey"
+                        >// "Mango, welcome to 5-star Resort Hotel!"</span
+                      >
+                    </div>
+                    <p></p>
+                    <div>
+                      <div>- F.e. (fn.apply(object, [arg1, arg2, ...]))</div>
+                      <p></p>
+                      const greet = function (guest, stars) {
+                      <div>
+                        return `${guest}, welcome to ${stars}-star
+                        ${this.name}!`;
+                      </div>
+                      };
+                      <p></p>
+                      <div>const hotel = { name: 'Resort Hotel' };</div>
+                      <p></p>
+                      <div>console.log(greet.apply(hotel, ['Mango', 5]));</div>
+                      <span style="color: grey"
+                        >// "Mango, welcome to 5-star Resort Hotel!"</span
+                      >
+                    </div>
+                  </li>
+                  <li>
+                    <p>
+                      If we should write only link to object method, but we have
+                      to use object context, we use method
+                      <b>bind</b>
+                      <span style="color: grey"
+                        >/ In other words method bind is used for callback-s
+                      </span>
+                    </p>
+
+                    <!-- Ex. 1 -->
+                    <div>
+                      <p>Ex. 1</p>
+                      <div>
+                        const changeColor = function(color) {
+                        <div style="margin-left: 20px">
+                          console.log(`"This" in changeColor: ${this}`);
+                        </div>
+                        }
+                      </div>
+                      <p></p>
+                      <div>
+                        const hat = {
+                        <div style="margin-left: 20px">color: "black",</div>
+                        }
+                      </div>
+                      <p></p>
+                      const changeHatColor = changeColor.bind(hat);
+                      <p style="color: green">
+                        Link <b>changeHatColor</b> has always connected to
+                        object.
+                      </p>
+                      changeHatColor();
+                      <span style="color: grey">
+                        // "This" in changeColor: {color: "black"}
+                      </span>
+                    </div>
+
+                    <p></p>
+                    <p>Ex. 2</p>
+                    <div>
+                      const sayName = function () {
+                      <div style="margin-left: 20px">
+                        console.log(this.name123);
+                      </div>
+                      };
+                      <p></p>
+                      const food = {
+                      <div style="margin-left: 20px">
+                        <div>name123: 'Pancakes',</div>
+                        <div>sayName,</div>
+                      </div>
+                      };
+                      <p></p>
+                      setInterval(food.sayName.bind(food), 1000);
+                      <span style="color: grey">// Pancakes </span>
+                      <span style="color: inherit">every second</span>
+                      <p></p>
+                      <div>OR if a method is an external function enough</div>
+                      setInterval(sayName.bind(food), 1000);
+                    </div>
+
+                    <div>
+                      <p>
+                        <b>Ex. 3</b> - use object method binding other object
+                      </p>
+                      <div>
+                        <div>
+                          const sayName = function () {
+                          <div style="margin-left: 20px">
+                            console.log(this.name);
+                          </div>
+                          };
+                        </div>
+                        <p></p>
+                        <div>
+                          const food = {
+                          <div style="margin-left: 20px">
+                            <div>name: 'Pancakes',</div>
+                            <div>sayName,</div>
+                          </div>
+                          };
+                        </div>
+                        <p></p>
+                        <div>
+                          food.sayName();
+                          <span style="color: grey">// Pancakes</span>
+                        </div>
+                      </div>
+                      <p></p>
+                      <div>
+                        const food2 = {
+                        <div style="margin-left: 20px">
+                          <div>name: 'Pizza',</div>
+                          <div>sayName,</div>
+                        </div>
+                        };
+                      </div>
+                      <p></p>
+                      setInterval(food2.sayName.bind(food), 1000)
+                      <span style="color: grey">// Pancakes</span>
+                    </div>
+                    <p></p>
+                  </li>
+                </ol>
+              </div>
+            </div>
+            <!-- next div is the "container" ending -->
+          </div>
+        </section>
+      </main>
+      <footer></footer>
+    </div>
+
+    <script src="./js/burger-menu.js" type="module"></script>
+    <script src="./js/4-module.js" type="module"></script>
+    <script src="./js/4-hw.js" type="module"></script>
+  </body>
+</html>
