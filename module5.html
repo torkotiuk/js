@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS - Module 5 - Prototype, Class</title>
+
+    <link rel="stylesheet" href="./css/main.min.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <div class="container">
+          <a class="logo" href="./index.html">Home</a>
+
+          <a
+            target="_blank"
+            href="https://github.com/goitacademy/javascript-homework"
+            >javascript-home-tasks</a
+          >
+
+          <button type="button" class="menu-button" data-menu-button>
+            <svg width="40" height="40" aria-label="Mobile menu switch">
+              <use
+                class="icon-menu"
+                href="./assets/images/sprite.svg#icon-menu"
+              ></use>
+              <use
+                class="icon-close"
+                href="./assets/images/sprite.svg#icon-close"
+              ></use>
+            </svg>
+          </button>
+
+          <div class="mob-menu-container" data-menu>
+            <ul class="list">
+              <li><a href="./index.html">Home</a></li>
+              <li><a href="./module1.html">Module 1</a></li>
+              <li><a href="./module2.html">Module 2</a></li>
+              <li><a href="./module3.html">Module 3</a></li>
+              <li><a href="./module4.html">Module 4</a></li>
+              <li><a class="current" href="./module5.html">Module 5</a></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <main class="main">
+        <section class="section">
+          <div class="container">
+            <h2>Module 5 - Prototype, Class</h2>
+          </div>
+        </section>
+
+        <!-- prototype -->
+        <section class="section">
+          <div class="container">
+            <h3>Lesson 9 - Prototype</h3>
+            <p>
+              <a
+                target="_blank"
+                href="https://www.edu.goit.global/learn/8046784/2294/2299/training?blockId=20101672"
+                >GoIt Book</a
+              >
+            </p>
+            <p>
+              <a
+                target="_blank"
+                href="https://www.youtube.com/watch?v=2Dd5Q2L457o"
+                >Модуль 5. Занятие 9. Прототипное наследование (17.08)</a
+              >
+            </p>
+
+            <p>
+              <b>Main theory of prototypes is</b> make in necessary object
+              prototype of other object.
+            </p>
+            <p>F.e.</p>
+            <ul>
+              <li style="outline: 2px solid green">
+                <div
+                  style="
+                    display: flex;
+                    justify-content: space-around;
+                    align-items: center;
+                    outline: 1px dotted orange;
+                  "
+                >
+                  <div>
+                    const objA = {
+                    <div style="margin-left: 20px">a: 10</div>
+                    <div style="margin-left: 20px; color: grey">
+                      [[prototype]]: <span style="color: black">Object</span>
+                    </div>
+                    };
+                  </div>
+                  <div style="width: 300px">
+                    <b>
+                      <span style="color: black">
+                        [[prototype]]: Object</span
+                      ></b
+                    >
+                    --- means classical object prototype methods at this moment
+                  </div>
+                </div>
+              </li>
+              <li style="outline: 2px solid green">
+                <div style="outline: 1px dotted orange">
+                  <p>
+                    For prototype chain technique,
+                    <b style="color: red">firstly be created chain</b>, then add
+                    some properties.
+                  </p>
+                  const B = Object.create(objA);
+                  <p></p>
+                  <div>console.log(objB);</div>
+                </div>
+                <p>So objB <b>hasn't any own properties</b> at this moment.</p>
+                <div
+                  style="
+                    display: flex;
+                    justify-content: space-around;
+                    align-items: center;
+                    outline: 1px dotted orange;
+                  "
+                >
+                  <!--  -->
+                  <!--  -->
+                  <div>
+                    {
+
+                    <div style="margin-left: 20px; color: black">
+                      [[prototype]]: Object
+                      <div>a: 10,</div>
+                      <div style="margin-left: 30px; color: grey">
+                        [[prototype]]: Object
+                      </div>
+                    </div>
+                    };
+                  </div>
+                  <!--  -->
+                  <!--  -->
+                  <div style="width: 300px">
+                    <div>
+                      [[prototype]]: Object
+                      <div>a: 10,</div>
+                      <b>- means link to objA</b>
+                    </div>
+                    <p></p>
+                    <div>
+                      <span style="color: grey">[[prototype]]: Object</span>
+                      <div>
+                        <b style="color: black">
+                          - means classical object methods in "prototype"
+                        </b>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <p>To sum up: objB inherited properties from objA</p>
+                <p>
+                  console.log(objB.a); <span style="color: grey">// 10</span>
+                </p>
+              </li>
+              <li style="outline: 2px solid green">
+                <p></p>
+                <b style="color: red">Add some property to objB</b>
+                <p></p>
+                <div>objB.name = 'Lake';</div>
+                <div>console.log(objB);</div>
+                <p></p>
+                <div>
+                  {
+
+                  <div style="margin-left: 20px; color: black">
+                    <span style="color: rgb(61, 211, 126)">name:</span>
+                    <span style="color: sienna">"Lake"</span>,
+                    <div style="margin-left: 30px">
+                      [[prototype]]: Object
+                      <div>a: 10,</div>
+                      <div style="margin-left: 30px; color: grey">
+                        [[prototype]]: Object
+                      </div>
+                    </div>
+                  </div>
+                  };
+                </div>
+                <p>To sum up: objB still has inherited properties from objA</p>
+                <p>
+                  console.log(objB.a); <span style="color: grey">// 10</span>
+                </p>
+              </li>
+              <li style="outline: 2px solid green">
+                For better practice we may create firstly objC, then ObjB & at
+                the end objA, b/c
+                <ul>
+                  <li>
+                    objC has own property and main object prototype methods
+                  </li>
+                  <li>
+                    objB inherits all properties of objC but will have own
+                    properties
+                  </li>
+                  <li>
+                    objA inherits all properties of objB but will have own
+                    properties, means:
+                    <ul>
+                      <li>
+                        inherited object prototype methods of objC & objC
+                        properties
+                      </li>
+                      <li>inherits objectB properties</li>
+                      <li>has own properties</li>
+                    </ul>
+                  </li>
+                </ul>
+                <span
+                  >So if we type <b>console.log(obA.qwerty);</b> & get
+                  <span style="color: grey">undefined</span> it is mean that not
+                  only objA doesn't have property
+                  <span style="color: black">qwerty</span>, it means that all
+                  prototype objects
+                  <span style="color: grey">(all chain of prototypes)</span>
+                  don't have that property.
+                </span>
+                <p></p>
+
+                <div style="outline: 1px solid orange; padding: 10px">
+                  <p>
+                    Sometimes we should know if property is own for object, so
+                    for this operation use method
+                  </p>
+                  <p>
+                    console.log(objB.<b>hasOwnProperty('a'));</b>
+                    <span style="color: grey">// false</span>
+                  </p>
+                </div>
+
+                <p>
+                  Also we have to understand that we may change properties only
+                  in current object, but show or use properties we may from
+                  prototypes.
+                </p>
+                <ul>
+                  <li>
+                    In our example <b>objB.a</b> shows inherited property of
+                    objA;
+                  </li>
+                  <li>
+                    But <b>objB.a = 100</b> - creates own property <b>a</b> for
+                    objB
+                  </li>
+                </ul>
+              </li>
+            </ul>
+
+            <p></p>
+            <p style="color: red">
+              Bad practice to rewrite prototype, in other words live object
+              without classical prototype at all. (by method setPrototypeOf())
+            </p>
+
+            <div>
+              Prototypes are learning for understanding 3 concepts of js
+              Object-oriented programming:
+
+              <ul>
+                <li>
+                  <b>class</b> is a template for creating objects,
+                  <span style="color: grey"
+                    >f.e. plant with special details and mechanism, "car
+                    plant"</span
+                  >
+                </li>
+                <li>
+                  <b>instance</b> (екземпляр),
+                  <span style="color: grey"
+                    >f.e. created according to class schema ready car objects;
+                    they have 4 weals, 2 doors, wheel et.c., so all objects from
+                    one class have the same characteristics (properties), but
+                    values could be different (car color), internal chair
+                    materials..
+                  </span>
+                </li>
+                <li>
+                  interface
+                  <span style="color: grey"
+                    >in programming this is set of properties and methods
+                  </span>
+                  <img
+                    style="margin: 10px"
+                    src="./assets/images/module5_interface.jpg"
+                    alt=""
+                    width="50%"
+                  />
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- Class -->
+        <section class="section">
+          <div class="container">
+            <!-- start container -->
+            <h3>
+              Lesson 10 - <span style="color: green">Class</span>
+              <span style="color: grey">(or constructor function)</span>
+            </h3>
+            <p></p>
+            <p>
+              <a
+                target="_blank"
+                href="https://www.edu.goit.global/learn/8046784/2294/2299/training?blockId=20101679"
+                >GoIt Book</a
+              >
+            </p>
+            <p>
+              <a
+                target="_blank"
+                href="https://www.youtube.com/watch?v=Hk8B6fSHQ7A"
+                >Модуль 5. Занятие 10. Классы(20.08)</a
+              >
+            </p>
+            <p></p>
+            Classes are a template for creating objects.
+            <span style="color: grey"
+              >Class in other word is a <b>constructor function</b>.</span
+            >
+            <p>
+              The body of a class is the part that is in curly braces {}. The
+              body of a class is executed in strict mode even without the "use
+              strict" directive.
+            </p>
+            <p>Class rules:</p>
+            <ul>
+              <li>
+                class name should be a noun in singular from a big first Letter,
+                f.e. <b>Car</b>
+              </li>
+              <li>
+                <p>
+                  Always add a method named
+                  <b style="color: grey">constructor()</b>:
+                </p>
+                <p></p>
+                <div style="outline: 1px solid green">
+                  class Car {
+                  <div
+                    style="margin-left: 20px; color: grey; font-weight: bold"
+                  >
+                    constructor() { ... }
+                  </div>
+                  }
+                </div>
+                <p>or</p>
+                <div
+                  style="
+                    display: flex;
+                    justify-content: space-around;
+                    outline: 1px solid red;
+                  "
+                >
+                  <div>
+                    const Car = function() {
+                    <div style="margin-left: 20px">//</div>
+                    }
+                  </div>
+                  <div style="width: 300px">
+                    In this example it looks like a simple function, b/c it is a
+                    function but created as a template for building instances.
+                    <div>
+                      Also we may understand if we didn't add constructor
+                      method, it will be added automatically
+                    </div>
+                  </div>
+                </div>
+                <p></p>
+              </li>
+              <li>
+                To build some instance use operator <b>new</b>.
+                <p></p>
+                <div>const car1 = new Car();</div>
+                <p>
+                  So, if a function will evoke with <b>new</b> - it means that
+                  in memory is creating new object,
+                  <span style="color: green"
+                    >in other words this function is evoking in
+                    <b>context</b> of an object created.</span
+                  >
+                </p>
+              </li>
+            </ul>
+
+            <!-- next <div> End of container -->
+          </div>
+        </section>
+      </main>
+      <footer></footer>
+    </div>
+
+    <script src="./js/burger-menu.js" type="module"></script>
+    <script src="./js/5-module.js" type="module"></script>
+  </body>
+</html>
