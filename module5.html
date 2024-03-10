@@ -53,7 +53,7 @@
         </section>
 
         <!-- prototype -->
-        <section class="section">
+        <section class="section" style="background-color: rgb(208, 208, 231)">
           <div class="container">
             <h3>Lesson 9 - Prototype</h3>
             <p>
@@ -72,8 +72,10 @@
             </p>
 
             <p>
-              <b>Main theory of prototypes is</b> make in necessary object
-              prototype of other object.
+              <b
+                >Prototypes are the mechanism by which JavaScript objects
+                inherit features from one another.
+              </b>
             </p>
             <p>F.e.</p>
             <ul>
@@ -277,10 +279,10 @@
                   <b>instance</b> (екземпляр),
                   <span style="color: grey"
                     >f.e. created according to class schema ready car objects;
-                    they have 4 weals, 2 doors, wheel et.c., so all objects from
-                    one class have the same characteristics (properties), but
-                    values could be different (car color), internal chair
-                    materials..
+                    they have 4 wheels, 2 doors, a steering wheel et.c., so all
+                    objects from one class have the same characteristics
+                    (properties), but values could be different: car color,
+                    internal chair materials..
                   </span>
                 </li>
                 <li>
@@ -306,9 +308,11 @@
             <!-- start container -->
             <h3>
               Lesson 10 - <span style="color: green">Class</span>
-              <span style="color: grey">(or constructor function)</span>
+              <span style="color: grey"
+                >(or in old syntax - constructor function)</span
+              >
             </h3>
-            <p></p>
+
             <p>
               <a
                 target="_blank"
@@ -324,74 +328,714 @@
               >
             </p>
             <p></p>
-            Classes are a template for creating objects.
-            <span style="color: grey"
-              >Class in other word is a <b>constructor function</b>.</span
-            >
+            Classes are templates for creating objects.
+
+            <p style="color: red">
+              Arrow function couldn't be a constructor function.
+            </p>
             <p>
               The body of a class is the part that is in curly braces {}. The
               body of a class is executed in strict mode even without the "use
               strict" directive.
             </p>
-            <p>Class rules:</p>
-            <ul>
-              <li>
-                class name should be a noun in singular from a big first Letter,
-                f.e. <b>Car</b>
-              </li>
-              <li>
-                <p>
-                  Always add a method named
-                  <b style="color: grey">constructor()</b>:
-                </p>
-                <p></p>
-                <div style="outline: 1px solid green">
-                  class Car {
-                  <div
-                    style="margin-left: 20px; color: grey; font-weight: bold"
-                  >
-                    constructor() { ... }
-                  </div>
-                  }
-                </div>
-                <p>or</p>
-                <div
-                  style="
-                    display: flex;
-                    justify-content: space-around;
-                    outline: 1px solid red;
-                  "
+
+            <!-- START Function-constructor rules from Webinar 9 -->
+            <div style="background-color: rgb(208, 208, 231)">
+              <p style="text-align: center">
+                <b>OLD school syntax</b> (constructor function)
+              </p>
+              <p><b>Constructor function rules:</b></p>
+
+              <div>
+                <span><b>According to previous webinar</b></span>
+                <a
+                  target="_blank"
+                  href="https://www.youtube.com/watch?v=2Dd5Q2L457o&t=1630s"
+                  >Модуль 5. Занятие 9. Прототипное наследование (17.08)</a
                 >
-                  <div>
-                    const Car = function() {
-                    <div style="margin-left: 20px">//</div>
-                    }
-                  </div>
-                  <div style="width: 300px">
-                    In this example it looks like a simple function, b/c it is a
-                    function but created as a template for building instances.
+                <span>from time 00:27:10 till 01:13:00</span>
+              </div>
+
+              <ul>
+                <li>
+                  <b style="color: red">"Constructor function" name</b>
+
+                  should be a noun in singular from a big first Letter, f.e.
+                  <b>Car</b>
+                </li>
+                <li>
+                  <b>Syntax </b>(without constructor() {} method like in newest
+                  syntax)
+                  <div
+                    style="
+                      display: flex;
+                      justify-content: space-around;
+                      outline: 1px solid red;
+                    "
+                  >
                     <div>
-                      Also we may understand if we didn't add constructor
-                      method, it will be added automatically
+                      const Car = function() {
+                      <div style="margin-left: 20px">//</div>
+                      }
+                    </div>
+                    <div style="width: 300px">
+                      In this example it looks like a simple function, b/c it is
+                      a function but created as a template for building
+                      instances.
                     </div>
                   </div>
-                </div>
-                <p></p>
-              </li>
-              <li>
-                To build some instance use operator <b>new</b>.
-                <p></p>
-                <div>const car1 = new Car();</div>
+                  <p></p>
+                </li>
+                <li>
+                  <b style="color: red"> To build some instance </b>
+
+                  use operator <b>new</b>.
+                  <p></p>
+                  <div>const car1 = new Car();</div>
+                  <p>
+                    So, if a function will evoke with <b>new</b> - it means that
+                    in memory is creating new object,
+                    <span style="color: green"
+                      >in other words this function is evoking in
+                      <b>context</b> of an object created.</span
+                    >
+                  </p>
+                </li>
+                <li>
+                  <b style="color: red">
+                    Create an object with necessary values
+                  </b>
+                  <p></p>
+                  <div style="outline: 1px solid red">
+                    <div>
+                      const Car = function(brand, model, price) {
+                      <div style="margin-left: 20px">this.brand = brand;</div>
+                      <div style="margin-left: 20px">this.model = model;</div>
+                      <div style="margin-left: 20px">this.price = price;</div>
+                      }
+                    </div>
+                    <p></p>
+
+                    <div>const car1 = new Car ("Audi", "Q7", 35000 );</div>
+                  </div>
+                  <p>or</p>
+                  <div style="outline: 1px solid green">
+                    <p>According to "Object settings pattern":</p>
+
+                    <div>
+                      const Car = function(config) {
+                      <div style="margin-left: 20px">
+                        const {brand, model, price} = config;
+                      </div>
+                      <p></p>
+                      <div style="margin-left: 20px">this.brand = brand;</div>
+                      <div style="margin-left: 20px">this.model = model;</div>
+                      <div style="margin-left: 20px">this.price = price;</div>
+                      }
+                    </div>
+                    <p></p>
+                    <div>
+                      const car1 = new Car ({brand: "Audi", model: "Q7", price:
+                      35000});
+                    </div>
+                    <div style="color: grey">
+                      <p>
+                        Sometimes we receive empty object & our "function
+                        constructor" return error
+                      </p>
+                      <div>const car2 = new Car({});</div>
+                      <p></p>
+                      <div>console.log(car2);</div>
+                      <p>
+                        So in this case add to "function constructor" default
+                        object
+                      </p>
+                      <div>
+                        const Car = function(config = {}) {
+                        <div style="margin-left: 20px">
+                          const {brand, model, price} = config;
+                        </div>
+                        <div style="margin-left: 20px">...</div>
+                        }
+                      </div>
+                    </div>
+                  </div>
+                  <p></p>
+                </li>
+                <li>
+                  <b style="color: red">
+                    Instances have a copy of a "function constructor"
+                    properties,
+                  </b>
+                  they have not links to properties, so for every instance is
+                  making copy of methods, f.e. method for changing price.
+                  <p>
+                    It isn't optimization in objects that created according to
+                    "function constructor", f.e. we created 100 instances & 100
+                    the same methods??? In this situation helps
+                    <b>prototype object</b>
+                    <span style="text-decoration: underline">
+                      that is in every simple function (function() {})</span
+                    >
+                  </p>
+                  <p><b style="color: green">console.log(Car.prototype);</b></p>
+                  <img src="./assets/images/module5_prototypeObj.jpg" alt="" />
+                  <p>
+                    So here in "Class.prototype object" we may put all common
+                    methods for instances created according to class. 100
+                    instances will have 1 method for changing price.
+                  </p>
+                  <p>F.e.</p>
+                  <div style="outline: 1px solid red">
+                    <div>
+                      Car.prototype.changePrice = function(newPrice) {
+                      <div style="margin-left: 20px">
+                        this.price = newPrice;
+                      </div>
+                      }
+                      <p>
+                        Now, <b> the function constructor Car</b> has the method
+                        changePrice in Car.prototype,
+                        <img
+                          src="./assets/images/module5_prototypeObjPlusMethod.jpg"
+                          alt=""
+                          width="350"
+                        />
+                        so all objects created with function constructor "Car"
+                        inherited methods from Car.prototype (
+                        <b>__proto__</b> of objects are the same of "function
+                        constructor" <b>prototype</b>).
+
+                        <span style="display: block">
+                          {
+                          <!--  -->
+                          <span style="display: block; margin-left: 20px"
+                            >brand : "Audi"</span
+                          >
+                          <span style="display: block; margin-left: 20px">
+                            model : "Q7"
+                          </span>
+                          <span style="display: block; margin-left: 20px">
+                            price : 35000
+                          </span>
+                          <span
+                            style="
+                              display: block;
+                              margin-left: 20px;
+                              color: grey;
+                            "
+                          >
+                            __proto__
+                            <span style="display: block; margin-left: 30px">
+                              <span style="display: block"
+                                >changePrice : ƒ (newPrice)</span
+                              >
+                              <span style="display: block"
+                                >constructor : ƒ (config)</span
+                              >
+                              <span style="display: block">__proto__</span>
+                            </span>
+                          </span>
+                          <!--  -->
+                          }
+                        </span>
+                      </p>
+                      <div>
+                        <div>car1.changePrice(48000);</div>
+                        <div>
+                          console.log('car1.price', car1.price);
+                          <span style="color: grey">// 48000</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+
+              <div style="color: red">
+                <p>Function has <b>"prototype"</b> property.</p>
+                <p>Object has <b>"__proto__"</b> property.</p>
+              </div>
+
+              <!-- Class static methods -->
+              <div style="outline: 1px solid red">
                 <p>
-                  So, if a function will evoke with <b>new</b> - it means that
-                  in memory is creating new object,
-                  <span style="color: green"
-                    >in other words this function is evoking in
-                    <b>context</b> of an object created.</span
-                  >
+                  <b>Function constructor static methods</b>
+                  <span style="display: block">(in webinar from 01:13:00)</span>
                 </p>
-              </li>
-            </ul>
+
+                <p>
+                  Sometimes & mostly as a additional information classes are
+                  using static methods and properties.
+                </p>
+                <p>F.e.</p>
+                <div>Math.PI - static property.</div>
+                <div>Math.round() - static method.</div>
+
+                <!--  -->
+                <!--  -->
+                <div style="color: grey">
+                  <p>f.e.</p>
+                  <div>
+                    const Car = function(config) {
+                    <div style="margin-left: 20px">
+                      const {brand, model, price} = config;
+                    </div>
+                    <p></p>
+                    <div style="margin-left: 20px">this.brand = brand;</div>
+                    <div style="margin-left: 20px">this.model = model;</div>
+                    <div style="margin-left: 20px">this.price = price;</div>
+
+                    }
+                  </div>
+                  <p></p>
+                  <div>
+                    Car.prototype.changePrice1 = function(newPrice) {
+                    <div style="margin-left: 20px">this.price = newPrice;</div>
+                    }
+                  </div>
+                  <div>
+                    Car.prototype.changePrice2 = function(newPrice) {
+                    <div style="margin-left: 20px">this.price = newPrice;</div>
+                    }
+                  </div>
+                  <p></p>
+                  Car.<b>staticMethod2</b> = function (){...};
+                </div>
+                <!--  -->
+                <!--  -->
+              </div>
+            </div>
+            <!-- END Class rules from Webinar 9 -->
+
+            <!-- START Webinar 10 -->
+            <div style="background-color: rgb(213, 251, 218)">
+              <p style="text-align: center">
+                <b>Modern syntax</b> of <b>class</b>
+              </p>
+
+              <p>
+                <b>Modern syntax</b> of <b>class</b> become from other
+                languages:
+              </p>
+
+              <div style="outline: 1px solid green">
+                class Car {
+                <div style="margin-left: 20px; color: grey; font-weight: bold">
+                  constructor() { ... }
+                </div>
+                }
+              </div>
+
+              <p><b>New syntax class rules:</b></p>
+              <ul>
+                <li>
+                  <b>Class.prototype is the link for instance.__proto__</b> -
+                  the same like in a constructor-function
+                  <p>So creating object from this class</p>
+                  <div>const car123 = new Car();</div>
+                  <p>find out that:</p>
+                  <ul>
+                    <li>class has property Car.<b>prototype</b></li>
+                    <li>
+                      object inherited link of Car.prototype to own property
+                      car123.__proto__
+                    </li>
+                  </ul>
+                  <img
+                    src="./assets/images/module5_web10_classANDobjectprttotypes.jpg"
+                    alt=""
+                    width="250"
+                  />
+                </li>
+                <li>
+                  <p></p>
+                  <b>Parameters received in constructor(){} method</b>
+                  <p>
+                    In new syntax <b>params received</b> in constructor() {}
+                    method:
+                  </p>
+                  <div>
+                    <div>
+                      class Car {
+                      <div style="margin-left: 20px">
+                        constructor(param1, param2) {
+                        <div style="margin-left: 20px">
+                          <div>this.param1111 = param1;</div>
+                          <div>this.param2222 = param2;</div>
+                        </div>
+                        }
+                      </div>
+                      }
+                    </div>
+                    <p></p>
+
+                    <div>const car123 = new Car('arg1', 'arg2');</div>
+                    <div>
+                      console.log(car123);
+
+                      <span style="color: grey"
+                        >// {param1111: 'arg1', param2222: 'arg2'}</span
+                      >
+                    </div>
+                    <p>OR according to "Object settings pattern"</p>
+
+                    <div style="color: green">
+                      class Car {
+                      <div style="margin-left: 20px">
+                        constructor(config = {}) {
+                        <div style="margin-left: 20px">
+                          <div>const {brand, model, price} = config;</div>
+                          <div>this.brand = brand;</div>
+                          <div>this.model = model;</div>
+                          <div>this.price = price;</div>
+                        </div>
+                        }
+                      </div>
+                      }
+                    </div>
+                  </div>
+                  <p></p>
+                </li>
+                <!-- Class.prototype methods -->
+                <li>
+                  <b>Class.prototype methods</b>
+                  <p>
+                    <b>In old syntax </b> of function-constructor we saved
+                    <b>common methods in Class.prototype</b>, like:
+                  </p>
+                  <div>
+                    Car.prototype.changePrice = function(newPrice) {
+                    <div style="margin-left: 20px">this.price = newPrice;</div>
+                    }
+                  </div>
+                  so for adding 5 methods we should create:
+                  <div style="color: grey">
+                    <div>
+                      Car.prototype.changePrice0 = function(newPrice) {
+                      <div style="margin-left: 20px">
+                        this.price = newPrice;
+                      </div>
+                      }
+                    </div>
+                    <div>
+                      Car.prototype.changePrice1 = function(newPrice) {
+                      <div style="margin-left: 20px">
+                        this.price = newPrice;
+                      </div>
+                      }
+                    </div>
+                    <div>
+                      Car.prototype.changePrice2 = function(newPrice) {
+                      <div style="margin-left: 20px">
+                        this.price = newPrice;
+                      </div>
+                      }
+                    </div>
+                    <div>
+                      Car.prototype.changePrice3 = function(newPrice) {
+                      <div style="margin-left: 20px">
+                        this.price = newPrice;
+                      </div>
+                      }
+                    </div>
+                    <div>
+                      Car.prototype.changePrice4 = function(newPrice) {
+                      <div style="margin-left: 20px">
+                        this.price = newPrice;
+                      </div>
+                      }
+                    </div>
+                  </div>
+
+                  <p></p>
+                  <b>In new syntax we make it inside in class:</b>
+                  <p></p>
+                  <div>
+                    class Car {
+                    <div style="margin-left: 20px">
+                      constructor() {
+                      <div style="margin-left: 20px; color: grey">//</div>
+
+                      }
+                    </div>
+                    <p></p>
+                    <div style="color: green; margin-left: 20px">
+                      <div>
+                        changePrice1(newPrice) {
+                        <div style="margin-left: 20px">
+                          this.price = newPrice;
+                        </div>
+                        }
+                      </div>
+                      <div>
+                        changePrice2(newPrice) {
+                        <div style="margin-left: 20px">
+                          this.price = newPrice;
+                        </div>
+                        }
+                      </div>
+                      <div>
+                        changePrice3(newPrice) {
+                        <div style="margin-left: 20px">
+                          this.price = newPrice;
+                        </div>
+                        }
+                      </div>
+                      <div>
+                        changePrice4(newPrice) {
+                        <div style="margin-left: 20px">
+                          this.price = newPrice;
+                        </div>
+                        }
+                      </div>
+                      <div>
+                        changePrice5(newPrice) {
+                        <div style="margin-left: 20px">
+                          this.price = newPrice;
+                        </div>
+                        }
+                      </div>
+                    </div>
+                    }
+                  </div>
+                  <p>P.S.</p>
+                  It means that they are in
+                  <b>Class.prototype</b>
+                  <p>or for better understanding</p>
+                  <div>
+                    <div>const car1 = new Car();</div>
+                    <div>
+                      console.log(
+                      <div style="margin-left: 20px">
+                        car1.__proto__ === Car.prototype
+                      </div>
+                      ); <span style="color: grey"> // true</span>
+                    </div>
+                  </div>
+                </li>
+                <!-- Class static methods -->
+                <li>
+                  <p><b>Class static properties</b></p>
+
+                  <div>
+                    class Car {
+                    <div style="margin-left: 20px">
+                      <div
+                        style="
+                          display: flex;
+                          justify-content: space-between;
+                          align-items: center;
+                          outline: 1px solid red;
+                        "
+                      >
+                        <div>
+                          <div style="color: green">
+                            <span style="color: indigo">static</span>
+                            description = "Class Car";
+                          </div>
+                          <div style="color: green">
+                            <span style="color: indigo">static</span>
+                            brandInfo(carObject) {
+                            <div style="margin-left: 20px">
+                              return carObject.brand;
+                            </div>
+                            };
+                          </div>
+                        </div>
+                        <div style="width: 250px">
+                          approach 1 for adding static property
+                        </div>
+                      </div>
+
+                      <p></p>
+                      <div>
+                        constructor( config = {}) {
+                        <div style="margin-left: 20px">
+                          <div>const { brand, price } = config;</div>
+
+                          <div>this.brand = brand;</div>
+                          <div>this.price = price;</div>
+                        </div>
+
+                        }
+                      </div>
+                      <p></p>
+                      <div>
+                        <div>
+                          changePrice1(newPrice) {
+                          <div style="margin-left: 20px">
+                            this.price = newPrice;
+                          </div>
+                          }
+                        </div>
+                      </div>
+                    </div>
+                    }
+                  </div>
+
+                  <p></p>
+                  <div
+                    style="
+                      display: flex;
+                      justify-content: space-between;
+                      align-items: center;
+                      outline: 1px solid red;
+                    "
+                  >
+                    <div style="color: green">
+                      Car.staticProp1 = "Fabric of Cars";
+                    </div>
+                    <div style="width: 250px">
+                      approach 1 for adding static property
+                    </div>
+                  </div>
+                  <p></p>
+                  <div>
+                    const car1 = new Car({ brand: 'Fiat', price: 10000 });
+                  </div>
+                  <p></p>
+                  <div>
+                    console.log('Car.description:', Car.description);
+                    <span style="color: grey">// Class Car</span>
+                  </div>
+                  <div>
+                    console.log('Car.brandInfo:', Car.brandInfo(car1));
+                    <span style="color: grey">// Fiat</span>
+                  </div>
+                  <p></p>
+                  <img src="./assets/images/module5_staticProp.jpg" alt="" />
+                </li>
+
+                <!-- private properties of instance -->
+                <li>
+                  <p>
+                    <b>Private properties of an instance</b>
+                  </p>
+
+                  <div style="outline: 1px solid red">
+                    <p>Next instance has only public properties:</p>
+                    <div>
+                      class Car {
+                      <div style="margin-left: 20px">
+                        <div>
+                          constructor( config = {}) {
+                          <div style="margin-left: 20px">
+                            <div>const { brand, price } = config;</div>
+
+                            <div>this.brand = brand;</div>
+                            <div>this.price = price;</div>
+                          </div>
+
+                          }
+                        </div>
+                      </div>
+                      }
+                    </div>
+                    <p></p>
+
+                    <div>
+                      const car1 = new Car({ brand: 'Fiat', price: 10000 });
+                    </div>
+                    <div>console.log(<b>car1</b>);</div>
+                    <p></p>
+                    <img src="./assets/images/module5_instance.jpg" alt="" />
+                  </div>
+
+                  <div style="outline: 1px solid green">
+                    <p>Adding private property in class like:</p>
+                    <div>
+                      class Car {
+                      <div style="margin-left: 20px">
+                        <div>
+                          constructor( config = {}) {
+                          <div style="margin-left: 20px">
+                            <div>const { brand, price } = config;</div>
+
+                            <div>this.brand = brand;</div>
+                            <div>this.price = price;</div>
+                            <div>this.#test = "test";</div>
+                          </div>
+
+                          }
+                        </div>
+                      </div>
+                      }
+                    </div>
+                    <p>and creating an instance</p>
+                    <div>
+                      const car1 = new Car({ brand: 'Fiat', price: 10000 });
+                    </div>
+                    <div>console.log(<b>car1</b>);</div>
+                    <p>will be error</p>
+                    <img
+                      src="./assets/images/module5_instance_error.jpg"
+                      alt=""
+                    />
+                  </div>
+
+                  <div style="outline: 1px solid red">
+                    <p>
+                      So private properties for instances we have add in class
+                      like:
+                    </p>
+                    <div>
+                      class Car {
+                      <div style="margin-left: 20px">
+                        static description = 'Class Car';
+                        <p></p>
+                        <div style="color: green"><b>#test = "test";</b></div>
+                        <p></p>
+                        <div>
+                          constructor( config = {}) {
+                          <div style="margin-left: 20px">
+                            <div>const { brand, price } = config;</div>
+
+                            <div>this.brand = brand;</div>
+                            <div>this.price = price;</div>
+                          </div>
+
+                          }
+                        </div>
+                        <p></p>
+                        <div>
+                          changePrice1(newPrice) {
+                          <div style="margin-left: 20px">
+                            this.price = newPrice;
+                          </div>
+                          }
+                        </div>
+                      </div>
+                      }
+                    </div>
+                    <p></p>
+                    <div>
+                      const car1 = new Car({ brand: 'Fiat', price: 10000 });
+                    </div>
+                    <div>console.log(<b>car1</b>);</div>
+                  </div>
+                  <p></p>
+                  <img
+                    src="./assets/images/module5_instance_private_prop.jpg"
+                    alt=""
+                    width="400"
+                  />
+                  <p style="color: green">
+                    But we can't get it in usual way:
+                    <span style="color: red">car1.#test</span>.
+                  </p>
+                  <p style="color: green">
+                    <b>
+                      <b
+                        >We may use "private instances properties" in
+                        methods.</b
+                      ></b
+                    >
+                  </p>
+                </li>
+              </ul>
+            </div>
+            <!-- End Webinar 10 -->
 
             <!-- next <div> End of container -->
           </div>
