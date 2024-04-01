@@ -41,6 +41,7 @@
               <li><a href="./module3.html">Module 3</a></li>
               <li><a href="./module4.html">Module 4</a></li>
               <li><a class="current" href="./module5.html">Module 5</a></li>
+              <li><a href="./module6.html">Module 6</a></li>
             </ul>
           </div>
         </div>
@@ -887,7 +888,7 @@
                       Car.staticProp1 = "Fabric of Cars";
                     </div>
                     <div style="width: 250px">
-                      approach 1 for adding static property
+                      approach 2 for adding static property
                     </div>
                   </div>
                   <p></p>
@@ -954,7 +955,7 @@
 
                             <div>this.brand = brand;</div>
                             <div>this.price = price;</div>
-                            <div>this.#test = "test";</div>
+                            <div style="color: red">this.#test = "test";</div>
                           </div>
 
                           }
@@ -1013,25 +1014,377 @@
                       const car1 = new Car({ brand: 'Fiat', price: 10000 });
                     </div>
                     <div>console.log(<b>car1</b>);</div>
+                    <p></p>
+                    <img
+                      src="./assets/images/module5_instance_private_prop.jpg"
+                      alt=""
+                      width="400"
+                    />
+                    <p style="color: green">
+                      But we can't get it in usual way:
+                      <span style="color: red">car1.#test</span>.
+                    </p>
+                    <p style="color: green">
+                      <b>
+                        <b
+                          >We may use "private instances properties" in
+                          methods.</b
+                        ></b
+                      >
+                    </p>
+
+                    <div>
+                      class Car {
+                      <div style="margin-left: 20px">
+                        static description = 'Class Car';
+                        <p></p>
+                        <div style="color: green"><b>#test = "test";</b></div>
+                        <p></p>
+                        <div>
+                          constructor( config = {}) {
+                          <div style="margin-left: 20px">
+                            <div>const { brand, price } = config;</div>
+
+                            <div>this.brand = brand;</div>
+                            <div>this.price = price;</div>
+                          </div>
+
+                          }
+                        </div>
+                        <p></p>
+                        <div>
+                          changePrice1(newPrice) {
+                          <div style="margin-left: 20px">
+                            <div style="color: green">
+                              <b
+                                >console.log('changePrice1 show private
+                                property:', this.#test);</b
+                              >
+                            </div>
+
+                            <div>this.price = newPrice;</div>
+                          </div>
+                          }
+                        </div>
+                      </div>
+                      }
+                    </div>
+                    <p></p>
+                    <div>
+                      const car1 = new Car({ brand: 'Fiat', price: 10000 });
+                    </div>
+                    <div>car1.changePrice1(25000);</div>
+                  </div>
+                </li>
+
+                <!-- Class public properties & methods -->
+                <li>
+                  <p><b>Class public properties & methods</b></p>
+                  <p>
+                    Public class properties & methods inherited by instances.
+                  </p>
+                  <!--  -->
+                  <!--  -->
+                  <div>
+                    class Car {
+                    <div style="margin-left: 20px">
+                      static description = 'Class Car';
+                      <p></p>
+                      <div>#test = "test";</div>
+                      <p></p>
+                      <div style="color: green">publicProperty = '123';</div>
+                      <p></p>
+                      <div>
+                        constructor( config = {}) {
+                        <div style="margin-left: 20px">
+                          <div>const { brand, price } = config;</div>
+
+                          <div>this.brand = brand;</div>
+                          <div>this.price = price;</div>
+                        </div>
+
+                        }
+                      </div>
+                      <p></p>
+                      <div style="color: green">
+                        publicMethod = () => {
+                        <div style="margin-left: 20px">
+                          console.log('I am public method & be copied to every
+                          instance');
+                        </div>
+                        };
+                      </div>
+                      <p></p>
+                      <div>
+                        changePrice1(newPrice) {
+                        <div style="margin-left: 20px">
+                          this.price = newPrice;
+                        </div>
+                        }
+                      </div>
+                    </div>
+                    }
                   </div>
                   <p></p>
-                  <img
-                    src="./assets/images/module5_instance_private_prop.jpg"
-                    alt=""
-                    width="400"
-                  />
-                  <p style="color: green">
-                    But we can't get it in usual way:
-                    <span style="color: red">car1.#test</span>.
+                  <div>
+                    const car1 = new Car({ brand: 'Fiat', price: 10000 });
+                  </div>
+                  <div>console.log(<b>car1</b>);</div>
+                  <!--  -->
+                  <!--  -->
+                  <p>
+                    Public class properties like
+                    <span style="color: green">publicProperty = '123';</span>
+                    are using sometime, but it isn't optimizing of using public
+                    methods, that will be copied to every instance.
                   </p>
-                  <p style="color: green">
-                    <b>
-                      <b
-                        >We may use "private instances properties" in
-                        methods.</b
-                      ></b
+                </li>
+
+                <!-- Class getter-s & setter-s -->
+                <li>
+                  <p><b>Class getter-s & setter-s</b></p>
+                  <p>
+                    &#9757; We would like to work with instances properties via
+                    methods, f.e. with "brand" by two methods:
+                  </p>
+                  <!--  -->
+
+                  <!--  -->
+
+                  <!-- START class Car -->
+                  <div>
+                    class Car {
+                    <div style="margin-left: 20px">
+                      <!--  -->
+                      <div>
+                        constructor( config = {}) {
+                        <div style="margin-left: 20px">
+                          <div>const { brand, price } = config;</div>
+                          <div>this.brand = brand;</div>
+                          <div>this.price = price;</div>
+                        </div>
+                        }
+                      </div>
+                      <!--  -->
+                      <div>
+                        changePrice1(newPrice) {
+                        <div style="margin-left: 20px">
+                          this.price = newPrice;
+                        </div>
+                        }
+                      </div>
+                      <p></p>
+                      <!--  -->
+                      <div style="font-weight: 600">
+                        getBrand() {
+                        <div style="margin-left: 20px">return this.brand</div>
+                        }
+                      </div>
+                      <!--  -->
+                      <div style="font-weight: 600">
+                        setBrand(newBrand) {
+                        <div style="margin-left: 20px">
+                          return this.brand = newBrand;
+                        </div>
+                        }
+                      </div>
+                      <!--  -->
+                    </div>
+                    }
+                  </div>
+                  <div>
+                    console.log(car1.getBrand());
+                    <span style="color: grey">// Fiat</span>
+                  </div>
+                  <div>
+                    console.log(car1.setBrand('Fiat 2'));
+                    <span style="color: grey">// Fiat 2</span>
+                  </div>
+                  <!-- END class Car -->
+
+                  <p>
+                    &#9757; In place of usual methods in Class.prototype become
+                    new syntax of getter/setter. Approach of setter & getter
+                    helps named 2 methods with one name (but getter and setter
+                    couldn't be with the same name of property, so rename in
+                    constructor this.brand to this._brand etc.):
+                  </p>
+                  <!-- START class Car -->
+                  <div>
+                    class Car {
+                    <div style="margin-left: 20px">
+                      <!--  -->
+                      <div>
+                        constructor( config = {}) {
+                        <div style="margin-left: 20px">
+                          <div>const { brand, price } = config;</div>
+                          <div><b>this._brand = brand;</b></div>
+                          <div><b>this._price = price;</b></div>
+                        </div>
+                        }
+                      </div>
+                      <!--  -->
+                      <div>
+                        changePrice1(newPrice) {
+                        <div style="margin-left: 20px">
+                          this._price = newPrice;
+                        </div>
+                        }
+                      </div>
+                      <p></p>
+                      <!--  -->
+                      <div style="color: grey">
+                        // getter & setter of "_brand" property
+                      </div>
+                      <div style="font-weight: 600; color: green">
+                        get brand() {
+                        <div style="margin-left: 20px">return this._brand</div>
+                        }
+                      </div>
+                      <!--  -->
+                      <div style="font-weight: 600; color: green">
+                        set brand(newBrand) {
+                        <div style="margin-left: 20px">
+                          return this._brand = newBrand;
+                        </div>
+                        }
+                      </div>
+                      <!--  -->
+                    </div>
+                    }
+                  </div>
+                  <!-- END class Car -->
+                  <p>
+                    Next syntax looks like showing & assigning property, but
+                    really it is evoking methods in such way. Code interface
+                    looks simpler.
+                  </p>
+                  <div>
+                    console.log(<b>car1.getBrand</b>);
+                    <span style="color: grey">// Fiat</span>
+                  </div>
+                  <div>
+                    console.log(<b>car1.setBrand = 'Fiat 2'</b>);
+                    <span style="color: grey">// Fiat 2</span>
+                  </div>
+                  <p>
+                    According to the new approach of setter/getter, all
+                    properties, that have to read and write from interface,
+                    should have setter/getter. (In our example for "_price"
+                    too). If we don't need to read and to write some property,
+                    we don't need getter/setter.
+                  </p>
+                  <p>
+                    In object it looks like one method, but really it is the
+                    link to Class.prototype or on object it is car1.__proto__
+                  </p>
+                  <img src="./assets/images/module5_getter-setter.jpg" alt="" />
+                  <p>
+                    As an additional information, we may understand that this
+                    new syntax was creating
+                    <a
+                      target="_blank"
+                      href="https://www.programiz.com/javascript/getter-setter"
+                      >for work with object.</a
                     >
+                    But we may easy use it in class.
                   </p>
+                </li>
+
+                <!-- class inheritance -->
+                <li>
+                  <p><b>Class inheritance</b></p>
+
+                  <p>Ex.</p>
+                  <div style="color: green">
+                    class Hero {
+                    <div style="margin-left: 20px">
+                      constructor({ name = 'hero', xp = 0 } = {}) {
+                      <div style="margin-left: 20px">
+                        <div>this.name = name;</div>
+                        <div>this.xp = xp;</div>
+                      </div>
+                      }
+                      <p></p>
+                      <div>
+                        gainXp(amount) {
+                        <div style="margin-left: 20px">
+                          <div>
+                            console.log(`${this.name} get ${amount}
+                            experience`);
+                          </div>
+                          <div>this.xp += amount;</div>
+                        </div>
+                        }
+                      </div>
+                    </div>
+                    }
+                  </div>
+
+                  <p></p>
+                  <div style="color: red">
+                    class Warrior extends Hero {
+                    <div style="margin-left: 20px">
+                      constructor(config) {
+                      <div style="margin-left: 20px">
+                        <div>const { weapon } = config;</div>
+                        <p></p>
+
+                        <div style="color: grey">
+                          // super() - is evoke Hero-> constructor()
+                        </div>
+                        <div style="color: grey">
+                          // in other word super() method is evoke constructor
+                          of parrent class
+                        </div>
+                        <div>super(config);</div>
+                        <p></p>
+
+                        <div>this.weapon = weapon;</div>
+                      </div>
+
+                      }
+                    </div>
+                    }
+                  </div>
+
+                  <p></p>
+                  <div>
+                    const mango = new Warrior({ name: 'Mango', xp: 1000, weapon:
+                    'alebarda' });
+                  </div>
+                  <div>
+                    console.log(mango);
+
+                    <span style="color: grey"
+                      >// {name: 'Mango', xp: 1000, weapon: 'alebarda'}</span
+                    >
+                  </div>
+
+                  <p></p>
+                  <div style="color: grey">
+                    // Warrior "Mango" using Hero prototype, where is gainXp()
+                    method
+                  </div>
+                  <div>mango.gainXp(500);</div>
+
+                  <p></p>
+                  <div style="color: grey">// b/c</div>
+                  <div>
+                    console.log(mango.__proto__ === Warrior.prototype);
+                    <span style="color: grey">// true</span>
+                  </div>
+                  <div>
+                    console.log(Warrior.prototype.__proto__ === Hero.prototype);
+                    <span style="color: grey">// true</span>
+                  </div>
+
+                  <p></p>
+                  <div>Also remember:</div>
+                  <div>
+                    console.log(Hero.prototype.__proto__ === Object.prototype);
+                    <span style="color: grey">// true</span>
+                  </div>
                 </li>
               </ul>
             </div>
@@ -1046,5 +1399,6 @@
 
     <script src="./js/burger-menu.js" type="module"></script>
     <script src="./js/5-module.js" type="module"></script>
+    <script src="./js/5-hw.js" type="module"></script>
   </body>
 </html>

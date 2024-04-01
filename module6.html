@@ -1,0 +1,2006 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS - Module 6 - Array Iteration Methods</title>
+
+    <link rel="stylesheet" href="./css/main.min.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <div class="container">
+          <a class="logo" href="./index.html">Home</a>
+
+          <a
+            target="_blank"
+            href="https://github.com/goitacademy/javascript-homework"
+            >javascript-home-tasks</a
+          >
+
+          <button type="button" class="menu-button" data-menu-button>
+            <svg width="40" height="40" aria-label="Mobile menu switch">
+              <use
+                class="icon-menu"
+                href="./assets/images/sprite.svg#icon-menu"
+              ></use>
+              <use
+                class="icon-close"
+                href="./assets/images/sprite.svg#icon-close"
+              ></use>
+            </svg>
+          </button>
+
+          <div class="mob-menu-container" data-menu>
+            <ul class="list">
+              <li><a href="./index.html">Home</a></li>
+              <li><a href="./module1.html">Module 1</a></li>
+              <li><a href="./module2.html">Module 2</a></li>
+              <li><a href="./module3.html">Module 3</a></li>
+              <li><a href="./module4.html">Module 4</a></li>
+              <li><a href="./module5.html">Module 5</a></li>
+              <li>
+                <a class="current" href="./module6.html">Module 6</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <main class="main">
+        <section class="section">
+          <div class="container">
+            <h2>Module 6 - Array Iteration Methods</h2>
+          </div>
+        </section>
+
+        <!-- lesson 11 -->
+        <section class="section">
+          <div class="container">
+            <h3>Lesson 11 - Array Iteration Methods - PART 1</h3>
+            <p>
+              <a
+                target="_blank"
+                href="https://www.edu.goit.global/learn/8046784/2294/2298/training?blockId=20073195"
+                >GoIt Book</a
+              >
+            </p>
+            <p>
+              <a
+                target="_blank"
+                href="https://www.youtube.com/watch?v=Hl4_H5wObM4"
+                >Модуль 6. Занятие 11. Перебирающие методы массивов часть 1
+                (27.08)</a
+              >
+            </p>
+            <p>Array iterate methods couldn't be break or continue.</p>
+
+            <!-- forEach -->
+            <div style="background-color: lightblue">
+              <h4><span style="color: red">forEach</span>:</h4>
+              <div style="color: grey">
+                - simplest change for() or for (el of array) in case when loop
+                don't need to break
+              </div>
+              <div style="color: grey">
+                - iterate every element of an array.
+              </div>
+              <div style="color: grey">- nothing to return</div>
+
+              <p>Generally not destructive method.</p>
+              <div>
+                Array.prototype.forEach(function(currentValue, index, array){
+                <div style="margin-left: 20px; color: grey">...</div>
+
+                }, thisArgs);
+                <p></p>
+                <div>where</div>
+                <p></p>
+                <div
+                  style="
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    color: rgb(84, 182, 84);
+                  "
+                >
+                  <div>
+                    function(currentValue, index, array){
+                    <div style="margin-left: 20px; color: grey">...</div>
+
+                    }
+                  </div>
+                  <div>callback</div>
+                </div>
+                <p></p>
+                <div
+                  style="
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    color: rgb(125, 125, 226);
+                  "
+                >
+                  <div>thisArgs</div>
+                  <div style="width: 200px">
+                    in context of this object evoke this callback
+                  </div>
+                </div>
+              </div>
+              <p>F.e.</p>
+              <div>
+                [1,2,3].forEach(function(currentEl, i, array) {
+                <div style="margin-left: 20px">console.log(this);</div>
+                }, {name: "John", age: 30})
+              </div>
+              <p></p>
+              <div style="color: grey">
+                <div>{name: "John", age: 30}</div>
+                <div>{name: "John", age: 30}</div>
+                <div>{name: "John", age: 30}</div>
+              </div>
+
+              <ul>
+                <li>
+                  <p><b>Mostly</b> used <b>for iteration.</b></p>
+                  <div>const numbers = [1, 2, 3, 4, 5];</div>
+                  <div>
+                    numbers.forEach(function(currentValue){
+                    <div style="margin-left: 20px">
+                      console.log(currentValue);
+                    </div>
+                    });
+                  </div>
+                  <div style="margin-left: 20px">
+                    <div style="color: grey">1</div>
+                    <div style="color: grey">2</div>
+                    <div style="color: grey">3</div>
+                    <div style="color: grey">4</div>
+                    <div style="color: grey">5</div>
+                  </div>
+                </li>
+                <li>
+                  <p>
+                    For <b>changing elements in array</b> we use second and
+                    third parameters of callback.
+                  </p>
+                  <div>const numbers = [1, 2, 3, 4, 5];</div>
+                  <div>
+                    numbers.forEach(function(currentValue, index, array){
+                    <div style="margin-left: 20px">
+                      array[index] = currentValue + 20;
+                    </div>
+                    });
+                  </div>
+                  <div>
+                    console.log(numbers);
+                    <span style="color: grey">// [21, 22, 23, 24, 25]</span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <!-- end forEach -->
+
+            <!-- map -->
+            <div style="background-color: rgb(241, 210, 234)">
+              <h3 style="color: red">map</h3>
+              <div style="color: grey">
+                - iterate every element of an array.
+              </div>
+              <div style="color: grey">- doesn't change original array</div>
+              <div style="color: grey">- return new arr of the same length</div>
+
+              <p>Ex. 1</p>
+              <div>const numbers = [1, 2, 3];</div>
+              <p></p>
+              const doubledNumbers = numbers.map(function(element) {
+              <div style="margin-left: 20px">console.log(element);</div>
+              });
+              <p>we didn't use any return, so</p>
+              <p>
+                console.log(doubledNumbers);
+                <span style="color: grey">
+                  // [undefined, undefined, undefined]</span
+                >
+              </p>
+
+              <p>Ex. 2</p>
+              <div>const numbers = [1, 2, 3];</div>
+              <p></p>
+              const doubledNumbers = numbers.map(function(element) {
+              <div style="margin-left: 20px">return element * 2;</div>
+              });
+              <p>make smth with every element and return</p>
+              <p>
+                console.log(doubledNumbers);
+                <span style="color: grey"> // [2, 4, 6]</span>
+              </p>
+
+              <p>Ex. 3</p>
+              <div>
+                const players = [
+                <div style="margin-left: 20px">{id: "1", name: "John"},</div>
+                <div style="margin-left: 20px">{id: "2", name: "Teresa"},</div>
+                <div style="margin-left: 20px">{id: "3", name: "Bob"},</div>
+                ];
+              </div>
+              <p></p>
+              const playersName = players.map(element => {
+              <div style="margin-left: 20px">return element.name;</div>
+              });
+
+              <p></p>
+              <div style="color: grey">
+                or according to arrow functions
+                <div>
+                  const playersName = players.map(element => element.name);
+                </div>
+              </div>
+
+              <p>
+                console.log(playersName);
+                <span style="color: grey"> // ["John", "Teresa", "Bob"]</span>
+              </p>
+
+              <p>
+                Ex. 4 - update some
+                <b>property in every element</b> of an array
+              </p>
+
+              <div>
+                const players = [
+                <div style="margin-left: 20px">
+                  {id: "id-1", name: "John", points: 10},
+                </div>
+                <div style="margin-left: 20px">
+                  {id: "id-2", name: "Teresa", points: 50},
+                </div>
+                <div style="margin-left: 20px">
+                  {id: "id-3", name: "Bob", points: 70},
+                </div>
+                ];
+              </div>
+
+              <p></p>
+              <div>
+                <div>
+                  const playersName = players.map(element => {
+                  <div style="margin-left: 20px">
+                    return {...element, points: element.points * 1.1};
+                  </div>
+                  });
+                </div>
+              </div>
+              <p></p>
+              <div>
+                console.log(playersName);
+                <div style="color: grey">
+                  [
+                  <div style="margin-left: 20px">
+                    <div>{id: '1', name: 'John', points: 11},</div>
+                    <div>{id: '2', name: 'Teresa', points: 55},</div>
+                    <div>{id: '3', name: 'Bob', points: 77}</div>
+                  </div>
+                  ]
+                </div>
+              </div>
+
+              <p>
+                Ex. 5 - update <b>one property in one element</b> of an array
+              </p>
+              <div>
+                const players = [
+                <div style="margin-left: 20px">
+                  {id: "id-1", name: "John", points: 10},
+                </div>
+                <div style="margin-left: 20px">
+                  {id: "id-2", name: "Teresa", points: 50},
+                </div>
+                <div style="margin-left: 20px">
+                  {id: "id-3", name: "Bob", points: 70},
+                </div>
+                ];
+              </div>
+              <p></p>
+              <div style="font-weight: 600">const playerToUpdate = "id-2";</div>
+              <p></p>
+              <div>
+                const playersName = players.map(element => {
+                <div style="margin-left: 20px">
+                  if (playerToUpdate === element.id) {
+                  <div style="margin-left: 20px">
+                    <div>console.log("we were found necessary player");</div>
+                    <div>
+                      console.log(element);
+                      <span style="color: grey"
+                        >// {id: 'id-2', name: 'Teresa', points: 50}</span
+                      >
+                    </div>
+                    <div>
+                      return { ...element, points: element.points + 100 };
+                    </div>
+                  </div>
+                  }
+                  <p></p>
+                  <div>return element;</div>
+                  <p></p>
+                  <!--  -->
+                  <div style="color: grey">
+                    <div>
+                      // or the same but with less code according to ternary
+                      operator;
+                      <b>after "=>" don't make {} for this case</b>
+                    </div>
+                    <div>
+                      // playerToUpdate === element.id
+                      <div style="margin-left: 20px">
+                        <div>
+                          // ? { ...element, points: element.points + 100 }
+                        </div>
+                        <div>// : element,</div>
+                      </div>
+                    </div>
+                  </div>
+                  <!--  -->
+                </div>
+                });
+              </div>
+              <p></p>
+              <div>
+                console.log(playersName);
+                <div style="color: grey">
+                  [
+                  <div style="margin-left: 20px">
+                    <div>{id: '1', name: 'John', points: 10},</div>
+                    <div style="font-weight: 600">
+                      {id: '2', name: 'Teresa', points: 150},
+                    </div>
+                    <div>{id: '3', name: 'Bob', points: 70}</div>
+                  </div>
+                  ]
+                </div>
+              </div>
+            </div>
+            <!-- end map -->
+
+            <!-- filter -->
+            <div style="background-color: rgb(243, 248, 176)">
+              <p></p>
+              <h3 style="color: red">filter</h3>
+
+              <div style="color: grey">
+                <div>- iterate every element of an array.</div>
+                <div>- return new arr with elements or empty one</div>
+                <div>- add to the new arr elements of callback condition</div>
+                <ul style="margin: 0; padding: 0; margin-left: 40px">
+                  <li>
+                    if callback return <b>true</b> - an element add to the new
+                    arr
+                  </li>
+                  <li>
+                    if callback return <b>false</b> - an element wouldn't be
+                    added to the new arr
+                  </li>
+                </ul>
+                <p>F.e.</p>
+
+                <div class="example">
+                  <div>const numbers = [1, 5, 23, 50];</div>
+                  <p></p>
+                  <div>
+                    const filteredNum = numbers.filter((element) => {
+                    <div style="margin-left: 20px">return element > 10;</div>
+                    });
+                  </div>
+                  <p></p>
+                  <div>
+                    console.log(filteredNum);
+                    <span style="color: grey">// [23, 50]</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- end filter -->
+
+            <!-- find -->
+            <div style="background-color: rgb(248, 216, 236)">
+              <p></p>
+              <h3 style="color: red">find</h3>
+
+              <div style="color: grey">
+                <div>- iterate every element of an array.</div>
+                <div>
+                  - return the first element according to condition or return
+                  undefined if no one elements founded
+                </div>
+              </div>
+
+              <p>F.e.</p>
+              <div class="example">
+                <!--  -->
+                <div>
+                  const players = [
+                  <div style="margin-left: 20px">
+                    <div>{ id: '1', name: 'John' },</div>
+                    <div>{ id: '2', name: 'Teresa' },</div>
+                    <div>{ id: '3', name: 'Bob' },</div>
+                  </div>
+                  ];
+                </div>
+                <p></p>
+                <div>
+                  const playerFounded = players.find(element => {
+                  <div style="margin-left: 20px">
+                    if (element.name === "John") {
+                    <div style="margin-left: 20px">return element;</div>
+                    };
+                  </div>
+                  });
+                </div>
+                <p>or according to arrow fn</p>
+                <div style="color: grey">
+                  // const playerFounded = players.find(element => element.name
+                  === "John");
+                </div>
+                <p></p>
+                <div>
+                  console.log(playerFounded);
+                  <span style="color: grey">// { id: '1', name: 'John' }</span>
+                </div>
+
+                <p style="color: grey">or reusable function</p>
+                <div style="color: grey">
+                  // const findPlayerById = (allPlayers, playerId) =>
+                  <div style="margin-left: 40px">
+                    allPlayers.find(player => player.id === playerId);
+                  </div>
+                  <p></p>
+                  <div>
+                    // console.log(findPlayerById(players, '2')); // {id: '2',
+                    name: 'Teresa'}
+                  </div>
+                </div>
+                <!--  -->
+              </div>
+            </div>
+            <!-- end find -->
+
+            <!-- every -->
+            <div style="background-color: rgb(202, 243, 212)">
+              <p></p>
+              <h3 style="color: red">every</h3>
+
+              <div style="color: grey">
+                <div>- iterate every element of an array.</div>
+                <div>
+                  - return <b>true</b> if all array elements accept condition
+                </div>
+                <div>
+                  - return <b>false</b> if at minimum one element doesn't accept
+                  condition
+                </div>
+              </div>
+
+              <!-- f.e -->
+              <p>F.e.</p>
+              <div>
+                const players = [
+                <div style="margin-left: 20px">
+                  <div>{ id: '1', name: 'John', online: true },</div>
+                  <div>{ id: '2', name: 'Teresa', online: true },</div>
+                  <div>{ id: '3', name: 'Bob', online: true },</div>
+                </div>
+                ];
+              </div>
+              <p></p>
+              <div>
+                const isAllOnline = players.every(player => player.online);
+              </div>
+              <p></p>
+              <div>
+                console.log(isAllOnline);
+                <span style="color: grey">// true</span>
+              </div>
+              <!-- --- -->
+            </div>
+            <!-- end every -->
+
+            <!-- some -->
+            <div style="background-color: rgb(248, 238, 179)">
+              <p></p>
+              <h3 style="color: red">some</h3>
+
+              <div style="color: grey">
+                <div>- iterate every element of an array.</div>
+                <div>
+                  - return <b>true</b> if at minimum one element accepts
+                  condition
+                </div>
+              </div>
+
+              <!-- f.e -->
+              <p>F.e.</p>
+              <div>
+                const players = [
+                <div style="margin-left: 20px">
+                  <div>{ id: '1', name: 'John', online: false },</div>
+                  <div>{ id: '2', name: 'Teresa', online: false },</div>
+                  <div>{ id: '3', name: 'Bob', online: true },</div>
+                </div>
+                ];
+              </div>
+              <p></p>
+              <div>
+                const minimumOneOnline = players.some(player => player.online);
+              </div>
+              <p></p>
+              <div>
+                console.log(minimumOneOnline);
+                <span style="color: grey">// true</span>
+              </div>
+              <!-- --- -->
+            </div>
+            <!-- end some -->
+
+            <!-- reduce -->
+            <div style="background-color: rgb(248, 238, 179)">
+              <p></p>
+              <h3 style="color: red">reduce</h3>
+              <p></p>
+              <div style="color: crimson">
+                Array.prototype.reduce(callback(acc, element) {
+                <div style="margin-left: 20px">//</div>
+                }, accStartValue);
+                <p></p>
+                <div>
+                  acc - in first iteration assign first element (like in Ex.1
+                  below)
+                </div>
+                <div>accStartValue - start value for accumulator</div>
+                <div>accStartValue - isn't necessary all time</div>
+              </div>
+              <p></p>
+              <div style="color: grey">
+                <div>- iterate every element of an array.</div>
+                <div>- return everything you want :)</div>
+                <div>
+                  - change different methods, but should use when necessary
+                </div>
+              </div>
+              <!-- example 1 -->
+              <div class="example">
+                <p>
+                  Example 1
+                  <span style="color: grey"
+                    >- first iteration will making, b/c set
+                    "accStartValue"</span
+                  >
+                </p>
+                <div>const numbers = [5, 10, 35];</div>
+                <p></p>
+                <div>
+                  const total = numbers.reduce((acc, element) => {
+                  <div style="margin-left: 20px">
+                    <div>console.log("element:", element);</div>
+                    <div>console.log("acc:", acc);</div>
+                  </div>
+
+                  }, 0);
+                </div>
+                <p></p>
+                <div>console.log(total);</div>
+                <p>//</p>
+                <div style="color: grey">
+                  <div>
+                    iteration 1:
+                    <span style="font-variant: small-caps"
+                      >- is making b/c "accStartValue" have been set</span
+                    >
+                    <div style="margin-left: 20px">
+                      <div>element: 5</div>
+                      <div>
+                        acc: 0
+                        <span style="font-variant: small-caps">
+                          - b/c we set the second parameter in reduce
+                        </span>
+                        method "accStartValue".
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    iteration 2:
+                    <div style="margin-left: 20px">
+                      <div>element: 10</div>
+                      <div>acc: undefined</div>
+                    </div>
+                  </div>
+                  <div>
+                    iteration 3:
+                    <div style="margin-left: 20px">
+                      <div>element: 35</div>
+                      <div>acc: undefined</div>
+                    </div>
+                  </div>
+                  <p></p>
+                  <div>
+                    we didn't make any return instruction, so method return:
+                    <div style="margin-left: 20px">
+                      <div>undefined</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- -- -- -- --->
+
+              <!-- example 2 -->
+              <div class="example">
+                <p>
+                  Example 2
+                  <span style="color: grey">
+                    - method reduce doesn't have the second parameter
+                    "accStartValue", first iteration starts from element 2 and
+                    acc assigned first element</span
+                  >
+                </p>
+                <div>
+                  const players = [
+                  <div style="margin-left: 20px">
+                    <div>{ id: '1', name: 'John' },</div>
+                    <div>{ id: '2', name: 'Teresa' },</div>
+                    <div>{ id: '3', name: 'Bob' },</div>
+                  </div>
+                  ];
+                </div>
+                <p></p>
+                <div>
+                  const example = players.reduce((acc, element) => {
+                  <div style="margin-left: 20px">
+                    <div>console.log('element:', element);</div>
+                    <div>console.log('acc:', acc);</div>
+                  </div>
+                  });
+                </div>
+                <p>//</p>
+                <div style="color: grey">
+                  <div>
+                    <div>iteration 1:</div>
+                    <div style="margin-left: 20px">
+                      <div>element: {id: '2', name: 'Teresa'}</div>
+                      <div>acc: {id: '1', name: 'John'}</div>
+                    </div>
+                  </div>
+                  <div>
+                    <div>iteration 2:</div>
+                    <div style="margin-left: 20px">
+                      <div>element: {id: '3', name: 'Bob'}</div>
+                      <div>acc: undefined</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- -- -- -- --->
+
+              <!-- example 3 -->
+              <div class="example">
+                <p>Example 3</p>
+                <div>
+                  const salary = {
+                  <div style="margin-left: 20px">
+                    <div>mango: 100,</div>
+                    <div>poly: 200,</div>
+                    <div>ajax: 300,</div>
+                  </div>
+                  };
+                </div>
+                <p></p>
+                <div>
+                  const values = Object.values(salary);
+                  <span style="color: grey">// [100, 200, 300]</span>
+                </div>
+                <div>
+                  const totalSalary = values.reduce( (total, element) => total +
+                  element );
+                </div>
+                <div>
+                  console.log(totalSalary);
+                  <span style="color: grey">// 300</span>
+                </div>
+                <p>or</p>
+                <div style="color: grey">
+                  const totalSalary = values.reduce((total, element) => {
+                  <div style="margin-left: 20px">return total + element;</div>
+                  }, 0);
+                </div>
+                <p>or</p>
+                <div style="color: grey">
+                  const totalSalary = values.reduce(
+                  <div style="margin-left: 20px">
+                    <div>(total, element) => total + element,</div>
+                    <div>0,</div>
+                  </div>
+                  );
+                </div>
+              </div>
+              <!-- -- -- -- --->
+
+              <!-- example 4 -->
+              <div class="example">
+                <p>Example 4</p>
+                <div>
+                  const players = [
+                  <div style="margin-left: 20px">
+                    <div>
+                      { id: '1', name: 'John', timePlayed: 50, online: false },
+                    </div>
+                    <div>
+                      { id: '2', name: 'Teresa', timePlayed: 120, online: false
+                      },
+                    </div>
+                    <div>
+                      { id: '3', name: 'Bob', timePlayed: 240, online: true },
+                    </div>
+                  </div>
+                  ];
+                </div>
+                <p></p>
+
+                <div style="color: rgb(0, 68, 146)">
+                  <p>// Decision 1</p>
+                  <div>
+                    const totalTimePlayed = players.reduce(
+                    <div style="margin-left: 20px">
+                      (acc, element) => acc + element.timePlayed,
+                      <div>0,</div>
+                    </div>
+
+                    );
+                  </div>
+                  <p></p>
+                  <div>
+                    console.log(totalTimePlayed);
+                    <span style="color: grey">// 410</span>
+                  </div>
+                </div>
+
+                <div style="color: darkgoldenrod">
+                  <p>// Decision 2</p>
+                  <div>
+                    const playerTimePlayed = players.map(element =>
+                    element.timePlayed);
+                    <span style="color: grey">// [50, 120, 240]</span>
+                  </div>
+                  <p></p>
+                  <div>
+                    const totalTimePlayed = playerTimePlayed.reduce(
+                    <div style="margin-left: 20px">
+                      (acc, number) => acc + number,
+                    </div>
+                    );
+                  </div>
+                  <p></p>
+                  <div>
+                    console.log(totalTimePlayed);
+                    <span style="color: grey">// 410</span>
+                  </div>
+                </div>
+              </div>
+              <!-- -- -- -- --->
+
+              <!-- example 5 -->
+              <div class="example">
+                <p>
+                  Example 5: a) collect all tags; b) make statistics form tags
+                  collected
+                </p>
+
+                <!-- == a) collect all tags; == -->
+                <p style="text-align: center"><b>A - collect all tags</b></p>
+                <div>
+                  const tweets = [
+                  <div>{id: 1, likes: 10, tags: ["html", "css"]},</div>
+                  <div>{id: 1, likes: 10, tags: ["html", "js"]},</div>
+                  <div>{id: 1, likes: 10, tags: ["js", "react"]},</div>
+                  <div>
+                    {id: 1, likes: 10, tags: ["react", "js", "nodejs"]},
+                  </div>
+                  ];
+                </div>
+                <p></p>
+
+                <!-- - = - Decision1 - = - -->
+                <div style="color: green">
+                  <p>// Decision 1 - good to understand & enough for work</p>
+                  <div>
+                    const allTags = tweets.reduce(
+                    <div style="margin-left: 20px">
+                      <div>
+                        (tagsAcc, element) => {
+                        <div style="margin-left: 20px">
+                          <div>tagsAcc.push(...element.tags);</div>
+                          <div>return tagsAcc;</div>
+                        </div>
+                        },
+                      </div>
+                      <div>[],</div>
+                    </div>
+                    );
+                  </div>
+                  <p></p>
+                  <div>
+                    console.log(allTags);
+                    <span style="color: grey"
+                      >// ["html", "css", "html", "js", "js", "react", "react",
+                      "js", "nodejs"]</span
+                    >
+                  </div>
+                </div>
+                <!-- - = - = - = - = - = - -->
+
+                <!-- - = - Decision2 - = - -->
+                <div style="color: rgb(109, 0, 60)">
+                  <p>
+                    // Decision 2
+                    <span style="color: grey"
+                      >- linter checking code doesn't like mutable code, like in
+                      decision before -->>>
+                      <b>tagsAcc.push(...element.tags);</b></span
+                    >
+                  </p>
+                  <div>
+                    const allTags = tweets.reduce(
+                    <div style="margin-left: 20px">
+                      <div>
+                        (tagsAcc, element) => {
+                        <div style="margin-left: 20px">
+                          <div>return [...tagsAcc, ...element.tags];</div>
+                        </div>
+                        },
+                      </div>
+                      <div>[],</div>
+                    </div>
+                    );
+                  </div>
+                  <p></p>
+                  <div>
+                    console.log(allTags);
+                    <span style="color: grey"
+                      >// ["html", "css", "html", "js", "js", "react", "react",
+                      "js", "nodejs"]</span
+                    >
+                  </div>
+                </div>
+                <!-- - = - = - = - = - = - -->
+
+                <!-- == end a) collect all tags; == -->
+
+                <!-- == b) make statistics form tags
+                  collected; == -->
+
+                <p style="text-align: center">
+                  <b>B - make statistics form tags collected</b>
+                </p>
+                <div style="color: grey">
+                  <p>Wa are waiting result like:</p>
+                  <div>
+                    {
+                    <div style="margin-left: 20px">
+                      <div>html: 2,</div>
+                      <div>css: 3,</div>
+                      <div>js: 4,</div>
+                      <div>react: 2,</div>
+                      <div>nodejs: 3,</div>
+                    </div>
+                    }
+                  </div>
+                </div>
+
+                <!-- Decision 1 ---------------------- -->
+                <div style="color: rgb(2, 61, 2)">
+                  <p>// Decision 1 - good to understand & enough for work</p>
+                  <p></p>
+                  <div>
+                    <!--  -->
+                    const stat = allTags.reduce((acc, element) => {
+                    <div style="margin-left: 20px">
+                      <div style="color: grey">
+                        // check if property exists, if exists, add to value +1
+                      </div>
+                      if (acc[element]) {
+                      <div style="margin-left: 20px">
+                        acc[element] += 1;
+                        <p></p>
+                        return acc;
+                      </div>
+                      }
+                      <p></p>
+                      <div style="color: grey">
+                        // create necessary field ot obj with value 1
+                      </div>
+                      <div>acc[element] = 1;</div>
+                      <p></p>
+                      return acc;
+                    </div>
+                    }, {});
+                    <p></p>
+                    <div>
+                      console.log(stat);
+                      <span style="color: grey"
+                        >// {html: 2, css: 1, js: 3, react: 2, nodejs: 1}</span
+                      >
+                    </div>
+
+                    <!--  -->
+                  </div>
+                </div>
+                <!-- END Decision 1 ------------------ -->
+
+                <!-- Decision 2 ---------------------- -->
+                <div style="color: rgb(78, 1, 61)">
+                  <p>
+                    // Decision 2 - linter doesn't like mutable code, like
+                    "acc[element] += 1;", so make unmutable code
+                  </p>
+                  <p></p>
+                  <div>
+                    <!--  -->
+                    const stat = allTags.reduce((acc, element) => {
+                    <div style="margin-left: 20px">
+                      <div style="color: grey">
+                        // check if property exists, if exists, add to value +1
+                      </div>
+                      if (acc[element]) {
+                      <div style="margin-left: 20px">
+                        <div style="color: grey">
+                          // we didn't mutate acc, we create new obj acc
+                        </div>
+                        return {
+                        <div style="margin-left: 20px">
+                          <div style="color: grey">// firstly spread "acc"</div>
+                          <div>...acc,</div>
+                          <p></p>
+                          <div style="color: grey">
+                            // then to exists property "[element]" (html f.e.)
+                            add + 1
+                          </div>
+                          <div>[element]: acc[element] + 1</div>
+                        </div>
+                        };
+                      </div>
+                      }
+                      <p></p>
+
+                      <div style="color: grey">
+                        // if we don't have necessary property (like "html"), we
+                        didn't mutate acc, we spread acc & add new property
+                      </div>
+                      return {
+                      <div style="margin-left: 20px">
+                        <div>...acc,</div>
+                        <div>[element]: 1</div>
+                      </div>
+                      };
+                    </div>
+                    }, {});
+                    <p></p>
+                    <div>
+                      console.log(stat);
+                      <span style="color: grey"
+                        >// {html: 2, css: 1, js: 3, react: 2, nodejs: 1}</span
+                      >
+                    </div>
+
+                    <!--  -->
+                  </div>
+                </div>
+                <!-- END Decision 2 ------------------ -->
+
+                <!-- == end b) make statistics form tags
+                  collected; == -->
+              </div>
+              <!-- END example 5 -->
+            </div>
+            <!-- end reduce -->
+          </div>
+        </section>
+        <!-- end lesson 11 -->
+
+        <!-- lesson 12 -->
+        <section class="section">
+          <div class="container">
+            <h3>Lesson 12 - Array Iteration Methods - PART 2</h3>
+            <p>
+              <a
+                target="_blank"
+                href="https://www.edu.goit.global/learn/8046784/2294/2298/training?blockId=20073195"
+                >GoIt Book</a
+              >
+            </p>
+            <p>
+              <a
+                target="_blank"
+                href="https://www.youtube.com/watch?v=kB6lTfrvlRg"
+                >Модуль 6. Занятие 12. Перебирающие методы массивов часть 2
+                (31.08)
+              </a>
+            </p>
+
+            <!-- sort -->
+            <div style="background-color: rgb(220, 233, 240)">
+              <p></p>
+              <h3 style="color: red">
+                sort
+                <span style="color: grey; font-weight: 400; font-size: 20px"
+                  >mutable</span
+                >
+                <p></p>
+                <div style="color: grey; font-weight: 400">
+                  Array.prototype.sort(callback(currentEl, nextEl){
+                  <div style="margin-left: 20px">//</div>
+                  })
+                </div>
+              </h3>
+              <p></p>
+              <div style="color: grey">
+                <div>- sort and <b>mutate an original array</b>;</div>
+                <div>
+                  - by default:
+                  <div style="margin-left: 20px">
+                    <div>
+                      &#9745; sorts an array alphabetically (sorts symbols in
+                      ascending order);
+                    </div>
+                    <div>
+                      &#9745; convert value to string & sort by
+                      <a
+                        style="color: rgb(221, 107, 206)"
+                        target="_blank"
+                        href="https://symbl.cc/en/unicode-table/"
+                        >"unicode character table"</a
+                      >
+                      <span>(symbl.cc)</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <p style="text-align: center"><b>Mutable code</b></p>
+
+              <!-- f.e numbers -->
+              <div class="example">
+                <p>F. e.</p>
+                <div>const num = [1, 8, 2, 12, 10];</div>
+                <p></p>
+                <div>
+                  console.log(num.sort());
+                  <span style="color: grey">// [1, 10, 12, 2, 8]</span>
+                  <div style="color: grey">
+                    // b/c alphabetically string "12" is less than "2" etc.
+                  </div>
+                </div>
+              </div>
+              <!-- --- -->
+
+              <!-- f.e letters -->
+              <div class="example">
+                <p>F. e.</p>
+                <div>const letters = ['C', 'B', 'a', 'A', 'b'];;</div>
+                <p></p>
+                <div>
+                  console.log(letters.sort());
+                  <span style="color: grey">// ['A', 'B', 'C', 'a', 'b']</span>
+                </div>
+              </div>
+              <!-- --- -->
+
+              <p>
+                In frontend mostly sorts objects in arrays, so we should use
+                <b
+                  >compareFunction(<span style="font-weight: 400"
+                    >currentElement, nextElement</span
+                  >)</b
+                >
+                (callback) to sort not only alphabetically.
+              </p>
+              <p><b>compareFunction(curEl, nextEl) rules:</b></p>
+              <ul>
+                <li>
+                  <b>curEl - nextEl = positive/negative</b> - simplest
+                  alphabetically sort, like without callback
+                  <p></p>
+                  <div style="color: grey">
+                    f.e. with num [1, 8, 2, 12, 10]
+                    <p></p>
+                    <div>
+                      element1: 1 - 8 = -7 -> negative value, so nothing to
+                      change;
+                      <div style="color: rebeccapurple; margin-left: 50px">
+                        [1, 8, ... ]
+                      </div>
+                    </div>
+                    <div>
+                      element2: 8 - 2 = 6 -> positive value, so elements changes
+                      places;
+                      <div style="color: rebeccapurple; margin-left: 50px">
+                        [..., 2, 8, ... ]
+                      </div>
+                    </div>
+                    <div>
+                      element3: 8 - 12 = -4 -> negative value, so nothing to
+                      change;
+                      <div style="color: rebeccapurple; margin-left: 50px">
+                        [..., 8, 12, ... ]
+                      </div>
+                    </div>
+                  </div>
+                  <p></p>
+                </li>
+                <li>
+                  <b>nextEl - curEl = positive/negative</b> - sorts numbers in
+                  descending order
+                  <p></p>
+                </li>
+                <li><b>nextEl - curEl = 0</b> - nothing to sort</li>
+              </ul>
+
+              <p style="text-align: center"><b>Create immutable code</b></p>
+              <div>const numbers = [1, 8, 2, 12, 10];</div>
+              <p></p>
+              <div>const numbersCopy = [...numbers];</div>
+              <p></p>
+              <div>
+                console.log(numbers === numbersCopy);
+                <span style="color: grey">// false</span>
+              </div>
+              <div style="outline: 1px solid green; margin: 10px">
+                <div style="outline: 1px solid green; margin: 20px">
+                  <p style="display: block">
+                    Or create <b>array copy and sort it at the same time</b>:
+                  </p>
+                  <div>const numbers = [1, 8, 2, 12, 10];</div>
+                  <p></p>
+                  <div>
+                    const descendingNumbers = [...numbers].sort((a, b) => b-a );
+                  </div>
+                  <p>
+                    console.log(descendingNumbers);
+                    <span style="color: grey">// [12, 10, 8, 2, 1]</span>
+                  </p>
+                </div>
+              </div>
+
+              <div class="example">
+                <p>Example 1 - sort by number</p>
+                <div>
+                  const players = [
+                  <div style="margin-left: 20px">
+                    <div>
+                      { id: 'id-1', name: 'John', timePlayed: 50, online: false
+                      },
+                    </div>
+                    <div>
+                      { id: 'id-2', name: 'Teresa', timePlayed: 120, online:
+                      false },
+                    </div>
+                    <div>
+                      { id: 'id-3', name: 'Bob', timePlayed: 240, online: true
+                      },
+                    </div>
+                    <div>
+                      { id: 'id-4', name: 'Shannon', timePlayed: 30, online:
+                      true },
+                    </div>
+                  </div>
+                  ];
+                </div>
+                <p></p>
+                <div>
+                  const ascendingByTimePlayed = [...players].sort((a, b) =>
+                  a.timePlayed - b.timePlayed);
+                </div>
+                <p></p>
+                <div>console.log(ascendingByTimePlayed);</div>
+                <div style="color: grey">
+                  //
+                  <div>
+                    { id: 'id-4', name: 'Shannon', timePlayed: <b>30</b>,
+                    online: true },
+                  </div>
+                  <div>
+                    { id: 'id-1', name: 'John', timePlayed: <b>50</b>, online:
+                    false }
+                  </div>
+                  <div>
+                    { id: 'id-2', name: 'Teresa', timePlayed: <b>120</b>,
+                    online: false },
+                  </div>
+                  <div>
+                    { id: 'id-3', name: 'Bob', timePlayed: <b>240</b>, online:
+                    true },
+                  </div>
+                </div>
+              </div>
+
+              <!-- Example 2 -->
+              <div class="example">
+                <p>Example 2 - sort by name</p>
+                <p>
+                  Usually in "sort by name" tasks compare first letters of the
+                  string, that according to
+                  <a
+                    style="color: rgb(221, 107, 206)"
+                    target="_blank"
+                    href="https://symbl.cc/en/unicode-table/"
+                    >"unicode character table"</a
+                  >
+                  has own number
+                </p>
+                <div>
+                  const players = [
+                  <div style="margin-left: 20px">
+                    <div>
+                      { id: 'id-1', name: 'John', timePlayed: 50, online: false
+                      },
+                    </div>
+                    <div>
+                      { id: 'id-2', name: 'Teresa', timePlayed: 120, online:
+                      false },
+                    </div>
+                    <div>
+                      { id: 'id-3', name: 'Bob', timePlayed: 240, online: true
+                      },
+                    </div>
+                    <div>
+                      { id: 'id-4', name: 'Shannon', timePlayed: 30, online:
+                      true },
+                    </div>
+                  </div>
+                  ];
+                </div>
+
+                <p></p>
+
+                <div>
+                  const sortByName = [...players].sort((a, b) => {
+                  <div style="margin-left: 20px">
+                    const result = a.name[0] > b.name[0];
+                    <p></p>
+                    if (result) {
+                    <div style="margin-left: 20px">return 1;</div>
+                    }
+                    <p></p>
+                    if (!result) {
+                    <div style="margin-left: 20px">return -1;</div>
+
+                    }
+                  </div>
+                  });
+                </div>
+                <p></p>
+                console.table(sortByName);
+                <div style="color: grey">
+                  //
+                  <div>
+                    { id: 'id-3', name: <b>'Bob'</b>, timePlayed: <b>240</b>,
+                    online: true },
+                  </div>
+                  <div>
+                    { id: 'id-1', name: <b>'John'</b>, timePlayed: <b>50</b>,
+                    online: false }
+                  </div>
+                  <div>
+                    { id: 'id-4', name: <b>'Shannon'</b>, timePlayed: <b>30</b>,
+                    online: true },
+                  </div>
+                  <div>
+                    { id: 'id-2', name: <b>'Teresa'</b>, timePlayed: <b>120</b>,
+                    online: false },
+                  </div>
+                </div>
+                <p></p>
+                <div style="color: grey">
+                  // B/c
+                  <div>
+                    console.log("a" > "b");
+                    <span style="color: grey">// false</span>
+                  </div>
+                  <p></p>
+                  <div>
+                    console.log(players[0].name[0].charCodeAt(0));
+                    <span style="font-weight: 600">"J" => 74</span>
+                  </div>
+                  <div>
+                    console.log(players[1].name[0].charCodeAt(0));
+                    <span style="font-weight: 600">"T" => 84</span>
+                  </div>
+                  <div>
+                    console.log(players[2].name[0].charCodeAt(0));
+                    <span style="font-weight: 600">"B" => 66</span>
+                  </div>
+                  <div>
+                    console.log(players[3].name[0].charCodeAt(0));
+                    <span style="font-weight: 600">"S" => 83</span>
+                  </div>
+                </div>
+              </div>
+              <!-- END Example 2 -->
+            </div>
+            <!-- end sort -->
+
+            <!-- flat -->
+            <div style="background-color: rgb(250, 233, 236)">
+              <p></p>
+              <h3 style="color: red">
+                flat
+                <span style="color: grey">(immutable)</span>
+              </h3>
+
+              <div style="color: grey">
+                <div>- spread array to necessary deep</div>
+                <div>- deep by default = 1</div>
+              </div>
+              <p></p>
+              <div>
+                <p>F.e.</p>
+                <div>
+                  const array = <span class="brackets">[</span>1, 2,
+                  <span class="brackets__level1">[</span>4,
+                  <span class="brackets__level2">[</span>
+                  5<span class="brackets__level2">]</span>
+                  <span class="brackets__level1">]</span>
+                  , <span class="brackets__level1">[</span>6,
+                  <span class="brackets__level2">[</span>7, 8, [9]<span
+                    class="brackets__level2"
+                    >]</span
+                  ><span class="brackets__level1">]</span
+                  ><span class="brackets">]</span>
+                  ;
+                </div>
+                <p></p>
+                <div>
+                  console.log(array.flat());
+                  <span style="color: grey"
+                    >// [1, 2, 4, Array(1), 6, Array(3)]</span
+                  >
+                </div>
+
+                <div>
+                  console.log(array.flat(2));
+                  <span style="color: grey"
+                    >// // [1, 2, 4, 5, 6, 7, 8, Array(1)]</span
+                  >
+                </div>
+
+                <div>
+                  console.log(array.flat(3));
+                  <span style="color: grey">// [1, 2, 4, 5, 6, 7, 8, 9]</span>
+                </div>
+              </div>
+
+              <!-- f.e -->
+              <div class="example">
+                <p>Example - accumulate all tags to arr</p>
+                <div>
+                  const tweets = [
+                  <div style="margin-left: 20px">
+                    <div>{id: 1, likes: 10, tags: ["html", "css"]},</div>
+                    <div>{id: 1, likes: 10, tags: ["html", "js"]},</div>
+                    <div>{id: 1, likes: 10, tags: ["js", "react"]},</div>
+                    <div>
+                      {id: 1, likes: 10, tags: ["react", "js", "nodejs"]},
+                    </div>
+                  </div>
+                  ];
+                </div>
+                <p></p>
+                const tagsArr = tweets.map(element => element.tags);
+                <p></p>
+                <div>const tagsArrFlat = tagsArr.flat();</div>
+                <p></p>
+                <div>
+                  console.log(tagsArrFlat);
+                  <span style="color: grey"
+                    >// ['html', 'css', 'html', 'js', 'js', 'react', 'react',
+                    'js', 'nodejs']</span
+                  >
+                </div>
+              </div>
+
+              <!-- --- -->
+            </div>
+            <!-- end flat -->
+
+            <p>
+              In example "Example - accumulate all tags to arr" inside of
+              <b>flat()</b> method we iterate two times array, so it isn't goog
+              decision, so for this operation comes new method <b>flatMap()</b>.
+            </p>
+
+            <!-- flatMap -->
+            <div style="background-color: rgb(250, 233, 236)">
+              <p></p>
+              <h3 style="color: red">
+                flatMap
+                <span style="color: grey">(immutable)</span>
+              </h3>
+
+              <div style="color: grey">
+                <div>- map array to one & flat it at the same time</div>
+                <div>- one level of deep only</div>
+              </div>
+              <p></p>
+
+              <!-- f.e -->
+              <div class="example">
+                <p>Example - accumulate all tags to arr</p>
+                <div>
+                  const tweets = [
+                  <div style="margin-left: 20px">
+                    <div>{id: 1, likes: 10, tags: ["html", "css"]},</div>
+                    <div>{id: 1, likes: 10, tags: ["html", "js"]},</div>
+                    <div>{id: 1, likes: 10, tags: ["js", "react"]},</div>
+                    <div>
+                      {id: 1, likes: 10, tags: ["react", "js", "nodejs"]},
+                    </div>
+                  </div>
+                  ];
+                </div>
+
+                <p></p>
+                <div>
+                  const tagsArrFlat = tweets.flatMap(element => element.tags);
+                </div>
+                <p></p>
+                <div>
+                  console.log(tagsArrFlat);
+                  <span style="color: grey"
+                    >// ['html', 'css', 'html', 'js', 'js', 'react', 'react',
+                    'js', 'nodejs']</span
+                  >
+                </div>
+              </div>
+
+              <!-- --- -->
+            </div>
+            <!-- end flatMap -->
+
+            <!-- use chaining -->
+            <div style="background-color: khaki">
+              <p><b>Chaining technique</b></p>
+              <div class="example">
+                Example 1 - sort only online users according to rang
+                <div style="margin-left: 20px">
+                  <div>- firstly filter by online</div>
+                  <div>- sort filtered by rank</div>
+                  <div></div>
+                </div>
+
+                <p></p>
+                <div>
+                  const players = [
+                  <div style="margin-left: 20px">
+                    <div>
+                      { id: 'id-1', name: 'John', rank: 800, online: true },
+                    </div>
+                    <div>
+                      { id: 'id-2', name: 'Teresa', rank: 600, online: false },
+                    </div>
+                    <div>
+                      { id: 'id-3', name: 'Bob', rank: 100, online: true },
+                    </div>
+                    <div>
+                      { id: 'id-4', name: 'Shannon', rank: 400, online: true },
+                    </div>
+                  </div>
+                  ];
+                </div>
+                <p></p>
+                <div style="color: grey">
+                  // const onlinePlayers = players.filter(player =>
+                  player.online);
+                </div>
+                <p></p>
+                <div style="color: grey">
+                  // const sortedByRank = onlinePlayers.sort((a, b) => b.rank -
+                  a.rank);
+                </div>
+                <p></p>
+                <div style="color: grey">// console.log(sortedByRank);</div>
+                <p>// or with chaining</p>
+                <div>
+                  const onlineByRank = players
+                  <div style="margin-left: 20px">
+                    <div>.filter(player => player.online)</div>
+                    <div>.sort((a, b) => b.rank - a.rank);</div>
+                  </div>
+                </div>
+                <p></p>
+                <div>console.log(onlineByRank);</div>
+              </div>
+            </div>
+            <!-- END use chaining -->
+
+            <!-- lodash lib -->
+            <div style="background-color: rgb(192, 187, 255)">
+              <p><b>Lodash</b> - JavaScript utility (methods) library</p>
+
+              <p>
+                Pay attention in documentation: [some parameter] -
+                <b style="color: red">Square Brackets [] </b> means not
+                necessary parameter (f.e. in get() is one parameter isn't
+                necessary; in range() are 2 parameters aren't necessary etc.)
+              </p>
+
+              <p>
+                Quick library connect to html simplest project (by "CDN
+                copies").
+              </p>
+              <p>
+                Idea of using lodash <b>"CDN copies"</b> isn't good, b/c we want
+                use 2/3 methods, but download to project all lib with 200/300
+                methods. But for showing practice we download it from
+                <a target="_blank" href="https://lodash.com/">lodash.com</a> by
+                putting to our html script
+
+                <span style="display: block">
+                  &lt;script
+                  src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"&gt;&lt;/script&gt;
+                </span>
+              </p>
+
+              <p>
+                After putting the script from lodash to our html, we receive in
+                js access to global variable <b>"_"</b>, so
+                <span style="color: grey">console.dir(_);</span> to look at it.
+              </p>
+              <p>So all lodash methods evoke like <b>_.method1()</b>.</p>
+              <p>
+                In generally saying lodash helps of growing JS, pulling from
+                lodash methods like map(), flat() etc.
+              </p>
+
+              <!-- isEmpty() -->
+              <div style="outline: 2px solid green">
+                <p style="text-align: center; color: red">
+                  <b>isEmpty()</b>
+                  <span style="color: grey">( _.isEmpty() )</span>
+                </p>
+                <p>F.e.</p>
+                <div>
+                  console.log(_.isEmpty({}));
+                  <span style="color: grey">// true</span>
+                </div>
+                <div>
+                  console.log(_.isEmpty({a: 1}));
+                  <span style="color: grey">// false</span>
+                </div>
+              </div>
+              <!-- END isEmpty() -->
+
+              <!-- get() -->
+              <div style="outline: 2px solid green">
+                <p style="text-align: center; color: red">
+                  <b>get()</b>
+                  <span style="color: grey">( _.get() )</span>
+                  <span style="display: block; color: grey"
+                    >_.get(object, path, [defaultValue])</span
+                  >
+                </p>
+                <p>
+                  F.e. - when from backend comes object & we have to use "city"
+                  property:
+                </p>
+                <p style="text-align: center">A) object is OK:</p>
+                <div>
+                  const user = {
+                  <div style="margin-left: 20px">name: "Mango",</div>
+                  <div style="margin-left: 20px">
+                    location: {
+                    <div style="margin-left: 20px">
+                      <div>coords: [1, 2],</div>
+                      <div>city: London }</div>
+                    </div>
+                  </div>
+                  }
+                </div>
+                <p>Without any library:</p>
+                <div style="color: green">
+                  console.log(user.location.city);
+                  <span style="color: grey">// London</span>
+                </div>
+
+                <p>With lodash library the same:</p>
+                <div style="color: green">
+                  console.log(_.get(user, "user.location.city"));
+                  <span style="color: grey">// London</span>
+                </div>
+                <p>
+                  There is no difference with code if everything ok, but
+                  sometimes backend return not full object.
+                </p>
+
+                <p style="text-align: center">
+                  B) Backend return not full object:
+                </p>
+
+                <div>
+                  const user = {
+                  <div style="margin-left: 20px">name: "Mango",</div>
+
+                  }
+                </div>
+                <p>// With lodash library the same:</p>
+                <div style="color: green">
+                  console.log(_.get(user, "user.location.city"));
+                  <span style="color: grey">// undefined</span>
+                </div>
+
+                <p>// Without any library:</p>
+                <div style="color: red">
+                  console.log(user.location.city);
+                  <span style="color: grey"
+                    >// error: Cannot read properties of undefined (reading
+                    'city')</span
+                  >
+                </div>
+                <p>
+                  To sum up, lodash <b>get()</b> method return "undefined" from
+                  any deep object property when property doesn't exists, & we
+                  will have still working code.
+                </p>
+
+                <p style="text-align: center">
+                  C) object isn't full, JS decision:
+                </p>
+
+                <p>
+                  Lodash made decision (with no full object properties ) long
+                  time ago, in JS this problem solved only couple years ago by
+                  operator "?":
+                </p>
+
+                <div>
+                  const user = {
+                  <div style="margin-left: 20px">name: "Mango",</div>
+
+                  }
+                </div>
+
+                <p>// Without any library:</p>
+                <div style="color: green">
+                  console.log(user?.location?.city);
+                  <span style="color: grey"
+                    >// error: Cannot read properties of undefined (reading
+                    'city')</span
+                  >
+                </div>
+              </div>
+              <!-- END get() -->
+
+              <!-- union() -->
+              <div style="outline: 2px solid green">
+                <p style="text-align: center; color: red">
+                  <b>union()</b>
+                  <span style="color: grey">( _.union() )</span>
+                </p>
+
+                <p>
+                  F.e. - task when we have to join 2 arrays & show only unique
+                  elements
+                </p>
+                <div>
+                  console.log([1, 2, <b>3</b>], [<b>3</b>, 4, 5]);
+                  <span style="color: grey"
+                    >// [1, 2, <b>3</b>, 4, 5] - shown only unique
+                    elements</span
+                  >
+                </div>
+              </div>
+              <!-- END union() -->
+
+              <!-- range() -->
+              <div style="outline: 2px solid green">
+                <p style="text-align: center; color: red">
+                  <b>range()</b>
+                  <span style="color: grey">( _.range() )</span>
+                  <span style="display: block; color: grey"
+                    >_.range([start=0], end, [step=1])</span
+                  >
+                </p>
+
+                <p>F.e. - shown array only with numbers from 3 to 10</p>
+                <div>
+                  console.log(_.range(3, 11));
+                  <span style="color: grey">// [3, 4, 5, 6, 7, 8, 9, 10]</span>
+                </div>
+                <div>
+                  console.log(_.range(1, 6, 2));
+                  <span style="color: grey">// [1, 3, 5]</span>
+                </div>
+                <div>
+                  console.log(_.range(5));
+                  <span style="color: grey">// [0, 1, 2, 3, 4]</span>
+                </div>
+              </div>
+              <!-- END range() -->
+
+              <!-- sortBy() -->
+              <div style="outline: 2px solid green">
+                <p style="text-align: center; color: red">
+                  <b>sortBy()</b>
+                  <span style="color: grey">( _.sortBy() )</span>
+                  <span style="display: block; color: grey"
+                    >_.sortBy(collection, [iteratees=[_.identity]])</span
+                  >
+                  <span style="display: block; color: grey"
+                    >- where <b>[iteratees=[_.identity]]</b> - callback</span
+                  >
+                </p>
+
+                <div class="example">
+                  <p>Example</p>
+
+                  <div>
+                    const users = [
+                    <div style="margin-left: 20px">
+                      <div>{ user: 'fred', age: 48 },</div>
+                      <div>{ user: 'barney', age: 36 },</div>
+                      <div>{ user: 'fred', age: 40 },</div>
+                      <div>{ user: 'barney', age: 34 },</div>
+                    </div>
+                    ];
+                  </div>
+
+                  <p style="text-align: center">// sorts by one field only</p>
+                  <div>
+                    const sortedByUser = _.sortBy(users, [
+                    <div style="margin-left: 20px">
+                      function (users) {
+                      <div style="margin-left: 20px">return users.user;</div>
+                      },
+                    </div>
+                    ]);
+                  </div>
+                  <p></p>
+                  <div>console.log(sortedByUser);</div>
+                  <div style="color: grey">
+                    <div>
+                      const users = [
+                      <div style="margin-left: 20px">
+                        <div>{ user: 'barney', age: 36 },</div>
+                        <div>{ user: 'barney', age: 34 },</div>
+                        <div>{ user: 'fred', age: 48 },</div>
+                        <div>{ user: 'fred', age: 40 },</div>
+                      </div>
+                      ];
+                    </div>
+                  </div>
+                  <p style="text-align: center">// sorts by couple fields</p>
+
+                  const sortedByUserAndAge = _.sortBy(users, ['user', 'age']);
+                  <p></p>
+                  console.log(sortedByUserAndAge);
+                  <div style="color: grey">
+                    <div>
+                      const users = [
+                      <div style="margin-left: 20px">
+                        <div>{ user: 'barney', age: 34 },</div>
+                        <div>{ user: 'barney', age: 36 },</div>
+                        <div>{ user: 'fred', age: 40 },</div>
+                        <div>{ user: 'fred', age: 48 },</div>
+                      </div>
+                      ];
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- END sortBy() -->
+
+              <!-- sum() -->
+              <div style="outline: 2px solid green">
+                <p style="text-align: center; color: red">
+                  <b>sum()</b>
+                  <span style="color: grey">( _.sum() )</span>
+                </p>
+
+                <div>
+                  console.log(_.sum([1, 2, 3]));
+                  <span style="color: grey">// 6</span>
+                </div>
+              </div>
+              <!-- END sum() -->
+
+              <!-- sumBy() -->
+              <div style="outline: 2px solid green">
+                <p style="text-align: center; color: red">
+                  <b>sumBy()</b>
+                  <span style="color: grey">( _.sumBy() )</span>
+                </p>
+
+                <div class="example">
+                  <p>
+                    Example - make sum of timePlayed without native js method
+                    reduce()
+                  </p>
+                  <div>
+                    const players = [
+                    <div style="margin-left: 20px">
+                      <div>
+                        { id: 'id-1', name: 'John', timePlayed: 50, online:
+                        false },
+                      </div>
+                      <div>
+                        { id: 'id-2', name: 'Teresa', timePlayed: 120, online:
+                        false },
+                      </div>
+                      <div>
+                        { id: 'id-3', name: 'Bob', timePlayed: 240, online: true
+                        },
+                      </div>
+                      <div>
+                        { id: 'id-4', name: 'Shannon', timePlayed: 30, online:
+                        true },
+                      </div>
+                    </div>
+                    ];
+                  </div>
+
+                  <p></p>
+                  <div>
+                    const totalTimePlayed = _.sumBy(players, player =>
+                    player.timePlayed);
+                  </div>
+                  <p></p>
+                  <div>
+                    console.log(totalTimePlayed);
+                    <span style="color: grey">// 440</span>
+                  </div>
+                </div>
+              </div>
+              <!-- END sumBy() -->
+
+              <!-- uniq() -->
+              <div style="outline: 2px solid green">
+                <p style="text-align: center; color: red">
+                  <b>uniq()</b>
+                  <span style="color: grey">( _.uniq() )</span>
+                </p>
+              </div>
+              <!-- END uniq() -->
+
+              <!-- uniqBy() -->
+              <div style="outline: 2px solid green">
+                <p style="text-align: center; color: red">
+                  <b>uniqBy()</b>
+                  <span style="color: grey">( _.uniqBy() )</span>
+                </p>
+              </div>
+              <!-- END uniqBy() -->
+
+              <!-- sortedUniq() -->
+              <div style="outline: 2px solid green">
+                <p style="text-align: center; color: red">
+                  <b>sortedUniq()</b>
+                  <span style="color: grey">( _.sortedUniq() )</span>
+                </p>
+              </div>
+              <!-- END sortedUniq() -->
+
+              <!-- sortedUniqBy() -->
+              <div style="outline: 2px solid green">
+                <p style="text-align: center; color: red">
+                  <b>sortedUniqBy()</b>
+                  <span style="color: grey">( _.sortedUniqBy() )</span>
+                </p>
+              </div>
+              <!-- END sortedUniqBy() -->
+
+              <!-- random() -->
+              <div style="outline: 2px solid green">
+                <p style="text-align: center; color: red">
+                  <b>random()</b>
+                  <span style="color: grey">( _.random() )</span>
+                </p>
+              </div>
+              <!-- END random() -->
+
+              <!-- min() -->
+              <div style="outline: 2px solid green">
+                <p style="text-align: center; color: red">
+                  <b>min()</b>
+                  <span style="color: grey">( _.min() )</span>
+                </p>
+                <p>For array of numbers</p>
+              </div>
+              <!-- END min() -->
+
+              <!-- max() -->
+              <div style="outline: 2px solid green">
+                <p style="text-align: center; color: red">
+                  <b>max()</b>
+                  <span style="color: grey">( _.max() )</span>
+                </p>
+                <p>For array of numbers</p>
+              </div>
+              <!-- END max() -->
+
+              <!-- minBy() -->
+              <div style="outline: 2px solid green">
+                <p style="text-align: center; color: red">
+                  <b>minBy()</b>
+                  <span style="color: grey">( _.minBy() )</span>
+                </p>
+                <p>For array of objects by any property</p>
+              </div>
+              <!-- END minBy() -->
+
+              <!-- maxBy() -->
+              <div style="outline: 2px solid green">
+                <p style="text-align: center; color: red">
+                  <b>maxBy()</b>
+                  <span style="color: grey">( _.maxBy() )</span>
+                </p>
+                <p>For array of objects by any property</p>
+              </div>
+              <!-- END maxBy() -->
+
+              <!-- camelCase() -->
+              <div style="outline: 2px solid green">
+                <p style="text-align: center; color: red">
+                  <b>camelCase()</b>
+                  <span style="color: grey">( _.camelCase() )</span>
+                </p>
+              </div>
+              <!-- END camelCase() -->
+
+              <!-- capitalize() -->
+              <div style="outline: 2px solid green">
+                <p style="text-align: center; color: red">
+                  <b>capitalize()</b>
+                  <span style="color: grey">( _.capitalize() )</span>
+                </p>
+              </div>
+              <!-- END capitalize() -->
+
+              <!-- kebabCase() -->
+              <div style="outline: 2px solid green">
+                <p style="text-align: center; color: red">
+                  <b>kebabCase()</b>
+                  <span style="color: grey">( _.kebabCase() )</span>
+                </p>
+              </div>
+              <!-- END kebabCase() -->
+
+              <!-- lowerCase() -->
+              <div style="outline: 2px solid green">
+                <p style="text-align: center; color: red">
+                  <b>lowerCase()</b>
+                  <span style="color: grey">( _.lowerCase() )</span>
+                </p>
+              </div>
+              <!-- END lowerCase() -->
+
+              <!-- upperCase() -->
+              <div style="outline: 2px solid green">
+                <p style="text-align: center; color: red">
+                  <b>upperCase()</b>
+                  <span style="color: grey">( _.upperCase() )</span>
+                </p>
+              </div>
+              <!-- END upperCase() -->
+            </div>
+            <!-- END lodash lib -->
+          </div>
+        </section>
+        <!-- end lesson 12 -->
+      </main>
+      <footer></footer>
+    </div>
+
+    <script src="./js/users.js" type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+    <script src="./js/burger-menu.js" type="module"></script>
+    <script src="./js/6-module.js" type="module"></script>
+    <script src="./js/6-hw.js" type="module"></script>
+  </body>
+</html>

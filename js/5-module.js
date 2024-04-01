@@ -103,26 +103,4 @@
 // const car123 = new Car('arg1', 'arg2');
 // console.log(car123);
 
-// --- static properties ---
-class Car {
-  static description = 'Class Car';
-
-  #test = 'test';
-
-  constructor(config = {}) {
-    const { brand, price } = config;
-    this.brand = brand;
-    this.price = price;
-  }
-
-  changePrice1(newPrice) {
-    this.price = newPrice;
-  }
-}
-console.dir(Car);
-
-const car1 = new Car({ brand: 'Fiat', price: 10000 });
-console.log(car1);
-// console.log(car1.#test);
-
 // ========= E N D     Lesson 10  =============

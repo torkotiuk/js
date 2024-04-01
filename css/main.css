@@ -89,6 +89,22 @@
   margin: 10px;
 }
 
+.example {
+  outline: 1px solid red;
+}
+
+.brackets {
+  color: #ff9900;
+}
+
+.brackets__level1 {
+  color: #6b0e6b;
+}
+
+.brackets__level2 {
+  color: #6c56eb;
+}
+
 *,
 *::before,
 *::before {
