@@ -1,0 +1,1953 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS - Module 7 - DOM, Events</title>
+
+    <link rel="stylesheet" href="./css/main.min.css" />
+
+    <style>
+      .tr-table {
+        width: 100%;
+      }
+
+      .tr-table thead th,
+      .tr-table tbody td {
+        outline: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <div class="container">
+          <a class="logo" href="./index.html">Home</a>
+
+          <a
+            target="_blank"
+            href="https://github.com/goitacademy/javascript-homework"
+            >javascript-home-tasks</a
+          >
+
+          <button type="button" class="menu-button" data-menu-button>
+            <svg width="40" height="40" aria-label="Mobile menu switch">
+              <use
+                class="icon-menu"
+                href="./assets/images/sprite.svg#icon-menu"
+              ></use>
+              <use
+                class="icon-close"
+                href="./assets/images/sprite.svg#icon-close"
+              ></use>
+            </svg>
+          </button>
+
+          <div class="mob-menu-container" data-menu>
+            <ul class="list">
+              <li><a href="./index.html">Home</a></li>
+              <li><a href="./module1.html">Module 1</a></li>
+              <li><a href="./module2.html">Module 2</a></li>
+              <li><a href="./module3.html">Module 3</a></li>
+              <li><a href="./module4.html">Module 4</a></li>
+              <li><a href="./module5.html">Module 5</a></li>
+              <li>
+                <a href="./module6.html">Module 6</a>
+              </li>
+              <li>
+                <a class="current" href="./module7.html">Module 7</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <main class="main">
+        <section class="section">
+          <div class="container">
+            <h2>Module 7 - DOM, Events</h2>
+
+            <p>
+              <a target="_blank" href="./module7-hw.html"
+                >Module 7 - Home works</a
+              >
+            </p>
+          </div>
+        </section>
+
+        <!-- lesson 13 -->
+        <section class="section">
+          <div class="container">
+            <h3>Lesson 13 - DOM</h3>
+            <p>
+              <a
+                target="_blank"
+                href="https://www.edu.goit.global/learn/8046784/2294/2300/training?blockId=20102837"
+                >GoIt Book</a
+              >
+            </p>
+            <p>
+              <a
+                target="_blank"
+                href="https://www.youtube.com/watch?v=Haq2JIuE6Rg"
+                >Модуль 7. Занятие 13. Объектная модель документа
+                (DOM)(14/09)</a
+              >
+            </p>
+
+            <!-- Main operations with DOM -->
+            <div style="background-color: burlywood; padding: 10px">
+              <p style="text-align: center"><b>Main operations with DOM:</b></p>
+              <ol>
+                <li>
+                  <p><b>DOM read or write values:</b></p>
+                  <ul>
+                    <li>
+                      <div>
+                        In some <b style="color: blue">html</b> document
+
+                        <div style="color: teal">
+                          &lt;img class="hero-image"&gt;&lt;/img&gt;
+                        </div>
+                      </div>
+                      <p></p>
+                      <div style="color: tomato"><b>JS</b></div>
+                      <div style="color: teal">
+                        const imageRef = document.querySelector('.hero-image');
+                      </div>
+                      <div style="color: grey; margin-left: 20px">
+                        // where <b>.hero-image</b> - css selector
+                      </div>
+
+                      <div style="color: teal">
+                        <div>
+                          imageRef.src =
+                          <div class="relative-font">
+                            <div>
+                              'https://unsplash.com/photos/a-hand-holding-a-martini-glass-with-a-lemon-wedge-in-it-b-NOeNw7adI';
+                            </div>
+                          </div>
+                        </div>
+
+                        <div>imageRef.width = 200;</div>
+                        <div>
+                          imageRef.alt = "Free image may be deleted free link to
+                          view";
+                        </div>
+                      </div>
+                      <p></p>
+
+                      <!--  -->
+                      <img
+                        style="outline: 1px solid red; padding: 10px"
+                        class="hero-image"
+                      />
+                      <!--  -->
+                    </li>
+                  </ul>
+                </li>
+
+                <li>
+                  <p><b>Use methods for attributes: </b></p>
+                  <div>
+                    - getAttribute(), - setAttribute(), - removeAttribute(), -
+                    hasAttribute()
+                  </div>
+                  <ul>
+                    <li>
+                      <div>
+                        console.log(imageRef.getAttribute('src'));
+                        <div class="relative-font" style="color: grey">
+                          //
+                          'https://pixabay.com/get/g9325b4e035c6bb2ebe51d3543a87ae60b1b9184bbdd08e0722d123a7dffd30a73b8de7a3c119465b50b417dedf57ee82_1280.jpg';
+                        </div>
+                      </div>
+                      <p></p>
+                      <div>
+                        console.log(imageRef.hasAttribute('alt'));
+                        <span style="color: grey">// true</span>
+                      </div>
+                    </li>
+                  </ul>
+                </li>
+              </ol>
+            </div>
+            <!-- E N D of Main operations with DOM -->
+
+            <!-- Custom elements data attributes -->
+            <div style="background-color: cornsilk; padding: 10px">
+              <p style="text-align: center">
+                <b>Custom elements data attributes</b>
+              </p>
+
+              <p style="margin: 5px">
+                There are <b> two ways of reading/writing</b> data attributes:
+              </p>
+              <div style="margin-left: 20px">
+                <div>- via "dataset";</div>
+                <div>- Via method like "getAttribute()";</div>
+              </div>
+
+              <p></p>
+              <div>
+                F.e
+                <!-- html -->
+                <div class="actions js-actions">
+                  <button type="button" data-action="add">Add</button>
+                  <button type="button" data-action="remove">Remove</button>
+                  <button type="button" data-action="edit">Edit</button>
+                </div>
+                <p></p>
+                <div>
+                  <div style="color: blue">HTML</div>
+                  <p></p>
+                  <div style="color: teal; outline: 1px solid red">
+                    &lt;div class="actions js-actions"&gt;
+                    <div style="margin-left: 20px">
+                      <div>
+                        &lt;button type="button"
+                        data-action="add"&gt;Add&lt;/button&gt;
+                      </div>
+                      <div>
+                        &lt;button type="button"
+                        data-action="remove"&gt;Remove&lt;/button&gt;
+                      </div>
+                      <div>
+                        &lt;button type="button"
+                        data-action="edit"&gt;Edit&lt;/button&gt;
+                      </div>
+                    </div>
+                    &lt;/div&gt;
+                  </div>
+                  <p></p>
+                  <div style="color: grey">
+                    // where class="actions" - css style class
+                  </div>
+                  <div style="color: grey">
+                    // where class="js-actions" - use for some js functionality
+                  </div>
+                </div>
+                <!-- END html -->
+
+                <!-- JS -->
+                <div>
+                  <p style="color: tomato">JS</p>
+                  <p style="color: grey">
+                    Select all buttons in the js-actions node:
+                  </p>
+                  <div
+                    style="
+                      color: teal;
+                      margin-left: 20px;
+                      outline: 1px solid red;
+                    "
+                  >
+                    const actions = document.querySelectorAll('.js-actions
+                    button');
+                  </div>
+
+                  <p style="color: grey">Select edit button node:</p>
+                  <div
+                    style="
+                      color: teal;
+                      margin-left: 20px;
+                      outline: 1px solid red;
+                    "
+                  >
+                    console.log(actions[2]);
+                  </div>
+
+                  <p>Read dataset node VALUE</p>
+                  <ol>
+                    <li>
+                      <b style="color: grey">Via "dataset"</b>
+                      <div style="color: teal; outline: 1px solid red">
+                        console.log(actions[2].dataset.action);
+                        <span style="color: grey">// edit</span>
+                      </div>
+                    </li>
+                    <li>
+                      <p></p>
+                      <b style="color: grey"
+                        >Via method like "getAttribute()"</b
+                      >
+                      <div style="color: teal; outline: 1px solid red">
+                        console.log(actions[2].getAttribute('data-action'));
+                        <span style="color: grey">// edit</span>
+                      </div>
+                    </li>
+                  </ol>
+                </div>
+                <!-- END JS -->
+              </div>
+            </div>
+            <!-- E N D of Custom elements data attributes -->
+
+            <!-- Add, delete & toggle classes in elements -->
+            <div style="background-color: rgb(241, 172, 172); padding: 10px">
+              <p style="text-align: center">
+                <b>Add, delete & toggle classes in elements</b>
+              </p>
+              <p>F.e</p>
+
+              <ul class="site-nav">
+                <li class="site-nav__item">
+                  <a href="" class="site-nav__link">About</a>
+                </li>
+                <li class="site-nav__item">
+                  <a href="" class="site-nav__link">Portfolio</a>
+                </li>
+                <li class="site-nav__item">
+                  <a href="" class="site-nav__link">Contacts</a>
+                </li>
+              </ul>
+
+              <button type="button" class="js-button">
+                Toggle classes button
+              </button>
+              <p></p>
+
+              <a target="_blank" href="./module7_example.html"
+                >Or the same in other tab</a
+              >
+
+              <p style="color: blue">HTML</p>
+
+              <div style="outline: 1px solid red">
+                &lt;ul class="site-nav"&gt;
+                <div style="margin-left: 20px">
+                  <!--  -->
+                  <div>
+                    &lt;li class="site-nav__item"&gt;
+                    <div style="margin-left: 20px">
+                      &lt;a href="" class="site-nav__link"&gt;About&lt;/a&gt;
+                    </div>
+                    &lt;/li&gt;
+                  </div>
+
+                  <div>
+                    &lt;li class="site-nav__item"&gt;
+                    <div style="margin-left: 20px">
+                      &lt;a href=""
+                      class="site-nav__link"&gt;Portfolio&lt;/a&gt;
+                    </div>
+                    &lt;/li&gt;
+                  </div>
+
+                  <div>
+                    &lt;li class="site-nav__item"&gt;
+                    <div style="margin-left: 20px">
+                      &lt;a href="" class="site-nav__link"&gt;Contacts&lt;/a&gt;
+                    </div>
+                    &lt;/li&gt;
+                  </div>
+                  <!--  -->
+                </div>
+                &lt;/ul&gt;
+
+                <p></p>
+
+                <div>
+                  &lt;button type="button" class="js-button"&gt;Toggle classes
+                  button&lt;/button&gt;
+                </div>
+              </div>
+
+              <!-- JS -->
+              <div style="padding: 10px">
+                <p style="color: tomato">JS</p>
+
+                <div style="color: teal; outline: 1px solid red">
+                  const siteNavRef = document.querySelector('.site-nav');
+                </div>
+
+                <p>- Link to site-nav</p>
+                <div
+                  style="color: teal; outline: 1px solid red; margin-left: 20px"
+                >
+                  console.log(siteNavRef);
+                </div>
+
+                <p>
+                  - Every element has special interface, called "classList" -
+                  array of classes;
+                  <span style="display: block"
+                    >"classList" array - is the object, that has some useful
+                    methods, like add(), remove(). replace() etc.</span
+                  >
+                </p>
+                <div
+                  style="color: teal; outline: 1px solid red; margin-left: 20px"
+                >
+                  console.log(siteNavRef.classList);
+                </div>
+
+                <p>- f.e. add new class "new-class" to element ".site-nav"</p>
+                <div
+                  style="color: teal; outline: 1px solid red; margin-left: 20px"
+                >
+                  siteNavRef.classList.add('new-class');
+                </div>
+
+                <p>- or a few classes</p>
+                <div
+                  style="color: teal; outline: 1px solid red; margin-left: 20px"
+                >
+                  siteNavRef.classList.add('new-class', 'new-class222');
+                </div>
+
+                <p>- Delete class "new-class"</p>
+                <div
+                  style="color: teal; outline: 1px solid red; margin-left: 20px"
+                >
+                  siteNavRef.classList.remove('new-class');
+                </div>
+
+                <p>- Toggle classes example</p>
+                <div
+                  style="color: teal; outline: 1px solid red; margin-left: 20px"
+                >
+                  const buttonRef = document.querySelector('.js-button');
+                  buttonRef.addEventListener('click', () => {
+                  <div style="margin-left: 20px">
+                    <div>
+                      console.log(`click to toggle button ${Date.now()}`);
+                    </div>
+                    <p></p>
+                    <div>siteNavRef.classList.toggle('new-class333');</div>
+                  </div>
+                  });
+                </div>
+
+                <p>- Replace one class by another</p>
+                <div
+                  style="color: teal; outline: 1px solid red; margin-left: 20px"
+                >
+                  siteNavRef.classList.replace('site-nav', 'super-site-nav');
+                </div>
+              </div>
+              <!-- End JS -->
+            </div>
+            <!-- E N D of Add, delete & toggle classes in elements -->
+
+            <!-- Quick navigation through modes -->
+            <div style="background-color: cadetblue">
+              <p style="text-align: center">
+                <b>Quick navigation through nodes</b>
+              </p>
+
+              <p>
+                Mostly we will be use querySelector-s for selecting some
+                element, but sometime we should use many operations in some
+                collections, like ul, and couple li-s, so in this case there is
+                other commands to select such elements.
+              </p>
+
+              <p>
+                <a
+                  target="_blank"
+                  href="https://www.edu.goit.global/learn/8046784/2294/2300/training?blockId=20102843"
+                  >List of additional commands for DOM navigation (not only
+                  querySelector)</a
+                >
+              </p>
+            </div>
+            <!-- END Quick navigation through modes -->
+
+            <!-- ---------------------- -->
+            <!-- Create DOM node -->
+            <div style="background-color: rgb(164, 241, 170)">
+              <p style="text-align: center" class="create-dom-element">
+                <b>Create DOM node</b>
+                <span style="color: grey">(class="create-dom-element")</span>
+              </p>
+
+              <p>
+                <a target="_blank" href="./module7_example.html"
+                  >module7_example</a
+                >
+              </p>
+
+              <!-- Create element ---------------------------------------- -->
+              <div>
+                <p style="background-color: rgb(211, 226, 246)">
+                  <span style="padding-left: 20px"><b>Create element</b></span>
+                </p>
+
+                <p>1. Create element in memory</p>
+                <div style="margin-left: 20px; color: teal">
+                  <div>const titleRef = document.createElement('h1');</div>
+                  <div>titleRef.classList.add('page-title');</div>
+                  <div>titleRef.textContent = 'This is title of the page';</div>
+                  <div>
+                    console.log(titleRef);
+                    <div style="color: grey; margin-left: 20px">
+                      // &lt;h1 class="page-title"&gt;This is title of the
+                      page&lt;/h1>
+                    </div>
+                  </div>
+                </div>
+
+                <p>2. Add to existing dom element by:</p>
+                <ul>
+                  <li>
+                    // element.append(el1, el2, ...) - add one or a few elements
+                    after all children of "element".
+                  </li>
+                  <li>
+                    // element.prepend(el1, el2, ...) - add one or a few
+                    elements before all children of "element".
+                  </li>
+                  <li>
+                    // element.after(el1, el2, ...) - add one or a few elements
+                    after "element".
+                  </li>
+                  <li>
+                    // element.before(el1, el2, ...) - add one or a few elements
+                    before "element".
+                  </li>
+                </ul>
+                <p></p>
+                <div style="color: teal; margin-left: 20px">
+                  <div>
+                    const sectionRef =
+                    document.querySelector('.create-dom-element');
+                  </div>
+                  <div>sectionRef.after(titleRef);</div>
+                </div>
+              </div>
+              <!-- End of Create element ------------------------------------>
+
+              <!-- Create maximum of possible parts of element -------------->
+              <div>
+                <p style="background-color: rgb(211, 226, 246)">
+                  <span style="padding-left: 20px"
+                    ><b>Create maximum of possible parts of element</b></span
+                  >
+                </p>
+                <p>
+                  Task: create &lt;li&gt; element with &lt;a&gt; inside from JS
+                </p>
+
+                <!--  -->
+                <!--  -->
+                <p style="color: blue">HTML</p>
+                <div style="outline: 1px solid red; margin: 10px">
+                  &lt;ul class="site-nav"&gt;
+                  <div style="margin-left: 20px">
+                    <!--  -->
+                    <div>
+                      &lt;li class="site-nav__item"&gt;
+                      <div style="margin-left: 20px">
+                        &lt;a href="" class="site-nav__link"&gt;About&lt;/a&gt;
+                      </div>
+                      &lt;/li&gt;
+                    </div>
+
+                    <div>
+                      &lt;li class="site-nav__item"&gt;
+                      <div style="margin-left: 20px">
+                        &lt;a href=""
+                        class="site-nav__link"&gt;Portfolio&lt;/a&gt;
+                      </div>
+                      &lt;/li&gt;
+                    </div>
+
+                    <div>
+                      &lt;li class="site-nav__item"&gt;
+                      <div style="margin-left: 20px">
+                        &lt;a href=""
+                        class="site-nav__link"&gt;Contacts&lt;/a&gt;
+                      </div>
+                      &lt;/li&gt;
+                    </div>
+                    <!--  -->
+                  </div>
+                  &lt;/ul&gt;
+
+                  <p></p>
+                </div>
+                <!--  -->
+                <!--  -->
+
+                <!-- JS -->
+                <div>
+                  <p style="color: red">JS</p>
+
+                  <div style="color: teal; outline: 1px solid red">
+                    <div>const navItemEl = document.createElement('li');</div>
+                    <div>navItemEl.classList.add('site-nav__item');</div>
+                    <div>
+                      console.log(navItemEl);
+                      <span style="color: grey"
+                        >// &lt;li class="site-nav__item"&gt;&lt;/li&gt;</span
+                      >
+                    </div>
+                    <p></p>
+
+                    <div>const navLinkEl = document.createElement('a');</div>
+                    <div>navLinkEl.classList.add('site-nav__link');</div>
+                    <div>navLinkEl.href = '/profile';</div>
+                    <div>navLinkEl.textContent = 'Profile';</div>
+                    <div>
+                      console.log(navLinkEl);
+                      <span style="color: grey"
+                        >//&lt;a class="site-nav__link"
+                        href="/profile"&gt;Profile&lt;/a&gt;</span
+                      >
+                    </div>
+                    <p></p>
+
+                    <div>
+                      navItemEl.appendChild(navLinkEl);
+                      <div style="margin-left: 20px; color: grey">
+                        // &lt;li class="site-nav__item"&gt;&lt;a
+                        class="site-nav__link"
+                        href="/profile"&gt;Profile&lt;/a&gt;&lt;/li&gt;
+                      </div>
+                    </div>
+                    <p></p>
+
+                    <div>
+                      const navRef = document.querySelector('.site-nav');
+                    </div>
+                    <div>navRef.appendChild(navItemEl);</div>
+                  </div>
+                </div>
+                <!-- END of JS -->
+
+                <!-- HTML summarize  -->
+                <!-- --------------- -->
+                <div style="color: green">
+                  <p>HTML summarize</p>
+                  <div style="outline: 1px solid red; margin: 10px">
+                    &lt;ul class="site-nav"&gt;
+                    <div style="margin-left: 20px">
+                      <!--  -->
+                      <div>
+                        &lt;li class="site-nav__item"&gt;
+                        <div style="margin-left: 20px">
+                          &lt;a href=""
+                          class="site-nav__link"&gt;About&lt;/a&gt;
+                        </div>
+                        &lt;/li&gt;
+                      </div>
+
+                      <div>
+                        &lt;li class="site-nav__item"&gt;
+                        <div style="margin-left: 20px">
+                          &lt;a href=""
+                          class="site-nav__link"&gt;Portfolio&lt;/a&gt;
+                        </div>
+                        &lt;/li&gt;
+                      </div>
+
+                      <div>
+                        &lt;li class="site-nav__item"&gt;
+                        <div style="margin-left: 20px">
+                          &lt;a href=""
+                          class="site-nav__link"&gt;Contacts&lt;/a&gt;
+                        </div>
+                        &lt;/li&gt;
+                      </div>
+
+                      <div
+                        style="
+                          display: flex;
+                          justify-content: space-between;
+                          align-items: center;
+                        "
+                      >
+                        <div style="color: red">
+                          &lt;li class="site-nav__item"&gt;
+                          <div style="margin-left: 20px">
+                            &lt;a href=""
+                            class="site-nav__link"&gt;Profile&lt;/a&gt;
+                          </div>
+                          &lt;/li&gt;
+                        </div>
+
+                        <div style="color: black">&lArr; Added from JS</div>
+                      </div>
+                      <!--  -->
+                    </div>
+                    &lt;/ul&gt;
+
+                    <p></p>
+                  </div>
+                </div>
+                <!-- --------------------- -->
+                <!-- E N D HTML summarize  -->
+              </div>
+              <!-- End of Create maximum of possible parts of element ------>
+
+              <!-- Create collection --------------------------------------->
+              <div>
+                <p style="background-color: rgb(211, 226, 246)">
+                  <span style="padding-left: 20px"
+                    ><b>Create collection</b></span
+                  >
+                </p>
+
+                <!-- HTML -->
+                <div style="color: teal">
+                  <p style="color: blue">HTML</p>
+
+                  <div style="outline: 1px solid red">
+                    &lt;div class="js-color-picker"&gt;&lt;/div&gt;
+                  </div>
+                </div>
+                <!-- End of HTML -->
+
+                <!-- JS -->
+                <div style="color: teal">
+                  <p style="color: red">JS</p>
+
+                  <div style="outline: 1px solid red">
+                    const colorPickerOption = [
+                    <div style="margin-left: 20px">
+                      <div>{ label: 'red', color: '#F44336' },</div>
+                      <div>{ label: 'green', color: '#4CAF50' },</div>
+                      <div>{ label: 'blue', color: '#2196F3' },</div>
+                      <div>{ label: 'grey', color: '#697D88' },</div>
+                      <div>{ label: 'pink', color: '#E91E63' },</div>
+                      <div>{ label: 'indigo', color: '#3F51B5' },</div>
+                    </div>
+                    ];
+                  </div>
+
+                  <div style="color: grey">
+                    <p>V - 1 - without additional function</p>
+
+                    <div>
+                      <!--  -->
+                      <!--  -->
+
+                      const elementsToHtml = colorPickerOption.map(option => {
+                      <div style="margin-left: 20px">
+                        <div>
+                          const buttonEl = document.createElement('button');
+                        </div>
+                        <div>buttonEl.type = 'button';</div>
+                        <div>buttonEl.textContent = option.label;</div>
+                        <div>
+                          buttonEl.style.backgroundColor = option.color;
+                        </div>
+                        <p></p>
+                        return buttonEl;
+                      </div>
+                      });
+
+                      <p></p>
+                      <div>
+                        // const colorPickerRef =
+                        document.querySelector('.js-color-picker');
+                      </div>
+                      <div>// colorPickerRef.append(...elementsToHtml);</div>
+
+                      <!--  -->
+                      <!--  -->
+                    </div>
+                  </div>
+
+                  <div>
+                    <div style="outline: 1px solid green; color: grey">
+                      <p style="padding-top: 15px">
+                        V - 2 map all elements in one function, easy to
+                        understand but for small objects
+                      </p>
+                      const makeColorPickerOptions = options => {
+                      <div style="margin-left: 20px">
+                        return options.map(option => {
+                        <div style="margin-left: 20px">
+                          <div>
+                            const buttonEl = document.createElement('button');
+                          </div>
+                          <div>buttonEl.type = 'button';</div>
+                          <div>buttonEl.textContent = option.label;</div>
+                          <div>
+                            buttonEl.style.backgroundColor = option.color;
+                          </div>
+
+                          <p></p>
+                          <div>return buttonEl;</div>
+                        </div>
+                        });
+                      </div>
+                      };
+
+                      <p></p>
+                      <div>
+                        const colorPickerRef =
+                        document.querySelector('.js-color-picker');
+                      </div>
+                      <div>
+                        const elements =
+                        makeColorPickerOptions(colorPickerOption);
+                      </div>
+                      <div>colorPickerRef.append(...elements);</div>
+                    </div>
+                  </div>
+
+                  <!--  -->
+                  <!--  -->
+                  <div style="color: teal">
+                    <p style="color: black">V - 3 - mostly used in practice</p>
+
+                    <div>
+                      const makeOneOption = option => {
+                      <div style="margin-left: 20px">
+                        <div>
+                          const buttonEl = document.createElement('button');
+                        </div>
+                        <div>buttonEl.type = 'button';</div>
+                        <div>buttonEl.textContent = option.label;</div>
+                        <div>
+                          buttonEl.style.backgroundColor = option.color;
+                        </div>
+
+                        <p></p>
+                        <div>return buttonEl;</div>
+                      </div>
+                      };
+
+                      <p></p>
+                      <div>
+                        const colorPickerRef =
+                        document.querySelector('.js-color-picker');
+                      </div>
+                      <div>
+                        const elements = colorPickerOption.map(makeOneOption);
+                      </div>
+                      <div>colorPickerRef.append(...elements);</div>
+                    </div>
+                  </div>
+                  <!--  -->
+                  <!--  -->
+                </div>
+                <!-- End of JS -->
+
+                <div class="color-picker js-color-picker"></div>
+              </div>
+              <!-- E N D Create collection------------------------------ -->
+            </div>
+            <!-- END Create DOM node -->
+            <!-- ---------------------- -->
+
+            <!-- ---------------------------------- -->
+            <!-- HTML parser for DOM nodes creation  -->
+            <div style="background-color: lightcyan">
+              <p style="text-align: center">
+                <b>HTML parser for DOM nodes creation </b>
+                <span style="display: block"
+                  >mostly via
+                  <b
+                    >template string symbols
+                    <span style="color: red">` `</span></b
+                  ></span
+                >
+                <span style="display: block; color: grey"
+                  >means insert string like:
+                  <span style="font-weight: 600">
+                    <span>`&lt;div&gt;</span>
+                    <span>&lt;a&gt;Link&lt;/a&gt;</span>
+                    <span>&lt;span&gt;Some text&lt;/span&gt;</span>
+                    <span>&lt;img src="./image.jpg" alt=""&gt;</span>
+                    <span>&lt;/div&gt;`</span>
+                  </span>
+                </span>
+              </p>
+
+              <p style="background-color: rgb(236, 192, 177)">
+                <b>innerHTML()</b
+                ><span style="color: grey"> - clear all or change all</span>
+              </p>
+              <p>F.e.</p>
+              <p style="color: blue">HTML</p>
+              &lt;h1 class="title"&gt;Some title&lt;/h1&gt;
+              <p style="color: red">JS</p>
+              <div>const titleRef = document.querySelector('.title');</div>
+              <div>
+                titleRef.innerHTML = "";
+                <span style="color: green"
+                  >// &lArr; clear code inside of &lt;h1&gt;&lt;/h1&gt;</span
+                >
+              </div>
+              <div>
+                titleRef.innerHTML = "&lt;span&gt;Hello...&lt;/span&gt;";
+                <span style="color: green"
+                  >// &lArr; clear markup inside of &lt;h1&gt;&lt;/h1&gt; & add
+                  new markup</span
+                >
+              </div>
+              <div>
+                titleRef.innerHTML += "&lt;span&gt;world&lt;/span&gt;";
+                <span style="color: red"
+                  >// &lArr; clear markup inside of &lt;h1&gt;&lt;/h1&gt;, clear
+                  old markup and add new markup (not good operation)</span
+                >
+              </div>
+
+              <p style="background-color: rgb(236, 192, 177)">
+                <b>insertAdjacentHTML()</b>
+                <span style="color: grey">- add carefully where needed</span>
+              </p>
+              <p>
+                If we use HTML parser, mostly we would like to add some markup
+                without deleting old one. It makes with command
+                <b>insertAdjacentHTML()</b>:
+              </p>
+              <ul>
+                <li>
+                  <div style="color: teal">
+                    titleRef.insertAdjacentHTML("<span style="color: red"
+                      >beforebegin</span
+                    >", '&lt;span style="color: red"&gt;This is a span
+                    &lt;/span&gt;' )
+                  </div>
+                  &lArr; put markup before tag &lt;h1&gt;&lt;/h1&gt;
+                  <img src="./assets/images/module7_beforeBegin1.jpg" alt="" />
+                </li>
+                <li>
+                  <div style="color: teal">
+                    titleRef.insertAdjacentHTML("<span style="color: red"
+                      >afterend</span
+                    >", '&lt;span style="color: red"&gt;This is a span
+                    &lt;/span&gt;' )
+                  </div>
+                  &lArr; put markup after tag &lt;h1&gt;&lt;/h1&gt;
+                  <img src="./assets/images/module7_afterEnd2.jpg" alt="" />
+                </li>
+                <li>
+                  <div style="color: teal">
+                    titleRef.insertAdjacentHTML("<span style="color: red"
+                      >afterbegin</span
+                    >", '&lt;span style="color: red"&gt;This is a span
+                    &lt;/span&gt;' )
+                  </div>
+                  &lArr; put markup after &lt;h1&gt; before all markup
+                  <img src="./assets/images/module7_afterbegin3.jpg" alt="" />
+                </li>
+                <li>
+                  <div style="color: teal">
+                    titleRef.insertAdjacentHTML("<span style="color: red"
+                      >beforeend</span
+                    >", '&lt;span style="color: red"&gt;This is a span
+                    &lt;/span&gt;' )
+                  </div>
+                  &lArr; put markup before &lt;/h1&gt; so before all markup
+                  <img src="./assets/images/module7_beforeend4.jpg" alt="" />
+                </li>
+              </ul>
+
+              <p><b>F.e.</b> - render transactions from transactions.js file</p>
+
+              <table class="tr-table js-tr-table">
+                <thead>
+                  <tr>
+                    <th>Id</th>
+                    <th>Amount</th>
+                    <th>Date</th>
+                    <th>Sender</th>
+                    <th>Type</th>
+                    <th>Account name</th>
+                    <th>Account number</th>
+                  </tr>
+                </thead>
+              </table>
+
+              <p style="color: blue">HTML</p>
+              <div style="outline: 1px solid red">
+                &lt;table class="tr-table js-tr-table"&gt;
+                <div style="margin-left: 20px">
+                  &lt;thead&gt;
+                  <div style="margin-left: 20px">
+                    &lt;tr&gt;
+                    <div style="margin-left: 20px">
+                      <div>&lt;th&gt;Id&lt;/th&gt;</div>
+                      <div>&lt;th&gt;Amount&lt;/th&gt;</div>
+                      <div>&lt;th&gt;Date&lt;/th&gt;</div>
+                      <div>&lt;th&gt;Sender&lt;/th&gt;</div>
+                      <div>&lt;th&gt;Type&lt;/th&gt;</div>
+                      <div>&lt;th&gt;Account name&lt;/th&gt;</div>
+                      <div>&lt;th&gt;Account number&lt;/th&gt;</div>
+                    </div>
+                    &lt;/tr&gt;
+                  </div>
+                  &lt;/thead&gt;
+                </div>
+                &lt;/table&gt;
+              </div>
+
+              <p style="color: blueviolet">CSS</p>
+              <div style="outline: 1px solid red">
+                .tr-table {
+                <div style="margin-left: 20px">width: 100%;</div>
+                }
+
+                <p></p>
+                .tr-table thead th,
+                <div>.tr-table tbody td {</div>
+                <div style="margin-left: 20px">outline: 1px solid black;</div>
+                }
+              </div>
+
+              <p style="color: red">JS</p>
+              <!-- js -->
+              <div style="outline: 1px solid red">
+                <div>import transactions from './transactions.js';</div>
+
+                <p></p>
+                <div>
+                  const makeTransactionRow = transaction => {
+                  <div style="margin-left: 20px">
+                    const { id, amount, date, business, type, name, account } =
+                    transaction;
+
+                    <p></p>
+                    return `
+                    <div style="margin-left: 20px">
+                      &lt;tbody&gt;
+                      <div style="margin-left: 20px">
+                        &lt;tr&gt;
+                        <div style="margin-left: 20px">
+                          <div>&lt;td&gt;${id}&lt;/td&gt;</div>
+                          <div>&lt;td&gt;${amount}&lt;/td&gt;</div>
+                          <div>&lt;td&gt;${date}&lt;/td&gt;</div>
+                          <div>&lt;td&gt;${business}&lt;/td&gt;</div>
+                          <div>&lt;td&gt;${type}&lt;/td&gt;</div>
+                          <div>&lt;td&gt;${name}&lt;/td&gt;</div>
+                          <div>&lt;td&gt;${account}&lt;/td&gt;</div>
+                        </div>
+                        &lt;/tr&gt;
+                      </div>
+                      &lt;/tbody&gt;`;
+                    </div>
+                  </div>
+                  };
+                </div>
+
+                <p></p>
+                <div>
+                  const makeTrRowsMarkup = transactions.map(makeTransactionRow);
+                  // array of rows
+                </div>
+                <div>const stringMarkup = makeTrRowsMarkup.join('');</div>
+
+                <p></p>
+                <div>
+                  const tableRef = document.querySelector('.js-tr-table');
+                </div>
+                <div>
+                  tableRef.insertAdjacentHTML('beforeend', stringMarkup);
+                </div>
+              </div>
+              <!-- end js -->
+            </div>
+            <!-- E N D HTML parser for DOM nodes creation -->
+            <!-- ---------------------------------------- -->
+
+            <!-- object of links -->
+            <div>
+              <p>Pattern <b>"object of links"</b></p>
+
+              <div>Usual links to elements:</div>
+              <div>
+                const refInputText = document.querySelector('.js-input');
+                <br />
+                const refCheckBoxLicence =
+                document.querySelector('.js-licence');
+                <br />
+                const refBtn = document.querySelector('.js-button');
+                <br />
+                const refNameAnonymousInBtn = document.querySelector('.js-button
+                > span');
+              </div>
+
+              <p></p>
+              <div>According to pattern:</div>
+              <div>
+                const refs = {
+                <div style="margin-left: 20px">
+                  const inputText: document.querySelector('.js-input');
+                  <br />
+                  const checkBoxLicence: document.querySelector('.js-licence');
+                  <br />
+                  const btn: document.querySelector('.js-button');
+                  <br />
+                  const nameAnonymousInBtn: document.querySelector('.js-button >
+                  span');
+                  <br />
+                </div>
+                };
+              </div>
+            </div>
+            <!-- E N D object of links -->
+          </div>
+        </section>
+        <!-- end lesson 13 -->
+
+        <!-- lesson 14 -->
+        <section class="section">
+          <div class="container">
+            <h3>Lesson 14 - Events</h3>
+            <p>
+              <a
+                target="_blank"
+                href="https://www.edu.goit.global/learn/8046784/2294/2300/training?blockId=20102880"
+                >GoIt Book</a
+              >
+            </p>
+            <p>
+              <a
+                target="_blank"
+                href="https://www.youtube.com/watch?v=iJq-NwbZL84"
+                >Модуль 7. Занятие 14. События (17.09)
+              </a>
+            </p>
+
+            <p>
+              All process of catching events called
+              <b>publishing subscriber</b>.
+            </p>
+            <div>Browser is publisher, that publish events.</div>
+            <div>
+              Subscriber - is a developer, form etc. who wants to evoke some
+              code by some event.
+            </div>
+
+            <p>Correct names of callback-s:</p>
+            <ul>
+              <li>handle*: handleEvent, handleSubjectEvent</li>
+              <li>*Handler: eventHandler, subjectEventHandler</li>
+              <li>on*: onEvent, onSubjectEvent</li>
+            </ul>
+
+            <p>There are a lot of different event from users, forms etc.</p>
+
+            <p>
+              &#9757; most useful for
+              <br />
+              <span style="color: blueviolet">- form event: "submit",</span>
+              <br />
+              <span style="color: green">- input type="text": "input"</span>
+              <br />
+              <span style="color: red">- input type="checkbox": "change"</span>
+              <br />
+              - button type="radio": "change"
+            </p>
+
+            <p></p>
+            <h2>Main form & input events for work:</h2>
+            <ul>
+              <li
+                style="
+                  outline: 2px dotted blueviolet;
+                  padding-left: 15px;
+                  padding-right: 15px;
+
+                  background-color: blueviolet;
+                "
+              >
+                <div style="background-color: white">
+                  <div style="background-color: rgb(164, 241, 170)">
+                    <p style="color: blueviolet; text-align: center">
+                      form <b>submit</b> event
+                    </p>
+                  </div>
+                  <p style="color: blue">HTML</p>
+                  <div style="outline: 1px solid red">
+                    &lt;form class="js-register-form" autocomplete="off"&gt;
+                    <div style="margin-left: 20px">
+                      <div>
+                        &lt;div role="group"&gt;
+                        <div style="margin-left: 20px">
+                          &lt;label&gt;
+                          <div style="margin-left: 20px">
+                            Email &lt;input type="email" name="email" /&gt;
+                          </div>
+                          &lt;/label&gt; &lt;label&gt;
+                          <div style="margin-left: 20px">
+                            Password &lt;input type="password" name="password"
+                            autocomplete="off" /&gt;
+                          </div>
+                          &lt;/label&gt;
+                        </div>
+                        &lt;/div&gt;
+                      </div>
+
+                      <p></p>
+                      &lt;br /&gt;
+                      <div>
+                        &lt;div role="group"&gt;
+                        <div style="margin-left: 20px">
+                          <div>
+                            &lt;label&gt;
+                            <div style="margin-left: 20px">
+                              <div>
+                                &lt;input type="radio" name="subscription"
+                                value="free" /&gt; Free
+                              </div>
+                            </div>
+                            &lt;/label&gt;
+                          </div>
+                          <div>
+                            &lt;label&gt;
+                            <div style="margin-left: 20px">
+                              &lt;input type="radio" name="subscription"
+                              value="basic" /&gt; Basic
+                            </div>
+                            &lt;/label&gt;
+                          </div>
+                          <div>
+                            &lt;label&gt;
+                            <div style="margin-left: 20px">
+                              &lt;input type="radio" name="subscription"
+                              value="pro" /&gt; Pro
+                            </div>
+                            &lt;/label&gt;
+                          </div>
+                        </div>
+                        &lt;/div&gt;
+                      </div>
+
+                      <p></p>
+                      &lt;br /&gt;
+                      <div>
+                        &lt;button type="submit"&gt;Register&lt;/button&gt;
+                      </div>
+                    </div>
+                    &lt;/form&gt;
+                  </div>
+
+                  <p style="color: red">JS</p>
+
+                  <div style="outline: 1px solid red">
+                    const form = document.querySelector('.js-register-form');
+                    <p></p>
+                    form.addEventListener('submit', onFormSubmit);
+
+                    <p></p>
+                    <div>
+                      function onFormSubmit(event) {
+                      <div style="margin-left: 20px">
+                        event.preventDefault();
+
+                        <p></p>
+                        const formData = new FormData(event.currentTarget);
+
+                        <p></p>
+                        formData.forEach((value, key) => {
+                        <div style="margin-left: 20px">
+                          console.log(`${key}: ${value}`);
+                        </div>
+                        });
+                      </div>
+                      }
+                    </div>
+                  </div>
+
+                  <p>JS explanation:</p>
+                  <ul>
+                    <li>
+                      After submit form browser restart page by default
+                      <div>
+                        So usually we prevent thing operation by
+                        <b>event.preventDefault();</b>
+                      </div>
+                    </li>
+                    <li>
+                      How to take values from form. It takes with
+                      event.currentTarget, that links form element
+                      <div>
+                        - look at this as an object in console:
+                        console.dir(event.currentTarget);
+                      </div>
+                    </li>
+                    <li>
+                      console.dir( <b>event.currentTarget.elements</b> )
+                      <div>
+                        - all elements from form saved in this object by adding
+                        attribute "name" for them in html:
+                      </div>
+                      <div style="color: grey">
+                        name: "email", name: "password", name: "subscription"
+                      </div>
+                    </li>
+                    <li>
+                      When we fill the form (in subscription radio choose
+                      "basic") and press submit button, in console
+                      "event.currentTarget.elements.subscription.value" saved
+                      "basic" value
+                      <div>the same thing for</div>
+                      <div>- event.currentTarget.elements.email.value</div>
+                      <div>- event.currentTarget.elements.password.value</div>
+                    </li>
+
+                    <li>
+                      <b
+                        >In practice values from
+                        <span style="color: grey">form</span>
+                      </b>
+                      don't gether by "event.currentTarget.elements"
+                      <div>
+                        Values from <span style="color: grey">form</span>
+                        <b>gether with</b> help of the special
+                        <b style="color: red"> class "FormData"</b>:
+                      </div>
+                      <div>
+                        - const formData = new FormData(event.currentTarget);
+                      </div>
+                    </li>
+
+                    <li>
+                      Ofter "formData" sent to server as a data from some form,
+                      but for sure we may check it by forEach() method
+                    </li>
+                  </ul>
+
+                  <p>
+                    To sum up an one element of the form we may take with
+                    <b>event.currentTarget.elements</b>, but gathering all data
+                  </p>
+                </div>
+              </li>
+              <li
+                style="
+                  outline: 2px dotted green;
+                  padding-left: 15px;
+                  padding-right: 15px;
+
+                  background-color: green;
+                "
+              >
+                <div style="background-color: azure">
+                  <div style="background-color: rgb(151, 217, 255)">
+                    <p style="color: green; text-align: center">
+                      input <b>"focus"</b> event
+                    </p>
+                    <label>
+                      Name: <input type="text" class="js-input" />
+                    </label>
+                    &larr; <span style="color: red">for text input means</span>
+                  </div>
+
+                  <p style="color: blue">HTML</p>
+                  &lt;label&gt; Name: &lt;input type="text" class="js-input"
+                  /&gt; &lt;/label&gt;
+
+                  <p style="color: red">JS</p>
+
+                  const refInputText = document.querySelector('.js-input');
+                  <br />
+                  refInputText.addEventListener('focus', onFocusInputText);
+
+                  <p></p>
+                  function onFocusInputText() {
+                  <div style="margin-left: 20px">
+                    console.log('input gets focus');
+                  </div>
+                  }
+                </div>
+              </li>
+              <li
+                style="
+                  outline: 2px dotted rgb(90, 230, 90);
+                  padding-left: 15px;
+                  padding-right: 15px;
+
+                  background-color: rgb(90, 230, 90);
+                "
+              >
+                <div style="background-color: azure">
+                  <div style="background-color: rgb(151, 217, 255)">
+                    <p style="color: rgb(90, 230, 90); text-align: center">
+                      input <b>"blur"</b> event
+                    </p>
+
+                    <label>
+                      Name: <input type="text" class="js-input" />
+                    </label>
+                    &larr; <span style="color: red">for text input means</span>
+                  </div>
+
+                  <p style="color: blue">HTML</p>
+                  &lt;label&gt; Name: &lt;input type="text" class="js-input"
+                  /&gt; &lt;/label&gt;
+
+                  <p style="color: red">JS</p>
+
+                  const refInputText = document.querySelector('.js-input');
+                  <br />
+
+                  refInputText.addEventListener('blur', onBlurInputText);
+
+                  <p></p>
+                  function onBlurInputText() {
+                  <div style="margin-left: 20px">
+                    console.log('inputText lost focus - this is "blur" event');
+                  </div>
+                  }
+                </div>
+              </li>
+              <li
+                style="
+                  outline: 2px dotted rgb(1, 153, 1);
+                  padding-left: 15px;
+                  padding-right: 15px;
+
+                  background-color: rgb(1, 153, 1);
+                "
+              >
+                <div style="background-color: azure">
+                  <div style="background-color: rgb(151, 217, 255)">
+                    <p style="color: rgb(1, 153, 1); text-align: center">
+                      input <b>"change"</b> event
+                      <span style="display: block; color: grey"
+                        >"change" event for text input rarely used, but value we
+                        may catch</span
+                      >
+                    </p>
+
+                    <label>
+                      Name: <input type="text" class="js-input" />
+                    </label>
+                    &larr; <span style="color: red">for text input means</span>
+                  </div>
+
+                  <p style="color: blue">HTML</p>
+                  &lt;label&gt; Name: &lt;input type="text" class="js-input"
+                  /&gt; &lt;/label&gt;
+
+                  <p style="color: red">JS</p>
+
+                  const refInputText = document.querySelector('.js-input');
+                  <br />
+
+                  refInputText.addEventListener('change', onChangeInputText);
+
+                  <p></p>
+
+                  function onChangeInputText(event) {
+                  <div style="margin-left: 20px">
+                    console.log(event.currentTarget.value);
+                  </div>
+                  }
+                </div>
+              </li>
+              <li
+                style="
+                  outline: 2px dotted rgb(9, 75, 9);
+                  padding-left: 15px;
+                  padding-right: 15px;
+
+                  background-color: rgb(9, 75, 9);
+                "
+              >
+                <div style="background-color: azure">
+                  <div style="background-color: rgb(151, 217, 255)">
+                    <p style="color: rgb(9, 75, 9); text-align: center">
+                      input <b>"input"</b> event
+                    </p>
+
+                    <label>
+                      Name: <input type="text" class="js-input" />
+                    </label>
+                    &larr; <span style="color: red">for text input means</span>
+                  </div>
+
+                  <p></p>
+                  <button type="submit" class="js-button">
+                    Register as an <span>anonymous</span>
+                  </button>
+
+                  <p>
+                    F.e. Task:
+                    <span style="display: block"
+                      >- when we type some text in input, the word "anonymous"
+                      in button has been changed by the text typed;</span
+                    >
+                  </p>
+
+                  <p style="color: blue">HTML</p>
+                  &lt;label&gt; Name: &lt;input type="text" class="js-input"
+                  /&gt; &lt;/label&gt;
+                  <p></p>
+                  &lt;button type="submit" class="js-button"&gt; Register as an
+                  &lt;span&gt;anonymous&lt;/span&gt; &lt;/button&gt;
+
+                  <p style="color: red">JS</p>
+
+                  const refInputText = document.querySelector('.js-input');
+                  <br />
+                  const refNameAnonymousInBtn =
+                  document.querySelector('.js-button > span');
+                  <br />
+                  refInputText.addEventListener('input', onChangeInputText);
+
+                  <p></p>
+                  function onChangeInputText(event) {
+                  <div style="margin-left: 20px">
+                    console.log(event.currentTarget.value);
+                    <br />
+                    refNameAnonymousInBtn.textContent =
+                    event.currentTarget.value;
+                  </div>
+                  }
+                </div>
+              </li>
+              <li
+                style="
+                  outline: 2px dotted rgb(168, 4, 4);
+                  padding-left: 15px;
+                  padding-right: 15px;
+
+                  background-color: rgb(168, 4, 4);
+                "
+              >
+                <div style="background-color: azure">
+                  <div style="background-color: rgb(151, 217, 255)">
+                    <p style="color: rgb(168, 4, 4); text-align: center">
+                      input <b>"change"</b> event
+                      <span style="display: block"
+                        >for input type="checkbox"</span
+                      >
+                    </p>
+
+                    <div>
+                      <input type="checkbox" class="js-licence" />
+                      &larr;
+                      <span style="color: red">for checkbox input means</span>
+                    </div>
+                  </div>
+
+                  <p>
+                    P.S. property <b>event.currentTarget.checked</b> is on
+                    checkbox-es and radio buttons, by default it is "false"
+                  </p>
+
+                  <p>P.S. &lt;button&gt; has attribute <b>"disable"</b></p>
+
+                  <p>F.e.</p>
+                  <p>
+                    Task:
+                    <span style="display: block">
+                      - the button "Register as an anonymous" is disabled from
+                      markup, make it enable after checkbox selected;
+                    </span>
+                  </p>
+                  <p>
+                    <label>
+                      <input type="checkbox" class="js-licence" />
+                      Accept licence
+                    </label>
+                  </p>
+
+                  <button type="submit" disabled class="js-button">
+                    Register as an <span>anonymous</span>
+                  </button>
+
+                  <p style="color: blue">HTML</p>
+                  <div style="outline: 1px solid red">
+                    &lt;p&gt;
+                    <div style="margin-left: 20px">
+                      &lt;label&gt;
+                      <div style="margin-left: 20px">
+                        &lt;input type="checkbox" class="js-licence" /&gt;
+                        <br />
+                        Accept licence
+                      </div>
+                      &lt;/label&gt;
+                    </div>
+                    &lt;/p&gt;
+
+                    <p></p>
+                    <div>
+                      &lt;button type="submit" disabled class="js-button"&gt;
+                      <div style="margin-left: 20px">
+                        Register as an &lt;span&gt;anonymous&lt;/span&gt;
+                      </div>
+                      &lt;/button&gt;
+                    </div>
+                  </div>
+
+                  <p style="color: red">JS</p>
+
+                  <div style="outline: 1px solid red">
+                    const refCheckBoxLicence =
+                    document.querySelector('.js-licence');
+                    <br />
+                    const refBtn = document.querySelector('.js-button');
+
+                    <p></p>
+                    refCheckBoxLicence.addEventListener('change',
+                    onChangeCheckBoxLicence);
+
+                    <p></p>
+                    function onChangeCheckBoxLicence(event) {
+                    <div style="margin-left: 20px">
+                      console.log(event.currentTarget.checked); // when checked
+                      is "true"
+
+                      <p></p>
+                      // if the button is disabled the checkbox is false & vice
+                      versa
+                      <br />
+                      refBtn.disabled = !event.currentTarget.checked;
+                    </div>
+                    }
+                  </div>
+                </div>
+              </li>
+            </ul>
+
+            <h2>Keyboard events:</h2>
+            <ul>
+              <li
+                style="
+                  outline: 1px solid green;
+                  padding: 15px;
+                  margin-bottom: 20px;
+                  background-color: rgb(255, 234, 234);
+                "
+              >
+                <p style="text-align: center">
+                  <b>"keydown" & "keyup" event</b>
+                  <span style="color: grey; display: block"
+                    >for all keyboard buttons</span
+                  >
+                </p>
+
+                <p>
+                  This event catch any button on the keyboard that saved in
+                  "event.key" (only in JS addEventListener on object window)
+                </p>
+
+                <div>
+                  window.addEventListener('keydown', onKeyDown);
+                  <p></p>
+                  <div>
+                    function onKeyDown(event) {
+                    <div style="margin-left: 20px">console.log(event.key);</div>
+                    }
+                  </div>
+                </div>
+              </li>
+
+              <li
+                style="
+                  outline: 1px solid green;
+                  padding: 15px;
+                  margin-bottom: 20px;
+                  background-color: rgb(220, 255, 188);
+                "
+              >
+                <p style="text-align: center">
+                  <b>"keypress" event</b>
+                  <span style="color: grey; display: block"
+                    >for keyboard buttons that generate symbol</span
+                  >
+                </p>
+
+                <p>Let's look at two important properties in event object:</p>
+                <div style="margin-left: 40px">
+                  <div>- event.key - symbol in any language</div>
+                  <div>- event.code - physical button</div>
+                </div>
+
+                <p style="color: blue">HTML</p>
+
+                <div style="outline: 1px solid red">
+                  &lt;button class="js-button"&gt;Clear&lt;/button&gt;
+                  <br />
+                  &lt;p class="js-text"&gt;&lt;/p&gt;
+                </div>
+
+                <p style="color: red">JS</p>
+
+                <div style="outline: 1px solid red">
+                  const refClearBtn = document.querySelector('.js-button');
+                  <br />
+                  const refText = document.querySelector('.js-text');
+
+                  <p></p>
+                  window.addEventListener('keypress', onKeyPress);
+                  <br />
+                  function onKeyPress(event) {
+                  <div style="margin-left: 20px">
+                    refText.textContent += event.key;
+                  </div>
+                  }
+
+                  <p></p>
+                  refClearBtn.addEventListener('click', onClickClearBtn);
+                  <br />
+                  function onClickClearBtn(event) {
+                  <div style="margin-left: 20px">refText.textContent = '';</div>
+                  }
+                </div>
+              </li>
+            </ul>
+
+            <h2>Mouse events</h2>
+            <ul>
+              <li><b>"mouseenter"</b> - kind of hover via JS</li>
+              <li><b>"mouseleave"</b> - kind of hover via JS</li>
+              <li><b>"mouseover"</b></li>
+              <li><b>"mouseout"</b></li>
+              <li>
+                <b>"mousemove"</b> - talking event :), really often is happen
+              </li>
+            </ul>
+
+            <div style="outline: 3px dotted teal; padding: 15px">
+              <p>
+                <b>Example. Modal window.</b>
+              </p>
+
+              <p style="color: blue">HTML</p>
+              <div style="outline: 1px solid red">
+                &lt;button class="button" data-action="open-modal"&gt;Open
+                modal&lt;/button&gt;
+
+                <p></p>
+                &lt;div class="backdrop js-backdrop"&gt;
+                <div style="margin-left: 20px">
+                  &lt;div class="modal"&gt;
+
+                  <div style="margin-left: 20px">
+                    &lt;h2&gt;Modal window&lt;/h2&gt;
+                    <br />
+                    &lt;p&gt; Lorem ipsum dolor sit amet consectetur adipisicing
+                    elit. Nisi, necessitatibus aperiam? Error deleniti,
+                    repellendus quos veniam accusantium et. Laborum blanditiis
+                    maxime saepe, dolores nesciunt porro quo odit natus
+                    quibusdam reiciendis. &lt;/p&gt;
+                    <br />
+                    &lt;button type="button" class="button"
+                    data-action="close-modal"&gt; Close &lt;/button&gt;
+                  </div>
+
+                  &lt;/div&gt;
+                </div>
+                &lt;/div&gt;
+              </div>
+
+              <p style="color: blueviolet">CSS</p>
+              <div style="outline: 1px solid red">
+                <!--  -->
+                body.show-modal .backdrop {
+                <div style="margin-left: 20px">
+                  pointer-events: initial;
+                  <br />
+                  opacity: 1;
+                  <br />
+                  visibility: visible;
+                </div>
+                }
+
+                <p></p>
+                body.show-modal .modal {
+                <div style="margin-left: 20px">transform: scale(1);</div>
+                }
+
+                <p></p>
+                .backdrop {
+                <div style="margin-left: 20px">
+                  pointer-events: none;
+                  <br />
+                  opacity: 0;
+                  <br />
+                  visibility: hidden;
+                  <br />
+                  background-color: rgb(197, 197, 197);
+                  <br />
+                  padding: 20px;
+                  <br />
+                  transition: opacity 200ms ease-in-out, visibility 200ms
+                  ease-in-out;
+                </div>
+                }
+
+                <p></p>
+                .modal {
+                <div style="margin-left: 20px">
+                  background-color: #fff;
+                  <br />
+                  padding: 20px;
+                </div>
+                }
+                <!--  -->
+              </div>
+
+              <!-- JS -->
+              <p style="color: red">JS</p>
+
+              <p>V-1 - simplest open modal/ close modal via buttons</p>
+              <div style="color: grey">
+                const refs = {
+                <div style="margin-left: 20px">
+                  openModal:
+                  document.querySelector('[data-action="open-modal"]'), <br />
+                  closeModal:
+                  document.querySelector('[data-action="close-modal"]'), <br />
+                </div>
+                };
+
+                <p></p>
+                <div>
+                  refs.openModal.addEventListener('click', onOpenModal);
+                  <br />
+                  refs.closeModal.addEventListener('click', onCloseModal);
+
+                  <p></p>
+                  function onOpenModal() {
+
+                  <div style="margin-left: 20px">
+                    document.body.classList.add('show-modal');
+                  </div>
+                  }
+                  <br />
+                  function onCloseModal() {
+
+                  <div style="margin-left: 20px">
+                    document.body.classList.remove('show-modal');
+                  </div>
+                  }
+                </div>
+              </div>
+
+              <p>
+                V-2 - open/close modal via buttons & via pressing to backdrop
+              </p>
+              <div style="color: grey">
+                <!--  -->
+                const refs = {
+                <div style="margin-left: 20px">
+                  openModal:
+                  document.querySelector('[data-action="open-modal"]'), <br />
+                  closeModal:
+                  document.querySelector('[data-action="close-modal"]'), <br />
+                  backdrop: document.querySelector('.js-backdrop'),
+                </div>
+                };
+
+                <p></p>
+                <div>
+                  refs.openModal.addEventListener('click', onOpenModal);
+                  <br />
+                  refs.closeModal.addEventListener('click', onCloseModal);
+                  <br />
+                  refs.backdrop.addEventListener('click', onBackdropClick);
+
+                  <p></p>
+                  function onOpenModal() {
+
+                  <div style="margin-left: 20px">
+                    document.body.classList.add('show-modal');
+                  </div>
+                  }
+                  <br />
+                  function onCloseModal() {
+
+                  <div style="margin-left: 20px">
+                    document.body.classList.remove('show-modal');
+                  </div>
+                  }
+                  <br />
+
+                  function onBackdropClick(event) {
+                  <div style="margin-left: 20px">
+                    // event.currentTarget - where addEventListener added <br />
+                    // event.target - element where in fact we presses
+
+                    <p></p>
+                    if (event.currentTarget === event.target) {
+                    <div style="margin-left: 20px">
+                      // console.log('for sure clicked in backdrop, not to
+                      div(modal) or &lt;p&gt; '); <br />
+                      onCloseModal();
+                    </div>
+                    }
+                  </div>
+                  }
+                </div>
+                <!--  -->
+              </div>
+
+              <p>V-3</p>
+              <div style="outline: 1px solid red">
+                <div style="color: teal">
+                  <!--  -->
+                  const refs = {
+                  <div style="margin-left: 20px">
+                    openModal:
+                    document.querySelector('[data-action="open-modal"]'), <br />
+                    closeModal:
+                    document.querySelector('[data-action="close-modal"]'),
+                    <br />
+                    backdrop: document.querySelector('.js-backdrop'),
+                  </div>
+                  };
+
+                  <p></p>
+                  <div>
+                    refs.openModal.addEventListener('click', onOpenModal);
+                    <br />
+                    refs.closeModal.addEventListener('click', onCloseModal);
+                    <br />
+                    refs.backdrop.addEventListener('click', onBackdropClick);
+
+                    <p></p>
+                    function onOpenModal() {
+
+                    <div style="margin-left: 20px">
+                      window.addEventListener('keydown', onEscCloseModal);<br />
+
+                      document.body.classList.add('show-modal');
+                    </div>
+                    }
+                    <br />
+                    function onCloseModal() {
+
+                    <div style="margin-left: 20px">
+                      window.removeEventListener('keydown', onEscCloseModal);
+                      <br />
+                      document.body.classList.remove('show-modal');
+                    </div>
+                    }
+                    <br />
+
+                    function onBackdropClick(event) {
+                    <div style="margin-left: 20px">
+                      if (event.currentTarget === event.target) {
+                      <div style="margin-left: 20px">onCloseModal();</div>
+                      }
+                    </div>
+                    }
+                    <br />
+                    function onEscCloseModal(event) {
+                    <div style="margin-left: 20px">
+                      if (event.code === 'Escape') {
+                      <div style="margin-left: 20px">onCloseModal();</div>
+                      }
+                    </div>
+                    }
+                  </div>
+                  <!--  -->
+                </div>
+              </div>
+
+              <!-- End JS -->
+            </div>
+          </div>
+        </section>
+        <!-- end lesson 14 -->
+      </main>
+      <footer></footer>
+    </div>
+
+    <script src="./js/burger-menu.js" type="module"></script>
+    <script src="./js/7-module.js" type="module"></script>
+  </body>
+</html>

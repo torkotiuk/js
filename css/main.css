@@ -105,6 +105,10 @@
   color: #6c56eb;
 }
 
+.relative-font {
+  font-size: 1vw;
+}
+
 *,
 *::before,
 *::before {
